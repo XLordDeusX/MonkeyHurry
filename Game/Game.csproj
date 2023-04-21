@@ -37,10 +37,14 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="RendereableObject.cs" />
+    <Compile Include="Structures.cs" />
+    <Compile Include="Character.cs" />
     <Compile Include="Game.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="Transform.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\Animations\Lava\lava_1.png">
