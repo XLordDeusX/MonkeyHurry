@@ -27,7 +27,16 @@ namespace Game
 
         public void Update()
         {
-            transform.Move(speedX * Program.deltaTime, speedY * Program.deltaTime); 
+            //Basic movement of the character, without gravity.
+            if (Engine.GetKey(Keys.D))
+            {
+                transform.Move(80 * Program.deltaTime, 0);
+            }
+            if (Engine.GetKey(Keys.S))
+            {
+                transform.Move(0, 80 * Program.deltaTime);
+            }
+            //transform.Move(speedX * Program.deltaTime, speedY * Program.deltaTime); 
         }
 
         public void Render()
