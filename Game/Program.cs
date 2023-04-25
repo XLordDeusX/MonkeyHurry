@@ -87,7 +87,6 @@ namespace Game
         public static Structures platformTwo;
         public static Structures platformThree;
         public static Structures lava;
-        public static Structures sky;
 
         public static List<Character> characters = new List<Character>();
 
@@ -99,7 +98,6 @@ namespace Game
 
             startTime = DateTime.Now;
 
-            structures.Add(new Structures("assets/Animations/Sky.png", 0, 0, 0, 0));
             structures.Add(new Structures("assets/Animations/platform.png", 50, 50, 0, 70));
             structures.Add(new Structures("assets/Animations/platform.png", 300, 350, 0, 70));
             structures.Add(new Structures("assets/Animations/platform.png", 550, 200, 0, 70));
