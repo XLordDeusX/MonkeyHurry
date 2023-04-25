@@ -30,11 +30,19 @@ namespace Game
             //Basic movement of the character, without gravity.
             if (Engine.GetKey(Keys.D))
             {
-                transform.Move(80 * Program.deltaTime, 0);
+                transform.Move(100 * Program.deltaTime, 0);
             }
             if (Engine.GetKey(Keys.S))
             {
-                transform.Move(0, 80 * Program.deltaTime);
+                transform.Move(0, 100 * Program.deltaTime);
+            }
+            if (Engine.GetKey(Keys.A))
+            {
+                transform.Move(-100 * Program.deltaTime, 0);
+            }
+            if (Engine.GetKey(Keys.W))
+            {
+                transform.Move(0, -100 * Program.deltaTime);
             }
             //transform.Move(speedX * Program.deltaTime, speedY * Program.deltaTime); 
         }

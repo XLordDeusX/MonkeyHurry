@@ -16,6 +16,7 @@ namespace Game
         public static Structures platformThree;
         public static Structures lava;
         public static Structures sky;
+        public static Structures initialPlatform;
 
         public static List<Character> characters = new List<Character>();
 
@@ -28,10 +29,10 @@ namespace Game
             startTime = DateTime.Now;
 
             structures.Add(new Structures("assets/Animations/Sky.png", 0, 0, 0, 0));
-            structures.Add(new Structures("assets/Animations/platform.png", 50, 50, 0, 70));
-            structures.Add(new Structures("assets/Animations/platform.png", 300, 350, 0, 70));
-            structures.Add(new Structures("assets/Animations/platform.png", 550, 200, 0, 70));
-            characters.Add(new Character("assets/Animations/Monkey/idle_1.png", 100, 10, 0, 70));
+            structures.Add(new Structures("assets/Animations/platform.png", 50, 50, 0, 0));
+            structures.Add(new Structures("assets/Animations/platform.png", 300, 100, 0, 0));
+            structures.Add(new Structures("assets/Animations/platform.png", 550, 200, 0, 0));
+            characters.Add(new Character("assets/Animations/Monkey/idle_1.png", 350, 351, 0, 0));
 
             while(true)
             {
@@ -64,8 +65,9 @@ namespace Game
             {
                 structures.Render();
             }
-            
-            Engine.Draw("assets/Animations/Lava/lava_1.png", 0, 500, 2.5f, 1);
+
+            Engine.Draw("assets/Animations/Initial_Platform.png", 150, 230, 2.5f, 2);
+            Engine.Draw("assets/Animations/Lava/lava_1.png", 0, 550, 2.5f, 1);
 
             foreach (var characters in characters)
             {
