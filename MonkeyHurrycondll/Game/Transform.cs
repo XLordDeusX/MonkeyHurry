@@ -9,7 +9,7 @@ namespace Game
     //This part contains all the items that character executed and their values.
     public class Transform
     {
-        private float posX;
+        private float posX ;
         private float posY;
         private float rot = 0f;
         private float scaleX = 2f;
