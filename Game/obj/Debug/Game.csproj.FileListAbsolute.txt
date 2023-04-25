@@ -25,6 +25,7 @@ C:\Users\Wilfredo Rukoz\Documents\UADE\SEMESTRE 4\PARADIGMAS DE PROGRAMACIÓN\Pr
 C:\Users\Wilfredo Rukoz\Documents\UADE\SEMESTRE 4\PARADIGMAS DE PROGRAMACIÓN\Proyecto Base 2\Game\bin\Debug\assets\Animations\Monkey\walking_2.png
 C:\Users\Wilfredo Rukoz\Documents\UADE\SEMESTRE 4\PARADIGMAS DE PROGRAMACIÓN\Proyecto Base 2\Game\bin\Debug\assets\Animations\Monkey\walking_3.png
 C:\Users\Wilfredo Rukoz\Documents\UADE\SEMESTRE 4\PARADIGMAS DE PROGRAMACIÓN\Proyecto Base 2\Game\bin\Debug\assets\Animations\platform.png
+<<<<<<< Updated upstream
 C:\Users\Wilfredo Rukoz\Documents\UADE\SEMESTRE 4\PARADIGMAS DE PROGRAMACIÓN\Monkey Hurry\Game\bin\Debug\assets\Animations\Lava\lava_1.png
 C:\Users\Wilfredo Rukoz\Documents\UADE\SEMESTRE 4\PARADIGMAS DE PROGRAMACIÓN\Monkey Hurry\Game\bin\Debug\assets\Animations\Lava\lava_2.png
 C:\Users\Wilfredo Rukoz\Documents\UADE\SEMESTRE 4\PARADIGMAS DE PROGRAMACIÓN\Monkey Hurry\Game\bin\Debug\assets\Animations\Lava\lava_3.png
@@ -52,3 +53,119 @@ C:\Users\Wilfredo Rukoz\Documents\UADE\SEMESTRE 4\PARADIGMAS DE PROGRAMACIÓN\Mo
 C:\Users\Wilfredo Rukoz\Documents\UADE\SEMESTRE 4\PARADIGMAS DE PROGRAMACIÓN\Monkey Hurry\Game\obj\Debug\Game.csproj.CoreCompileInputs.cache
 C:\Users\Wilfredo Rukoz\Documents\UADE\SEMESTRE 4\PARADIGMAS DE PROGRAMACIÓN\Monkey Hurry\Game\obj\Debug\Game.exe
 C:\Users\Wilfredo Rukoz\Documents\UADE\SEMESTRE 4\PARADIGMAS DE PROGRAMACIÓN\Monkey Hurry\Game\obj\Debug\Game.pdb
+=======
+C:\Users\Maria Eguenia  Rodri\Desktop\Paradigmas\Monkey Hurry\Game\bin\Debug\assets\Animations\Lava\lava_1.png
+C:\Users\Maria Eguenia  Rodri\Desktop\Paradigmas\Monkey Hurry\Game\bin\Debug\assets\Animations\Lava\lava_2.png
+C:\Users\Maria Eguenia  Rodri\Desktop\Paradigmas\Monkey Hurry\Game\bin\Debug\assets\Animations\Lava\lava_3.png
+C:\Users\Maria Eguenia  Rodri\Desktop\Paradigmas\Monkey Hurry\Game\bin\Debug\assets\Animations\Lava\lava_4.png
+C:\Users\Maria Eguenia  Rodri\Desktop\Paradigmas\Monkey Hurry\Game\bin\Debug\assets\Animations\Lava\lava_5.png
+C:\Users\Maria Eguenia  Rodri\Desktop\Paradigmas\Monkey Hurry\Game\bin\Debug\assets\Animations\Lava\lava_6.png
+C:\Users\Maria Eguenia  Rodri\Desktop\Paradigmas\Monkey Hurry\Game\bin\Debug\assets\Animations\Lava\lava_7.png
+C:\Users\Maria Eguenia  Rodri\Desktop\Paradigmas\Monkey Hurry\Game\bin\Debug\assets\Animations\Lava\lava_8.png
+C:\Users\Maria Eguenia  Rodri\Desktop\Paradigmas\Monkey Hurry\Game\bin\Debug\assets\Animations\Monkey\dying_1.png
+C:\Users\Maria Eguenia  Rodri\Desktop\Paradigmas\Monkey Hurry\Game\bin\Debug\assets\Animations\Monkey\dying_2.png
+C:\Users\Maria Eguenia  Rodri\Desktop\Paradigmas\Monkey Hurry\Game\bin\Debug\assets\Animations\Monkey\dying_3.png
+C:\Users\Maria Eguenia  Rodri\Desktop\Paradigmas\Monkey Hurry\Game\bin\Debug\assets\Animations\Monkey\idle_1.png
+C:\Users\Maria Eguenia  Rodri\Desktop\Paradigmas\Monkey Hurry\Game\bin\Debug\assets\Animations\Monkey\jumping_1.png
+C:\Users\Maria Eguenia  Rodri\Desktop\Paradigmas\Monkey Hurry\Game\bin\Debug\assets\Animations\Monkey\jumping_2.png
+C:\Users\Maria Eguenia  Rodri\Desktop\Paradigmas\Monkey Hurry\Game\bin\Debug\assets\Animations\Monkey\walking_1.png
+C:\Users\Maria Eguenia  Rodri\Desktop\Paradigmas\Monkey Hurry\Game\bin\Debug\assets\Animations\Monkey\walking_2.png
+C:\Users\Maria Eguenia  Rodri\Desktop\Paradigmas\Monkey Hurry\Game\bin\Debug\assets\Animations\Monkey\walking_3.png
+C:\Users\Maria Eguenia  Rodri\Desktop\Paradigmas\Monkey Hurry\Game\bin\Debug\assets\Animations\platform.png
+C:\Users\Maria Eguenia  Rodri\Desktop\Paradigmas\Monkey Hurry\Game\bin\Debug\Engine.dll
+C:\Users\Maria Eguenia  Rodri\Desktop\Paradigmas\Monkey Hurry\Game\bin\Debug\ship.png
+C:\Users\Maria Eguenia  Rodri\Desktop\Paradigmas\Monkey Hurry\Game\bin\Debug\Game.cs
+C:\Users\Maria Eguenia  Rodri\Desktop\Paradigmas\Monkey Hurry\Game\bin\Debug\Game.exe
+C:\Users\Maria Eguenia  Rodri\Desktop\Paradigmas\Monkey Hurry\Game\bin\Debug\Game.pdb
+C:\Users\Maria Eguenia  Rodri\Desktop\Paradigmas\Monkey Hurry\Game\obj\Debug\Game.csproj.AssemblyReference.cache
+C:\Users\Maria Eguenia  Rodri\Desktop\Paradigmas\Monkey Hurry\Game\obj\Debug\Game.csproj.SuggestedBindingRedirects.cache
+C:\Users\Maria Eguenia  Rodri\Desktop\Paradigmas\Monkey Hurry\Game\obj\Debug\Game.csproj.CoreCompileInputs.cache
+C:\Users\Maria Eguenia  Rodri\Desktop\Paradigmas\Monkey Hurry\Game\obj\Debug\Game.exe
+C:\Users\Maria Eguenia  Rodri\Desktop\Paradigmas\Monkey Hurry\Game\obj\Debug\Game.pdb
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Lava\lava_1.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Lava\lava_2.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Lava\lava_3.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Lava\lava_4.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Lava\lava_5.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Lava\lava_6.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Lava\lava_7.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Lava\lava_8.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\dying_1.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\dying_2.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\dying_3.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\idle_1.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\jumping_1.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\jumping_2.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\walking_1.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\walking_2.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\walking_3.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\platform.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\Engine.dll
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\ship.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\Game.cs
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\Game.exe
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\Game.pdb
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\obj\Debug\Game.csproj.AssemblyReference.cache
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\obj\Debug\Game.csproj.SuggestedBindingRedirects.cache
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\obj\Debug\Game.csproj.CoreCompileInputs.cache
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\obj\Debug\Game.exe
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\obj\Debug\Game.pdb
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Sky.png
+C:\Users\Maria Eguenia  Rodri\Desktop\MonkeyHurry_revision\Game\bin\Debug\assets\Animations\Lava\lava_1.png
+C:\Users\Maria Eguenia  Rodri\Desktop\MonkeyHurry_revision\Game\bin\Debug\assets\Animations\Lava\lava_2.png
+C:\Users\Maria Eguenia  Rodri\Desktop\MonkeyHurry_revision\Game\bin\Debug\assets\Animations\Lava\lava_3.png
+C:\Users\Maria Eguenia  Rodri\Desktop\MonkeyHurry_revision\Game\bin\Debug\assets\Animations\Lava\lava_4.png
+C:\Users\Maria Eguenia  Rodri\Desktop\MonkeyHurry_revision\Game\bin\Debug\assets\Animations\Lava\lava_5.png
+C:\Users\Maria Eguenia  Rodri\Desktop\MonkeyHurry_revision\Game\bin\Debug\assets\Animations\Lava\lava_6.png
+C:\Users\Maria Eguenia  Rodri\Desktop\MonkeyHurry_revision\Game\bin\Debug\assets\Animations\Lava\lava_7.png
+C:\Users\Maria Eguenia  Rodri\Desktop\MonkeyHurry_revision\Game\bin\Debug\assets\Animations\Lava\lava_8.png
+C:\Users\Maria Eguenia  Rodri\Desktop\MonkeyHurry_revision\Game\bin\Debug\assets\Animations\Monkey\dying_1.png
+C:\Users\Maria Eguenia  Rodri\Desktop\MonkeyHurry_revision\Game\bin\Debug\assets\Animations\Monkey\dying_2.png
+C:\Users\Maria Eguenia  Rodri\Desktop\MonkeyHurry_revision\Game\bin\Debug\assets\Animations\Monkey\dying_3.png
+C:\Users\Maria Eguenia  Rodri\Desktop\MonkeyHurry_revision\Game\bin\Debug\assets\Animations\Monkey\idle_1.png
+C:\Users\Maria Eguenia  Rodri\Desktop\MonkeyHurry_revision\Game\bin\Debug\assets\Animations\Monkey\jumping_1.png
+C:\Users\Maria Eguenia  Rodri\Desktop\MonkeyHurry_revision\Game\bin\Debug\assets\Animations\Monkey\jumping_2.png
+C:\Users\Maria Eguenia  Rodri\Desktop\MonkeyHurry_revision\Game\bin\Debug\assets\Animations\Monkey\walking_1.png
+C:\Users\Maria Eguenia  Rodri\Desktop\MonkeyHurry_revision\Game\bin\Debug\assets\Animations\Monkey\walking_2.png
+C:\Users\Maria Eguenia  Rodri\Desktop\MonkeyHurry_revision\Game\bin\Debug\assets\Animations\Monkey\walking_3.png
+C:\Users\Maria Eguenia  Rodri\Desktop\MonkeyHurry_revision\Game\bin\Debug\assets\Animations\platform.png
+C:\Users\Maria Eguenia  Rodri\Desktop\MonkeyHurry_revision\Game\bin\Debug\assets\Animations\Sky.png
+C:\Users\Maria Eguenia  Rodri\Desktop\MonkeyHurry_revision\Game\bin\Debug\Engine.dll
+C:\Users\Maria Eguenia  Rodri\Desktop\MonkeyHurry_revision\Game\bin\Debug\ship.png
+C:\Users\Maria Eguenia  Rodri\Desktop\MonkeyHurry_revision\Game\bin\Debug\Game.cs
+C:\Users\Maria Eguenia  Rodri\Desktop\MonkeyHurry_revision\Game\bin\Debug\Game.exe
+C:\Users\Maria Eguenia  Rodri\Desktop\MonkeyHurry_revision\Game\bin\Debug\Game.pdb
+C:\Users\Maria Eguenia  Rodri\Desktop\MonkeyHurry_revision\Game\obj\Debug\Game.csproj.AssemblyReference.cache
+C:\Users\Maria Eguenia  Rodri\Desktop\MonkeyHurry_revision\Game\obj\Debug\Game.csproj.SuggestedBindingRedirects.cache
+C:\Users\Maria Eguenia  Rodri\Desktop\MonkeyHurry_revision\Game\obj\Debug\Game.csproj.CoreCompileInputs.cache
+C:\Users\Maria Eguenia  Rodri\Desktop\MonkeyHurry_revision\Game\obj\Debug\Game.exe
+C:\Users\Maria Eguenia  Rodri\Desktop\MonkeyHurry_revision\Game\obj\Debug\Game.pdb
+C:\Users\Usuario\Desktop\MonkeyHurry\Game\bin\Debug\assets\Animations\Lava\lava_1.png
+C:\Users\Usuario\Desktop\MonkeyHurry\Game\bin\Debug\assets\Animations\Lava\lava_2.png
+C:\Users\Usuario\Desktop\MonkeyHurry\Game\bin\Debug\assets\Animations\Lava\lava_3.png
+C:\Users\Usuario\Desktop\MonkeyHurry\Game\bin\Debug\assets\Animations\Lava\lava_4.png
+C:\Users\Usuario\Desktop\MonkeyHurry\Game\bin\Debug\assets\Animations\Lava\lava_5.png
+C:\Users\Usuario\Desktop\MonkeyHurry\Game\bin\Debug\assets\Animations\Lava\lava_6.png
+C:\Users\Usuario\Desktop\MonkeyHurry\Game\bin\Debug\assets\Animations\Lava\lava_7.png
+C:\Users\Usuario\Desktop\MonkeyHurry\Game\bin\Debug\assets\Animations\Lava\lava_8.png
+C:\Users\Usuario\Desktop\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\dying_1.png
+C:\Users\Usuario\Desktop\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\dying_2.png
+C:\Users\Usuario\Desktop\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\dying_3.png
+C:\Users\Usuario\Desktop\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\idle_1.png
+C:\Users\Usuario\Desktop\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\jumping_1.png
+C:\Users\Usuario\Desktop\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\jumping_2.png
+C:\Users\Usuario\Desktop\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\walking_1.png
+C:\Users\Usuario\Desktop\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\walking_2.png
+C:\Users\Usuario\Desktop\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\walking_3.png
+C:\Users\Usuario\Desktop\MonkeyHurry\Game\bin\Debug\assets\Animations\platform.png
+C:\Users\Usuario\Desktop\MonkeyHurry\Game\bin\Debug\assets\Animations\Sky.png
+C:\Users\Usuario\Desktop\MonkeyHurry\Game\bin\Debug\Engine.dll
+C:\Users\Usuario\Desktop\MonkeyHurry\Game\bin\Debug\ship.png
+C:\Users\Usuario\Desktop\MonkeyHurry\Game\bin\Debug\Game.cs
+C:\Users\Usuario\Desktop\MonkeyHurry\Game\bin\Debug\Game.exe
+C:\Users\Usuario\Desktop\MonkeyHurry\Game\bin\Debug\Game.pdb
+C:\Users\Usuario\Desktop\MonkeyHurry\Game\obj\Debug\Game.csproj.AssemblyReference.cache
+C:\Users\Usuario\Desktop\MonkeyHurry\Game\obj\Debug\Game.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Desktop\MonkeyHurry\Game\obj\Debug\Game.exe
+C:\Users\Usuario\Desktop\MonkeyHurry\Game\obj\Debug\Game.pdb
+>>>>>>> Stashed changes
