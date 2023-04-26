@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public class Screens
+    /*public class Screens
     {
         public static float deltaTime;
         public static DateTime startTime;
@@ -63,5 +63,5 @@ namespace Game
             deltaTime = currentTime - lastFrameTime;
             lastFrameTime = currentTime;
         }
-    }
+    }*/
 }

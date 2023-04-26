@@ -22,34 +22,34 @@ namespace Game
             while (true)
             {
                 Engine.Clear();
-                /*Engine.Draw("assets/Animations/Paradigmas.png");
-                Engine.Draw("assets/Animations/Game_Over.png");
-                Engine.Draw("assets/Animations/You_Won.png");*/
+               
                 if (Engine.GetKey(Keys.Q))
                 {
                     Engine.Clear();
-                    Engine.Draw("assets/Animations/Paradigmas.png");
+                    Engine.Draw("assets/Animations/Paradigmas.png");//main menu
                     Engine.Show();
                     
                 }
                 if (Engine.GetKey(Keys.N))
                 {
                     Engine.Clear();
-                    Gameplay();
-                    Engine.Show();
-                    
+                    Gameplay();//gameplay
+                    //Draw();
+                    //Movement();
+                    //Engine.Show();
+
                 }
                 if (Engine.GetKey(Keys.Y))
                 {
                     Engine.Clear();
-                    Engine.Draw("assets/Animations/You_Won.png");
+                    Engine.Draw("assets/Animations/You_Won.png");//win
                     Engine.Show();
                     
                 }
                 if (Engine.GetKey(Keys.U))
                 {
                     Engine.Clear();
-                    Engine.Draw("assets/Animations/Game_Over.png");
+                    Engine.Draw("assets/Animations/Game_Over.png");//loss
                     Engine.Show();
                     
                 }
@@ -57,7 +57,6 @@ namespace Game
                 Draw();
             }
         }
-
         private static void Movement()
         {
             foreach (var structures in structures)
@@ -72,26 +71,24 @@ namespace Game
 
             DeltaCalculations();
         }
-
+        
         private static void Draw()
         {
-            Engine.Clear();
-
+            //Engine.Clear();
+            
 
             foreach (var structures in structures)
             {
                 
                 structures.Render();
             }
-
+            
             //Engine.Draw();
 
             foreach (var character in characters)
             {
-                
                 character.Render();
             }
-
             Engine.Show();
         }
 
@@ -109,10 +106,10 @@ namespace Game
             structures.Add(new Structures("assets/Animations/platform.png", 300, 350, 0, 70));
             structures.Add(new Structures("assets/Animations/platform.png", 550, 200, 0, 70));
             characters.Add(new Character("assets/Animations/Monkey/idle_1.png", 50, 50, 0, 70));
+
         }
         public static void MainMenu()
         {
-            
             Engine.Draw("assets/Animations/Paradigmas.png");
         }
         public static void Lose()
