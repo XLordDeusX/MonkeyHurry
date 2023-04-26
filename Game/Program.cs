@@ -26,12 +26,7 @@ namespace Game
                 {
                     Engine.Clear();
                     Sarasa();
-                    Engine.Show();
-                }
-                if (Engine.GetKey(Keys.R))
-                {
-                    Engine.Clear();
-                    Engine.Draw("sarasa");
+                    
                 }
                 Movement();
                 Draw();

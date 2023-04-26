@@ -37,6 +37,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameManager.cs" />
     <Compile Include="RendereableObject.cs" />
     <Compile Include="Structures.cs" />
     <Compile Include="Character.cs" />
