@@ -9,7 +9,6 @@ namespace Game
     public class GameManager
     {
         private static GameManager instance;
-
         public static GameManager GetInstance()
         {
             if (instance == null)

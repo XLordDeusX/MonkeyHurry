@@ -159,7 +159,6 @@ C:\Users\Usuario\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\M
 C:\Users\Usuario\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\platform.png
 C:\Users\Usuario\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Sky.png
 C:\Users\Usuario\Documents\GitHub\MonkeyHurry\Game\bin\Debug\Engine.dll
-C:\Users\Usuario\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\ship.png
 C:\Users\Usuario\Documents\GitHub\MonkeyHurry\Game\bin\Debug\Game.cs
 C:\Users\Usuario\Documents\GitHub\MonkeyHurry\Game\bin\Debug\Game.exe
 C:\Users\Usuario\Documents\GitHub\MonkeyHurry\Game\bin\Debug\Game.pdb
@@ -167,3 +166,6 @@ C:\Users\Usuario\Documents\GitHub\MonkeyHurry\Game\obj\Debug\Game.csproj.Assembl
 C:\Users\Usuario\Documents\GitHub\MonkeyHurry\Game\obj\Debug\Game.csproj.CoreCompileInputs.cache
 C:\Users\Usuario\Documents\GitHub\MonkeyHurry\Game\obj\Debug\Game.exe
 C:\Users\Usuario\Documents\GitHub\MonkeyHurry\Game\obj\Debug\Game.pdb
+C:\Users\Usuario\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Paradigmas.png
+C:\Users\Usuario\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Game_Over.png
+C:\Users\Usuario\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\You_Won.png
