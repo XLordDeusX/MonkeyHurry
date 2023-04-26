@@ -10,8 +10,11 @@ namespace Game
         public static DateTime startTime;
         public static float lastFrameTime;
 
-        public static List<Structures> structures = new List<Structures>();
-        public static List<Character> characters = new List<Character>();
+        static Character monkey;
+        static Structures lava;
+
+        static List<Structures> structures = new List<Structures>();
+        static List<Character> characters = new List<Character>();
 
         static void Main(string[] args)
         {
@@ -21,6 +24,8 @@ namespace Game
             SoundPlayer soundPlayer = new SoundPlayer("assets/Sounds/menu.wav");
             soundPlayer.PlayLooping();
 
+            monkey = new Character(new Vector2(50, 50));
+            lava = new Structures(new Vector2(0, 500));
             while (true)
             {
                 //Engine.Clear();
@@ -31,11 +36,6 @@ namespace Game
                     Engine.Clear();
                     Sarasa();
                     Engine.Show();
-                }
-                if (Engine.GetKey(Keys.R))
-                {
-                    Engine.Clear();
-                    Engine.Draw("sarasa");
                 }
                 Movement();
                 Draw();
@@ -87,12 +87,12 @@ namespace Game
         }
         private static void Sarasa()
         {
-            structures.Add(new Structures("assets/Animations/Sky.png", 0, 0, 5, 0));
-            structures.Add(new Structures("assets/Animations/Lava/lava_1.png", 0, 500, 5, 0));
-            structures.Add(new Structures("assets/Animations/platform.png", 50, 50, 0, 70));
-            structures.Add(new Structures("assets/Animations/platform.png", 300, 350, 0, 70));
-            structures.Add(new Structures("assets/Animations/platform.png", 550, 200, 0, 70));
-            characters.Add(new Character("assets/Animations/Monkey/idle_1.png", 50, 50, 0, 70));
+            //structures.Add(new Structures("assets/Animations/Sky.png", 0, 0, 5, 0));
+            structures.Add(lava);
+            //structures.Add(new Structures("assets/Animations/platform.png", 50, 50, 0, 70));
+            //structures.Add(new Structures("assets/Animations/platform.png", 300, 350, 0, 70));
+            //structures.Add(new Structures("assets/Animations/platform.png", 550, 200, 0, 70));
+            characters.Add(monkey);
 
         }
         

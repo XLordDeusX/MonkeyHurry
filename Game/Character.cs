@@ -9,26 +9,38 @@ namespace Game
     //This part is related to the main character
     public class Character
     {
-        private string image;
+        //private string image;
         private Transform transform;
-        private RendereableObject renderComponent;
-        private float speedX;
-        private float speedY;
+        private float speedX = 100;
+        private float speedY = 100;
 
         private Animation idle;
         private Animation run;
         private Animation jump;
         private Animation dead;
+        private Animation currentAnimation;
 
-        public Character(string p_image, float p_posX, float p_posY, float p_speedX, float p_speedY)
+        public Character(Vector2 initialPos)
         {
-            image = p_image;
-            transform = new Transform(p_posX, p_posY);
-            renderComponent = new RendereableObject(p_image);
-            speedX = p_speedX;
-            speedY = p_speedY;
+            transform = new Transform(initialPos, 0, new Vector2(1,1));
 
+            idle = CreateAnimation("Idle", "assets/Animations/Monkey/walking_", 3, 0.5f);
+            currentAnimation = idle;
+            currentAnimation.Reset();
+        }
 
+        private Animation CreateAnimation(string p_animationID, string p_path, int p_texturesAmount, float p_animationSpeed)
+        {
+            List<Texture> animationFrames = new List<Texture>();
+
+            for (int i = 1; i < p_texturesAmount; i++)
+            {
+                animationFrames.Add(Engine.GetTexture($"{p_path}{i}.png"));
+            }
+
+            Animation animation = new Animation(p_animationID, p_animationSpeed, animationFrames, true);
+
+            return animation;
         }
 
         public void Update()
@@ -36,26 +48,33 @@ namespace Game
             //Basic movement of the character, without gravity.
             if (Engine.GetKey(Keys.D))
             {
-                transform.Move(100 * Program.deltaTime, 0);
+                Move(new Vector2(speedX, 0));
             }
             if (Engine.GetKey(Keys.S))
             {
-                transform.Move(0, 100 * Program.deltaTime);
+                Move(new Vector2(0, speedY));
             }
             if (Engine.GetKey(Keys.A))
             {
-                transform.Move(-100 * Program.deltaTime, 0);
+                Move(new Vector2(-speedX, 0));
             }
             if (Engine.GetKey(Keys.W))
             {
-                transform.Move(0, -100 * Program.deltaTime);
-            }
-            //transform.Move(speedX * Program.deltaTime, speedY * Program.deltaTime); 
+                Move(new Vector2(0, -speedY));
+            } 
+
+            currentAnimation.Update();
         }
 
         public void Render()
         {
-            renderComponent.Render(transform.PosX, transform.PosY,transform.ScaleX,transform.ScaleY,transform.Rot,transform.OffsetX,transform.OffsetY);
+            Engine.Draw(currentAnimation.CurrentFrame, transform.position.x, transform.position.y, transform.scale.x, transform.scale.y, transform.rotation);
+        }
+
+        public void Move(Vector2 pos)
+        {
+            transform.position.x += pos.x * Program.deltaTime;
+            transform.position.y += pos.y * Program.deltaTime;
         }
     }
 }

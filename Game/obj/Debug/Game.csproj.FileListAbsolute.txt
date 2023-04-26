@@ -157,7 +157,6 @@ C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Anima
 C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\walking_2.png
 C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\walking_3.png
 C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Platforms\Initial_Platform.png
-C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Platforms\platform.png
 C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Sky.png
 C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Sounds\gameplay.wav
 C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Sounds\menu.wav
@@ -200,3 +199,13 @@ C:\Users\Wilfredo Rukoz\Desktop\MonkeyHurry\Game\obj\Debug\Game.csproj.CoreCompi
 C:\Users\Wilfredo Rukoz\Desktop\MonkeyHurry\Game\obj\Debug\Game.exe
 C:\Users\Wilfredo Rukoz\Desktop\MonkeyHurry\Game\obj\Debug\Game.pdb
 C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\Engine.dll
+C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\dying_1_right.png
+C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\dying_2_right.png
+C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\dying_3_right.png
+C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\idle_1_right.png
+C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\jumping_1_right.png
+C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\jumping_2_right.png
+C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\walking_1_right.png
+C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\walking_2_right.png
+C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\walking_3_right.png
+C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Platforms\platform_1.png

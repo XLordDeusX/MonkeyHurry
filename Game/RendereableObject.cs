@@ -16,9 +16,9 @@ namespace Game
         {
             image = p_image;
         }
-        public void Render(float posX, float posY, float scaleX, float scaleY, float rot, float offsetX, float offsetY)
+        public void Render(Vector2 initialPos, Vector2 scale, float rot)
         {
-            Engine.Draw(image,posX,posY,scaleX,scaleY,rot,offsetX,offsetY);
+            Engine.Draw(image,initialPos.x, initialPos.y, scale.x, scale.y, rot);
         }
     }
 }

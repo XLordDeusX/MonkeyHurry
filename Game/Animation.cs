@@ -7,26 +7,27 @@ namespace Game
 	{
 		private bool isLoop;
 		private string id;
-		private float speed;
-		private float currentTime;
+		private float speed = 0;
+		private float currentTime = 0;
 		private int currentFrame = 0;
-		private List<Texture> frames = new List<Texture>();
+        private List<Texture> frames;
 
-		public Texture CurrentTexture => frames[currentFrame];
-		public Animation(string id, float speed, List<Texture> textures = null, bool isLoop = true)
+		public Texture CurrentFrame => frames[currentFrame];
+		public Animation(string id, float speed, List<Texture> frames, bool isLoop = true)
         {
 			this.id = id;
 			this.speed = speed;
 			this.isLoop = isLoop;
-			this.currentFrame = 0;
-
-			if(textures == null)
-            {
-				this.frames = textures;
-            }
+            this.frames = frames;
         }
 
-		public void Update()
+        public void Reset()
+        {
+            this.currentFrame = 0;
+            this.currentTime = 0;
+        }
+
+        public void Update()
         {
             currentTime += Program.deltaTime;
 
@@ -49,12 +50,5 @@ namespace Game
             }
         }
 	}
-
-
-
-
-
-
-
 }
 
