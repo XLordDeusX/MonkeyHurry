@@ -117,6 +117,9 @@
     <Content Include="assets\Animations\ship.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Engine.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="gameplay.wav" />
     <Content Include="menu.wav" />
   </ItemGroup>

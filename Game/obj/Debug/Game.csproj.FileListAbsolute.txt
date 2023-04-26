@@ -161,7 +161,6 @@ C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Anima
 C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Sky.png
 C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Sounds\gameplay.wav
 C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Sounds\menu.wav
-C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\Engine.dll
 C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\ship.png
 C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\Game.cs
 C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\Game.exe
@@ -200,3 +199,4 @@ C:\Users\Wilfredo Rukoz\Desktop\MonkeyHurry\Game\obj\Debug\Game.csproj.AssemblyR
 C:\Users\Wilfredo Rukoz\Desktop\MonkeyHurry\Game\obj\Debug\Game.csproj.CoreCompileInputs.cache
 C:\Users\Wilfredo Rukoz\Desktop\MonkeyHurry\Game\obj\Debug\Game.exe
 C:\Users\Wilfredo Rukoz\Desktop\MonkeyHurry\Game\obj\Debug\Game.pdb
+C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\Engine.dll
