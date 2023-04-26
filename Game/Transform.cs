@@ -41,7 +41,7 @@ namespace Game
     }
 
     //The script variables were also passed structure
-    public class TransformStructures
+    /*public class TransformStructures
     {
         private float posX;
         private float posY;
@@ -70,5 +70,5 @@ namespace Game
             posX += x;
             posY += y;
         }
-    }
+    }*/
 }
