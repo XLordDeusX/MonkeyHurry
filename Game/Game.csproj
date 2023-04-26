@@ -37,7 +37,11 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="GameManager.cs" />
+=======
+    <Compile Include="Animation.cs" />
+>>>>>>> Maru_Branch
     <Compile Include="RendereableObject.cs" />
     <Compile Include="Screens.cs" />
     <Compile Include="Structures.cs" />
@@ -47,8 +51,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Transform.cs" />
+    <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\Animations\Initial_Platform.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="assets\Animations\Lava\lava_1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

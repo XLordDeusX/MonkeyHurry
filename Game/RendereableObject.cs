@@ -11,6 +11,8 @@ namespace Game
     public class RendereableObject
     {
         string image;
+        private Character character;
+        private Transform transform;
 
         public RendereableObject (string p_image)
         {
@@ -18,7 +20,8 @@ namespace Game
         }
         public void Render(float posX, float posY, float scaleX, float scaleY, float rot, float offsetX, float offsetY)
         {
-            Engine.Draw(image,posX,posY,scaleX,scaleY,rot,offsetX,offsetY);
+            Engine.Draw(image, posX, posY, scaleX, scaleY, rot, offsetX, offsetY);
+           
         }
     }
 }
