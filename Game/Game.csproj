@@ -45,7 +45,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="Transform.cs" />
     <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
