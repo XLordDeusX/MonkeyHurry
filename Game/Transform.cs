@@ -26,6 +26,7 @@ namespace Game
         public float OffsetY => offsetY;
 
 
+      
 
         public Transform(float p_posX, float p_posY)
         {
@@ -38,6 +39,7 @@ namespace Game
             posX += x;
             posY += y;
         }
+        
     }
 
     //The script variables were also passed structure

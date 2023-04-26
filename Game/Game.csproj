@@ -37,6 +37,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Animation.cs" />
     <Compile Include="RendereableObject.cs" />
     <Compile Include="Structures.cs" />
     <Compile Include="Character.cs" />
@@ -45,6 +46,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Transform.cs" />
+    <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\Animations\Initial_Platform.png">

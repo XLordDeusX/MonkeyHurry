@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Media;
 
 namespace Game
 {
@@ -9,8 +10,6 @@ namespace Game
         public static DateTime startTime;
         public static float lastFrameTime;
 
-        public static List<Structures> structures = new List<Structures>();
-
         public static Structures platformOne;
         public static Structures platformTwo;
         public static Structures platformThree;
@@ -18,23 +17,33 @@ namespace Game
         public static Structures sky;
         public static Structures initialPlatform;
 
+      
+
         public static List<Character> characters = new List<Character>();
+        public static List<Structures> structures = new List<Structures>();
 
-        public static Character monkey;
 
+        // static Animation idle;
+        //static Animation walking;
+        //static Animation currentAnimation = null;
         static void Main(string[] args)
         {
             Engine.Initialize();
 
             startTime = DateTime.Now;
 
+            // idle = CreateAnimation();
+            //walking = CreateAnimation();
+            //currentAnimation = idle;
+            //currentAnimation= walking;
+
             structures.Add(new Structures("assets/Animations/Sky.png", 0, 0, 0, 0));
-            structures.Add(new Structures("assets/Animations/platform.png", 50, 50, 0, 0));
-            structures.Add(new Structures("assets/Animations/platform.png", 300, 100, 0, 0));
-            structures.Add(new Structures("assets/Animations/platform.png", 550, 200, 0, 0));
+            structures.Add(new Structures("assets/Animations/platform.png", 50, 50, 0, 70));
+            structures.Add(new Structures("assets/Animations/platform.png", 300, 100, 0, 70));
+            structures.Add(new Structures("assets/Animations/platform.png", 550, 200, 0, 70));
             characters.Add(new Character("assets/Animations/Monkey/idle_1.png", 350, 351, 0, 0));
 
-            while(true)
+            while (true)
             {
                 Update();
                 Render();
@@ -47,25 +56,24 @@ namespace Game
             {
                 structure.Update();
             }
-
             foreach (var character in characters)
             {
                 character.Update();
             }
+          
 
             DeltaCalculations();
+
         }
 
         private static void Render()
         {
             Engine.Clear();
-            
 
             foreach (var structures in structures)
             {
                 structures.Render();
             }
-
             Engine.Draw("assets/Animations/Initial_Platform.png", 150, 230, 2.5f, 2);
             Engine.Draw("assets/Animations/Lava/lava_1.png", 0, 550, 2.5f, 1);
 
@@ -75,7 +83,8 @@ namespace Game
             }
             //Engine.Draw("assets/Animations/platform.png", 0, 45, 1.5f, 1.5f);
             //Engine.Draw("assets/Animations/Monkey/idle_1.png", 40, 0, 2, 2);
-            
+
+
             Engine.Show();
         }
 
@@ -85,5 +94,30 @@ namespace Game
             deltaTime = currentTime - lastFrameTime;
             lastFrameTime = currentTime;
         }
+
+        /* private static Animation CreateAnimation()
+         {
+             // Idle Animation
+             List<Texture> idleFrames = new List<Texture>();
+             List<Texture> walkingFrames = new List<Texture>();
+
+             for (int i = 0; i < 4; i++)
+             {
+                 idleFrames.Add(Engine.GetTexture($"{i}.png"));
+             }
+             for (int i = 0; i < 9; i++)
+             {
+                 walkingFrames.Add(Engine.GetTexture($"{i}.png"));
+             }
+
+             Animation idleAnimation = new Animation("idle_", idleFrames 2, true);
+             Animation walkingAnimation = new Animation("walking_", walkingFrames, 2, true);
+
+             return idleAnimation;
+             return walkingAnimation;
+         }*/
     }
 }
+
+
+    

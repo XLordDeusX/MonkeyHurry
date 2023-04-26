@@ -32,5 +32,15 @@ namespace Game
         {
             Engine.Draw(image, transformStructures.PosX, transformStructures.PosY, transformStructures.ScaleX, transformStructures.ScaleY, transformStructures.Rot, transformStructures.OffsetX, transformStructures.OffsetY);
         }
+        public bool IsBoxColliding(Transform p_ObjectC)
+        {
+            float distanceX = Math.Abs(transformStructures.PosX - p_ObjectC.PosX);
+            float distanceY = Math.Abs(transformStructures.PosY - p_ObjectC.PosY);
+
+            float sumHalfWidths = transformStructures.ScaleX / 2 + p_ObjectC.ScaleX / 2;
+            float sumHalfHights = transformStructures.ScaleY / 2 + p_ObjectC.ScaleY / 2;
+
+            return distanceX <= sumHalfWidths && distanceY <= sumHalfHights;
+        }
     }
 }
