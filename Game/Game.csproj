@@ -37,7 +37,9 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameManager.cs" />
     <Compile Include="RendereableObject.cs" />
+    <Compile Include="Screens.cs" />
     <Compile Include="Structures.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="Game.cs">
@@ -101,10 +103,13 @@
     <Content Include="assets\Animations\platform.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="assets\Animations\Sky.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Engine.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="ship.png">
+    <Content Include="assets\Animations\ship.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

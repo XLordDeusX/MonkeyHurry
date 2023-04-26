@@ -10,15 +10,7 @@ namespace Game
         public static float lastFrameTime;
 
         public static List<Structures> structures = new List<Structures>();
-
-        public static Structures platformOne;
-        public static Structures platformTwo;
-        public static Structures platformThree;
-        public static Structures lava;
-
         public static List<Character> characters = new List<Character>();
-
-        public static Character monkey;
 
         static void Main(string[] args)
         {
@@ -26,23 +18,26 @@ namespace Game
 
             startTime = DateTime.Now;
 
-            structures.Add(new Structures("assets/Animations/platform.png", 50, 50, 0, 70));
-            structures.Add(new Structures("assets/Animations/platform.png", 300, 350, 0, 70));
-            structures.Add(new Structures("assets/Animations/platform.png", 550, 200, 0, 70));
-            characters.Add(new Character("assets/Animations/Monkey/idle_1.png", 100, 10, 0, 70));
-
-            while(true)
+            
+            while (true)
             {
-                Update();
-                Render();
+                //Engine.Clear();
+                if (Engine.GetKey(Keys.N))
+                {
+                    Engine.Clear();
+                    Sarasa();
+                    
+                }
+                Movement();
+                Draw();
             }
         }
 
-        private static void Update()
+        private static void Movement()
         {
-            foreach (var structure in structures)
+            foreach (var structures in structures)
             {
-                structure.Update();
+                structures.Update();
             }
 
             foreach (var character in characters)
@@ -53,25 +48,25 @@ namespace Game
             DeltaCalculations();
         }
 
-        private static void Render()
+        private static void Draw()
         {
             Engine.Clear();
-            
+
 
             foreach (var structures in structures)
             {
+                
                 structures.Render();
             }
-            
-            Engine.Draw("assets/Animations/Lava/lava_1.png", 0, 500, 2.5f, 1);
 
-            foreach (var characters in characters)
+            //Engine.Draw();
+
+            foreach (var character in characters)
             {
-                characters.Render();
+                
+                character.Render();
             }
-            //Engine.Draw("assets/Animations/platform.png", 0, 45, 1.5f, 1.5f);
-            //Engine.Draw("assets/Animations/Monkey/idle_1.png", 40, 0, 2, 2);
-            
+
             Engine.Show();
         }
 
@@ -81,5 +76,17 @@ namespace Game
             deltaTime = currentTime - lastFrameTime;
             lastFrameTime = currentTime;
         }
+        private static void Sarasa()
+        {
+            structures.Add(new Structures("assets/Animations/Sky.png", 0, 0, 5, 0));
+            structures.Add(new Structures("assets/Animations/Lava/lava_1.png", 0, 500, 5, 0));
+            structures.Add(new Structures("assets/Animations/platform.png", 50, 50, 0, 70));
+            structures.Add(new Structures("assets/Animations/platform.png", 300, 350, 0, 70));
+            structures.Add(new Structures("assets/Animations/platform.png", 550, 200, 0, 70));
+            characters.Add(new Character("assets/Animations/Monkey/idle_1.png", 50, 50, 0, 70));
+
+        }
+        
     }
+    
 }
