@@ -15,6 +15,11 @@ namespace Game
         private float speedX;
         private float speedY;
 
+        private Animation idle;
+        private Animation run;
+        private Animation jump;
+        private Animation dead;
+
         public Character(string p_image, float p_posX, float p_posY, float p_speedX, float p_speedY)
         {
             image = p_image;
@@ -22,6 +27,8 @@ namespace Game
             renderComponent = new RendereableObject(p_image);
             speedX = p_speedX;
             speedY = p_speedY;
+
+
         }
 
         public void Update()

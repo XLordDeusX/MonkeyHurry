@@ -37,6 +37,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class1.cs" />
     <Compile Include="RendereableObject.cs" />
     <Compile Include="Structures.cs" />
     <Compile Include="Character.cs" />
@@ -98,10 +99,19 @@
     <Content Include="assets\Animations\Monkey\walking_3.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\Animations\platform.png">
+    <Content Include="assets\Animations\Platforms\Initial_Platform.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Animations\Platforms\platform.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="assets\Animations\Sky.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Sounds\gameplay.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Sounds\menu.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Engine.dll">
@@ -110,6 +120,8 @@
     <Content Include="assets\Animations\ship.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="gameplay.wav" />
+    <Content Include="menu.wav" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

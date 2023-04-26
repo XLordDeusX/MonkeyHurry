@@ -1,5 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections.Generic; 
+using System.Media;
 
 namespace Game
 {
@@ -17,13 +18,16 @@ namespace Game
             Engine.Initialize();
 
             startTime = DateTime.Now;
+            SoundPlayer soundPlayer = new SoundPlayer("assets/Sounds/menu.wav");
+            soundPlayer.PlayLooping();
 
-            
             while (true)
             {
                 //Engine.Clear();
                 if (Engine.GetKey(Keys.N))
                 {
+                    soundPlayer = new SoundPlayer("assets/Sounds/gameplay.wav");
+                    soundPlayer.PlayLooping();
                     Engine.Clear();
                     Sarasa();
                     Engine.Show();
