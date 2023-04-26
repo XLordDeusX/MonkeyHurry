@@ -9,7 +9,7 @@ namespace Game
     //This part contains all the items that character executed and their values.
     public class Transform
     {
-        private float posX;
+        private float posX ;
         private float posY;
         private float rot = 0f;
         private float scaleX = 2f;
@@ -41,7 +41,7 @@ namespace Game
     }
 
     //The script variables were also passed structure
-    public class TransformStructures
+    /*public class TransformStructures
     {
         private float posX;
         private float posY;
@@ -70,5 +70,5 @@ namespace Game
             posX += x;
             posY += y;
         }
-    }
+    }*/
 }

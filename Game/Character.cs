@@ -12,7 +12,6 @@ namespace Game
         private string image;
         private Transform transform;
         private RendereableObject renderComponent;
-
         private float speedX;
         private float speedY;
 
@@ -27,7 +26,24 @@ namespace Game
 
         public void Update()
         {
-            transform.Move(speedX * Program.deltaTime, speedY * Program.deltaTime); 
+            //Basic movement of the character, without gravity.
+            if (Engine.GetKey(Keys.D))
+            {
+                transform.Move(100 * Program.deltaTime, 0);
+            }
+            if (Engine.GetKey(Keys.S))
+            {
+                transform.Move(0, 100 * Program.deltaTime);
+            }
+            if (Engine.GetKey(Keys.A))
+            {
+                transform.Move(-100 * Program.deltaTime, 0);
+            }
+            if (Engine.GetKey(Keys.W))
+            {
+                transform.Move(0, -100 * Program.deltaTime);
+            }
+            //transform.Move(speedX * Program.deltaTime, speedY * Program.deltaTime); 
         }
 
         public void Render()
