@@ -10,27 +10,28 @@ namespace Game
     public class Structures
     {
         private string image;
-        private TransformStructures transformStructures;
-
+        private Transform transform;
+        private RendereableObject renderComponent;
         private float speedX;
         private float speedY;
 
         public Structures(string p_image, float p_posX, float p_posY, float p_speedX, float p_speedY)
         {
             image = p_image;
-            transformStructures = new TransformStructures(p_posX, p_posY);
+            renderComponent = new RendereableObject(p_image);
+            transform = new Transform(p_posX, p_posY);
             speedX = p_speedX;
             speedY = p_speedY;
         }
 
         public void Update()
         {
-            transformStructures.StructureMove(speedX * Program.deltaTime, speedY * Program.deltaTime);
+            transform.Move(speedX * Program.deltaTime, speedY * Program.deltaTime);
         }
 
         public void Render()
         {
-            Engine.Draw(image, transformStructures.PosX, transformStructures.PosY, transformStructures.ScaleX, transformStructures.ScaleY, transformStructures.Rot, transformStructures.OffsetX, transformStructures.OffsetY);
+            renderComponent.Render(transform.PosX, transform.PosY, transform.ScaleX, transform.ScaleY, transform.Rot, transform.OffsetX, transform.OffsetY);
         }
     }
 }

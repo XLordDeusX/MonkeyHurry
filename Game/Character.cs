@@ -12,7 +12,6 @@ namespace Game
         private string image;
         private Transform transform;
         private RendereableObject renderComponent;
-
         private float speedX;
         private float speedY;
 
