@@ -26,30 +26,26 @@ namespace Game
                 if (Engine.GetKey(Keys.Q))
                 {
                     Engine.Clear();
-                    Engine.Draw("assets/Animations/Paradigmas.png");//main menu
+                    MainMenu();//main menu
                     Engine.Show();
                     
                 }
-                if (Engine.GetKey(Keys.N))
+                else if (Engine.GetKey(Keys.N))
                 {
                     Engine.Clear();
-                    Gameplay();//gameplay
-                    //Draw();
-                    //Movement();
-                    //Engine.Show();
-
+                    Gameplay();
                 }
-                if (Engine.GetKey(Keys.Y))
+                else if (Engine.GetKey(Keys.Y))
                 {
                     Engine.Clear();
-                    Engine.Draw("assets/Animations/You_Won.png");//win
+                    Win();//win
                     Engine.Show();
                     
                 }
-                if (Engine.GetKey(Keys.U))
+                else if (Engine.GetKey(Keys.U))
                 {
                     Engine.Clear();
-                    Engine.Draw("assets/Animations/Game_Over.png");//loss
+                    Lose();//loss
                     Engine.Show();
                     
                 }
@@ -76,7 +72,6 @@ namespace Game
         {
             //Engine.Clear();
             
-
             foreach (var structures in structures)
             {
                 
