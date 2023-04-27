@@ -25,7 +25,7 @@ namespace Game
             transform = new Transform(initialPos, 0, new Vector2(1,1));
             //speedX = p_speedX;
             // speedY = p_speedY;
-            lava = CreateAnimation("Lava", "assets/Animations/Lava/lava_", 8, 1f);
+            lava = CreateAnimation("Lava", "assets/Animations/Lava/lava_", 8, 0.06f);
             currentAnimation = lava;
             currentAnimation.Reset();
         }
@@ -45,6 +45,8 @@ namespace Game
         public void Update()
         {
             Move(new Vector2(speedX, speedY));
+            currentAnimation
+                .Update();
         }
 
         public void Render()

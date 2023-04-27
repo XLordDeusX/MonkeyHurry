@@ -72,58 +72,61 @@
     <Content Include="assets\Animations\Lava\lava_8.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\Animations\Monkey\dying_1.png">
+    <Content Include="assets\Animations\Monkey\dying_left_1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\Animations\Monkey\dying_1_right.png">
+    <Content Include="assets\Animations\Monkey\dying_left_2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\Animations\Monkey\dying_2.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="assets\Animations\Monkey\dying_2_right.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="assets\Animations\Monkey\dying_3.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="assets\Animations\Monkey\dying_3_right.png">
+    <Content Include="assets\Animations\Monkey\dying_left_3.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="assets\Animations\Monkey\idle_1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\Animations\Monkey\idle_1_right.png">
+    <Content Include="assets\Animations\Monkey\idle_2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\Animations\Monkey\jumping_1.png">
+    <Content Include="assets\Animations\Monkey\jumping_left_1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\Animations\Monkey\jumping_1_right.png">
+    <Content Include="assets\Animations\Monkey\jumping_left_3.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\Animations\Monkey\jumping_2.png">
+    <Content Include="assets\Animations\Monkey\jumping_left_4.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\Animations\Monkey\jumping_2_right.png">
+    <Content Include="assets\Animations\Monkey\jumping_left_2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\Animations\Monkey\walking_1.png">
+    <Content Include="assets\Animations\Monkey\jumping_right_1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\Animations\Monkey\walking_1_right.png">
+    <Content Include="assets\Animations\Monkey\jumping_right_2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\Animations\Monkey\walking_2.png">
+    <Content Include="assets\Animations\Monkey\jumping_right_3.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\Animations\Monkey\walking_2_right.png">
+    <Content Include="assets\Animations\Monkey\jumping_right_4.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\Animations\Monkey\walking_3.png">
+    <Content Include="assets\Animations\Monkey\walking_left_1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\Animations\Monkey\walking_3_right.png">
+    <Content Include="assets\Animations\Monkey\walking_left_2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Animations\Monkey\walking_left_3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Animations\Monkey\walking_right_1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Animations\Monkey\walking_right_2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Animations\Monkey\walking_right_3.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="assets\Animations\Platforms\Initial_Platform.png">
@@ -135,13 +138,19 @@
     <Content Include="assets\Animations\Sky.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="assets\Screens\Game_Over.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Screens\Menu.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Screens\You_Won.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="assets\Sounds\gameplay.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="assets\Sounds\menu.wav">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="assets\Animations\ship.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Engine.dll">
