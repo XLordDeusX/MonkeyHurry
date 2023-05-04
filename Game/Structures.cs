@@ -45,8 +45,7 @@ namespace Game
         public void Update()
         {
             Move(new Vector2(speedX, speedY));
-            currentAnimation
-                .Update();
+            currentAnimation.Update();
         }
 
         public void Render()

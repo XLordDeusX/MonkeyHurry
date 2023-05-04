@@ -27,7 +27,7 @@ namespace Game
             Engine.Initialize();
 
             startTime = DateTime.Now;
-            monkey = new Character(new Vector2(50, 50));
+            monkey = new Character(new Vector2(600, 200));
             lava = new Structures(new Vector2(0, 760));
             lava_2 = new Structures(new Vector2(320, 760));
             lava_3 = new Structures(new Vector2(640, 760));
