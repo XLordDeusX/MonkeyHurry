@@ -139,15 +139,6 @@ C:\Users\Usuario\Desktop\MonkeyHurry\Game\obj\Debug\Game.csproj.CoreCompileInput
 C:\Users\Usuario\Desktop\MonkeyHurry\Game\obj\Debug\Game.exe
 C:\Users\Usuario\Desktop\MonkeyHurry\Game\obj\Debug\Game.pdb
 C:\Users\Usuario\Desktop\MonkeyHurry\Game\bin\Debug\assets\Animations\ship.png
-C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Lava\lava_1.png
-C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Lava\lava_2.png
-C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Lava\lava_3.png
-C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Lava\lava_4.png
-C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Lava\lava_5.png
-C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Lava\lava_6.png
-C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Lava\lava_7.png
-C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Lava\lava_8.png
-C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\idle_1.png
 C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Platforms\Initial_Platform.png
 C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Sky.png
 C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Sounds\gameplay.wav
@@ -194,7 +185,6 @@ C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Anima
 C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\dying_left_1.png
 C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\dying_left_2.png
 C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\dying_left_3.png
-C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\idle_2.png
 C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\jumping_left_1.png
 C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\jumping_right_1.png
 C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\jumping_left_2.png
@@ -212,3 +202,13 @@ C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Anima
 C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Screens\Game_Over.png
 C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Screens\Menu.png
 C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Screens\You_Won.png
+C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\idle_left_1.png
+C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\idle_right_1.png
+C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Lava\lava_1.png
+C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Lava\lava_2.png
+C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Lava\lava_3.png
+C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Lava\lava_4.png
+C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Lava\lava_5.png
+C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Lava\lava_6.png
+C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Lava\lava_7.png
+C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Lava\lava_8.png

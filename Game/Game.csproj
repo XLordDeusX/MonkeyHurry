@@ -81,10 +81,10 @@
     <Content Include="assets\Animations\Monkey\dying_left_3.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\Animations\Monkey\idle_1.png">
+    <Content Include="assets\Animations\Monkey\idle_left_1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\Animations\Monkey\idle_2.png">
+    <Content Include="assets\Animations\Monkey\idle_right_1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="assets\Animations\Monkey\jumping_left_1.png">
