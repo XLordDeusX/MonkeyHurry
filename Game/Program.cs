@@ -11,9 +11,9 @@ namespace Game
         public static float lastFrameTime;
 
         static Character monkey;
-        static Structures lava;
+        static Lava lava;
 
-        static List<Structures> structures = new List<Structures>();
+        static List<Lava> structures = new List<Lava>();
         static List<Character> characters = new List<Character>();
 
         static SoundPlayer soundPlayer = new SoundPlayer("assets/Sounds/menu.wav");
@@ -40,7 +40,7 @@ namespace Game
         private static void SetLevel()
         {
             monkey = new Character(new Vector2(600, 400));
-            lava = new Structures(new Vector2(0, 500));
+            lava = new Lava(new Vector2(0, 500));
             structures.Add(lava);
             characters.Add(monkey);
             soundPlayer.PlayLooping();
