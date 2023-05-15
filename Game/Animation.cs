@@ -29,7 +29,7 @@ namespace Game
 
         public void Update()
         {
-            currentTime += Program.deltaTime;
+            currentTime += Time.deltaTime;
 
             if (currentTime >= speed)
             {

@@ -6,27 +6,27 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public class Lava
+    //This part is related to the environment and platforms of the game.
+    public class Platforms
     {
         private Transform transform;
         private Character monkey;
-        private Platforms platform;
         private float speedX = 0;
         private float speedY = 0;
 
-        private Animation lava;
+        private Animation platform;
         private Animation currentAnimation;
 
+        public Transform Transform => transform;
         public float RealHeight => currentAnimation.CurrentFrame.Height * transform.scale.y;
         public float RealWidth => currentAnimation.CurrentFrame.Width * transform.scale.x;
-
-        public Lava(Vector2 initialPos)
+        
+        public Platforms(Vector2 initialPos)
         {
-            transform = new Transform(initialPos, 0, new Vector2(1, 1));
-            lava = CreateAnimation("Lava", "assets/Animations/Lava/lava_", 8, 0.06f, true);
+            transform = new Transform(initialPos, 0, new Vector2(1,1));
+            platform = CreateAnimation("Platform", "assets/Animations/Platforms/platform_", 2, 0, false);
             monkey = Gameplay.monkey;
-            platform = Gameplay.platform;
-            currentAnimation = lava;
+            currentAnimation = platform;
             currentAnimation.Reset();
         }
         private Animation CreateAnimation(string p_animationID, string p_path, int p_texturesAmount, float p_animationSpeed, bool p_isLoop)
@@ -56,29 +56,17 @@ namespace Game
 
         public void IsBoxColliding()
         {
-            float distanceMonkeyX = Math.Abs(transform.position.x - monkey.Transform.position.x);
-            float distanceMonkeyY = Math.Abs(transform.position.y - monkey.Transform.position.y);
-
-            //float distancePlatformX = Math.Abs(transform.position.x - platform.Transform.position.x);
-            //float distancePlatformY = Math.Abs(transform.position.y - platform.Transform.position.y);
+            float distanceX = Math.Abs(transform.position.x - monkey.Transform.position.x);
+            float distanceY = Math.Abs(transform.position.y - monkey.Transform.position.y);
 
             float sumHalfWidths = RealWidth / 2 + monkey.RealWidth / 2;
             float sumHalfHeights = RealHeight / 2 + monkey.RealHeight / 2;
 
-            //float sumHalfWidthsPlat = RealWidth / 2 + platform.RealWidth / 2;
-            //float sumHalfHeightsPlat = RealHeight / 2 + platform.RealHeight / 2;
-
-            if (distanceMonkeyX <= sumHalfWidths && distanceMonkeyY <= sumHalfHeights)
+            if (distanceX <= sumHalfWidths && distanceY <= sumHalfHeights)
             {
-                Engine.Debug("SE MURIO");
-                GameManager.Instance.ChangeScreen(GameManager.Instance.defeat);
-                monkey.ResetValues();
+                monkey.CanJump = true;
+                //La posicion en Y del monkey es siempre igual
             }
-
-            //if (distancePlatformX <= sumHalfWidthsPlat && distancePlatformY <= sumHalfHeightsPlat)
-            //{
-            //    Engine.Debug("Colisiona");
-            //}
         }
 
         public void Move(Vector2 pos)

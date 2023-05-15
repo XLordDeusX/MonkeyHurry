@@ -38,14 +38,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Animation.cs" />
+    <Compile Include="GameManager.cs" />
+    <Compile Include="Gameplay.cs" />
     <Compile Include="Lava.cs" />
-    <Compile Include="Structures.cs" />
+    <Compile Include="Level.cs" />
+    <Compile Include="DefeatScreen.cs" />
+    <Compile Include="Menu.cs" />
+    <Compile Include="Platforms.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="Game.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="Time.cs" />
     <Compile Include="Utils.cs" />
+    <Compile Include="VictoryScreen.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\Animations\Lava\lava_1.png">

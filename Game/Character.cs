@@ -9,23 +9,6 @@ namespace Game
     //This part is related to the main character
     public class Character
     {
-        private Transform transform;
-        private int life;
-        private float speedX = 150;
-        private float speedY = 150;
-        private float posIni;
-        private float posFinal;
-        private float diffPos;
-
-
-        public float RealHeight => currentAnimation.CurrentFrame.Height * transform.scale.y;
-        public float RealWidth => currentAnimation.CurrentFrame.Width * transform.scale.x;
-
-
-        //private float gravity = 10 * Program.deltaTime * Program.deltaTime;
-
-        //private Vector2 gravity = new Vector2(0, 10 * Program.deltaTime * Program.deltaTime);
-
         private Animation idleLeft;
         private Animation idleRight;
         private Animation runLeft;
@@ -35,7 +18,46 @@ namespace Game
         private Animation dead;
         private Animation currentAnimation;
 
-        private bool is_grounded = true;
+        private Transform transform;
+        //private int life;
+        private float speedX = 150;
+        private float speedY = 150;
+        private float posIni;
+        private float posFinal;
+        private float diffPos;
+
+        private float jumpTime;
+        private bool canJump;
+
+        public bool CanJump
+        {
+            get
+            {
+                return canJump;
+            }
+
+            set
+            {
+                canJump = value;
+            }
+        }
+        /*public float SpeedY
+        {
+            get
+            {
+                return speedY;
+            }
+            set
+            {
+                speedY = value;
+            }
+        }*/
+
+        public Transform Transform => transform;
+        public float RealHeight => currentAnimation.CurrentFrame.Height * transform.scale.y;
+        public float RealWidth => currentAnimation.CurrentFrame.Width * transform.scale.x;
+
+        //private bool is_grounded = true;
 
         public Character(Vector2 initialPos)
         {
@@ -69,14 +91,12 @@ namespace Game
 
         public void Update()
         {
-            //currentAnimation = idleRight;
-            //Basic movement of the character, without gravity.
-            if (diffPos > 0 && is_grounded)
+            if (diffPos > 0)
             {
                 currentAnimation = idleRight;
             }
 
-            if(diffPos < 0 && is_grounded)
+            if (diffPos < 0)
             {
                 currentAnimation = idleLeft;
             }
@@ -86,34 +106,36 @@ namespace Game
                 Move(new Vector2(speedX, 0));
                 currentAnimation = runRight;
             }
-           
+
             if (Engine.GetKey(Keys.A))
             {
                 Move(new Vector2(-speedX, 0));
                 currentAnimation = runLeft;
             }
-           
-            if (Engine.GetKey(Keys.W))
+
+            /*if (Engine.GetKey(Keys.W))
             {
-                Move(new Vector2(0, -speedY));
-                is_grounded = false;
-                
-                if (diffPos > 0 && is_grounded == false)
+                tiempoAire += Time.deltaTime;
+
+                Salto(new Vector2(0, -speedY * 2));
+
+                if(tiempoAire >= 1)
                 {
-                    currentAnimation = jumpRight;
+                    Salto(new Vector2(0, speedY * 2));
                 }
-                
-                if(diffPos < 0 && is_grounded == false)
-                {
-                    currentAnimation = jumpLeft;
-                }
+                //Move(new Vector2(0, -speedY));
+                currentAnimation = jumpLeft;
+            }*/
+
+            if (Engine.GetKey(Keys.S))
+            {
+                Move(new Vector2(0, speedY));
+                currentAnimation = jumpLeft;
             }
 
-            //if(!is_grounded)
-           
-            //Move(gravity);
-
             currentAnimation.Update();
+            Salto(new Vector2(0, speedY * 2));  // GRAVEDAD PERPETUA
+            JumpReady();
         }
 
         public void Render()
@@ -121,28 +143,80 @@ namespace Game
             Engine.Draw(currentAnimation.CurrentFrame, transform.position.x, transform.position.y, transform.scale.x, transform.scale.y, transform.rotation, RealWidth / 2f, RealHeight / 2f);
         }
 
-        public bool IsBoxColliding(Character p_objB)
-        {
-            float distanceX = Math.Abs(transform.position.x - p_objB.transform.position.x);
-            float distanceY = Math.Abs(transform.position.y - p_objB.transform.position.y);
-
-            float sumHalfWidths = RealWidth / 2 + p_objB.RealWidth / 2;
-            float sumHalfHeights = RealHeight / 2 + p_objB.RealHeight / 2;
-
-            if (distanceX <= sumHalfWidths && distanceY <= sumHalfHeights)
-            {
-                return true;
-            }
-            return false;
-        }
-
         public void Move(Vector2 pos)
         {
             posIni = transform.position.x;
-            transform.position.x += pos.x * Program.deltaTime;
+            transform.position.x += pos.x * Time.deltaTime;
             posFinal = transform.position.x;
             diffPos = posFinal - posIni;
-            transform.position.y += pos.y * Program.deltaTime;
+            transform.position.y += pos.y * Time.deltaTime;
         }
+
+        public void Salto(Vector2 pos)
+        {
+            transform.position.y += pos.y * Time.deltaTime;
+        }
+
+        private void JumpReady()
+        {
+            if (Engine.GetKey(Keys.SPACE))
+            {
+                Salto(new Vector2(0, -speedY * 4));
+                jumpTime += Time.deltaTime;
+
+                Engine.Debug("QUIERO SALTAR");
+
+                if (jumpTime > 1)
+                {
+                    Salto(new Vector2(0, speedY * 4));
+                }
+            }
+        }
+
+        public void ResetValues()
+        {
+            transform.position = new Vector2(600, 200);
+        }
+
+        /*public void InputDetection()
+        {
+            if (diffPos > 0 && is_grounded)
+            {
+                currentAnimation = idleRight;
+            }
+
+            if (diffPos < 0 && is_grounded)
+            {
+                currentAnimation = idleLeft;
+            }
+
+            if (Engine.GetKey(Keys.D))
+            {
+                Move(new Vector2(speedX, 0));
+                currentAnimation = runRight;
+            }
+
+            if (Engine.GetKey(Keys.A))
+            {
+                Move(new Vector2(-speedX, 0));
+                currentAnimation = runLeft;
+            }
+
+            if (Engine.GetKey(Keys.W))
+            {
+                Move(new Vector2(0, -speedY));
+                is_grounded = false;
+
+                if (diffPos > 0 && is_grounded == false)
+                {
+                    currentAnimation = jumpRight;
+                }
+
+                if (diffPos < 0 && is_grounded == false)
+                {
+                    currentAnimation = jumpLeft;
+                }
+            }
+        }*/
     }
 }
