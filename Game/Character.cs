@@ -19,7 +19,7 @@ namespace Game
         private Animation currentAnimation;
 
         private Transform transform;
-        //private int life;
+        private Platforms platform;
         private float speedX = 150;
         private float speedY = 150;
         private float posIni;
@@ -29,29 +29,6 @@ namespace Game
         private float jumpTime;
         private bool canJump;
 
-        public bool CanJump
-        {
-            get
-            {
-                return canJump;
-            }
-
-            set
-            {
-                canJump = value;
-            }
-        }
-        /*public float SpeedY
-        {
-            get
-            {
-                return speedY;
-            }
-            set
-            {
-                speedY = value;
-            }
-        }*/
 
         public Transform Transform => transform;
         public float RealHeight => currentAnimation.CurrentFrame.Height * transform.scale.y;
@@ -61,17 +38,18 @@ namespace Game
 
         public Character(Vector2 initialPos)
         {
-            transform = new Transform(initialPos, 0, new Vector2(1.5f,1.5f));
+            transform = new Transform(initialPos, 0, new Vector2(1.5f, 1.5f));
 
-            idleLeft = CreateAnimation("Idle", "assets/Animations/Monkey/idle_left_", 2, 0.5f, true);
-            idleRight = CreateAnimation("Idle", "assets/Animations/Monkey/idle_right_", 2, 0.5f, true);
+            idleLeft = CreateAnimation("Idle", "assets/Animations/Monkey/idle_left_", 2, 0, false);
+            idleRight = CreateAnimation("Idle", "assets/Animations/Monkey/idle_right_", 2, 0, false);
             runLeft = CreateAnimation("Run Left", "assets/Animations/Monkey/walking_left_", 3, 0.06f, true);
             runRight = CreateAnimation("Run Right", "assets/Animations/Monkey/walking_right_", 3, 0.06f, true);
             jumpLeft = CreateAnimation("Jump Left", "assets/Animations/Monkey/jumping_left_", 4, 0.1f, false);
             jumpRight = CreateAnimation("Jump Right", "assets/Animations/Monkey/jumping_right_", 4, 0.1f, false);
             dead = CreateAnimation("Dead", "assets/Animations/Monkey/dying_left_", 3, 0.5f, false);
-            
+
             currentAnimation = idleRight;
+            //platform = Gameplay.platform;
             //currentAnimation.Reset();
         }
 
@@ -134,8 +112,10 @@ namespace Game
             }
 
             currentAnimation.Update();
-            Salto(new Vector2(0, speedY * 2));  // GRAVEDAD PERPETUA
+            if(!canJump)
+                Salto(new Vector2(0, speedY * 2));  // GRAVEDAD PERPETUA
             JumpReady();
+            //IsBoxColliding();
         }
 
         public void Render()
@@ -143,6 +123,23 @@ namespace Game
             Engine.Draw(currentAnimation.CurrentFrame, transform.position.x, transform.position.y, transform.scale.x, transform.scale.y, transform.rotation, RealWidth / 2f, RealHeight / 2f);
         }
 
+        public bool IsBoxColliding(Platforms p_platform)
+        {
+            float distanceX = Math.Abs(transform.position.x - p_platform.Transform.position.x);
+            float distanceY = Math.Abs(transform.position.y - p_platform.Transform.position.y);
+
+            float sumHalfWidths = RealWidth / 2 + p_platform.RealWidth / 2;
+            float sumHalfHeights = RealHeight / 2 + p_platform.RealHeight / 2;
+
+            if (distanceX <= sumHalfWidths && distanceY <= sumHalfHeights)
+            {
+                canJump = true;
+                return true;
+                //transform.position.y = platform.RealHeight / 2; //La posicion en Y del monkey es siempre igual
+            }
+            canJump = false;
+            return false;
+        }
         public void Move(Vector2 pos)
         {
             posIni = transform.position.x;

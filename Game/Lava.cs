@@ -10,7 +10,6 @@ namespace Game
     {
         private Transform transform;
         private Character monkey;
-        private Platforms platform;
         private float speedX = 0;
         private float speedY = 0;
 
@@ -25,7 +24,6 @@ namespace Game
             transform = new Transform(initialPos, 0, new Vector2(1, 1));
             lava = CreateAnimation("Lava", "assets/Animations/Lava/lava_", 8, 0.06f, true);
             monkey = Gameplay.monkey;
-            platform = Gameplay.platform;
             currentAnimation = lava;
             currentAnimation.Reset();
         }

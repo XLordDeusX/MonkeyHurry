@@ -18,6 +18,8 @@ namespace Game
         static List<Lava> lavas = new List<Lava>(); 
         static List<Character> characters = new List<Character>();
 
+        //public static Platforms Platform => platform;
+
         static SoundPlayer soundPlayer = new SoundPlayer("assets/Sounds/menu.wav");
 
 
@@ -25,8 +27,9 @@ namespace Game
         {
             monkey = new Character(new Vector2(600, 200));
             lava = new Lava(new Vector2(478, 1150));
-            platform = new Platforms(new Vector2(500, 200));
+            platform = new Platforms(new Vector2(600, 500));
             platforms.Add(platform);
+            platforms.Add(new Platforms(new Vector2(700, 600)));
             lavas.Add(lava);
             characters.Add(monkey);
             //soundPlayer.PlayLooping();
@@ -47,6 +50,14 @@ namespace Game
             foreach (var platform in platforms)
             {
                 platform.Update();
+            }
+
+            foreach (var platform in platforms)
+            {
+                if (characters[0].IsBoxColliding(platform))
+                {
+                    break;
+                }
             }
             time.Update();
         }
