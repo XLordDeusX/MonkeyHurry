@@ -112,10 +112,13 @@ namespace Game
             }
 
             currentAnimation.Update();
-            if(!canJump)
+            if (!canJump)
+            {
                 Salto(new Vector2(0, speedY * 2));  // GRAVEDAD PERPETUA
+            }
+                
             JumpReady();
-            //IsBoxColliding();
+
         }
 
         public void Render()
@@ -135,7 +138,6 @@ namespace Game
             {
                 canJump = true;
                 return true;
-                //transform.position.y = platform.RealHeight / 2; //La posicion en Y del monkey es siempre igual
             }
             canJump = false;
             return false;
@@ -158,16 +160,19 @@ namespace Game
         {
             if (Engine.GetKey(Keys.SPACE))
             {
-                Salto(new Vector2(0, -speedY * 4));
+                Salto(new Vector2(0, -speedY * 3));
                 jumpTime += Time.deltaTime;
-
-                Engine.Debug("QUIERO SALTAR");
 
                 if (jumpTime > 1)
                 {
-                    Salto(new Vector2(0, speedY * 4));
+                    Salto(new Vector2(0, speedY * 3));
                 }
             }
+            else
+            {
+                jumpTime = 0;
+            }
+            
         }
 
         public void ResetValues()

@@ -3,20 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Media;
 
 namespace Game
 {
     public class DefeatScreen : Level
     {
-        public override void Start() {}
+        public override void Start() 
+        {
+            GameManager.Instance.soundPlayer = new SoundPlayer("assets/Sounds/lose.wav");
+            GameManager.Instance.soundPlayer.Play();
+        }
         public override void Update()
         {
-            if (Engine.GetKey(Keys.I))
+            if (Engine.GetKey(Keys.ESCAPE))
             {
-                if (GameManager.Instance.currentScreen == GameManager.Instance.defeat)
-                {
-                    GameManager.Instance.ChangeScreen(GameManager.Instance.menu);
-                }
+                GameManager.Instance.ChangeScreen(GameManager.Instance.menu);
             }
         }
         public override void Render()

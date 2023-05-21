@@ -70,7 +70,7 @@ namespace Game
             {
                 Engine.Debug("SE MURIO");
                 GameManager.Instance.ChangeScreen(GameManager.Instance.defeat);
-                monkey.ResetValues();
+                //monkey.ResetValues();
             }
 
             //if (distancePlatformX <= sumHalfWidthsPlat && distancePlatformY <= sumHalfHeightsPlat)

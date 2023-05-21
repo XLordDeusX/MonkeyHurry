@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Media;
 
 namespace Game
 {
@@ -16,12 +17,19 @@ namespace Game
         public string defeat = "Defeat";
         public string currentScreen;
 
-        public Menu menuScreen = new Menu();
-        public Gameplay gameplayScreen = new Gameplay();
-        public VictoryScreen victoryScreen = new VictoryScreen();
-        public DefeatScreen defeatScreen = new DefeatScreen();
+        private Menu menuScreen = new Menu();
+        private Gameplay gameplayScreen = new Gameplay();
+        private VictoryScreen victoryScreen = new VictoryScreen();
+        private DefeatScreen defeatScreen = new DefeatScreen();
 
+        public SoundPlayer soundPlayer = new SoundPlayer();
+
+        public Menu MenuScreen { get; private set; }
         public Gameplay GameplayScreen { get; private set; }
+        public VictoryScreen VictoryScreen { get; private set; }
+        public DefeatScreen DefeatScreen { get; private set; }
+
+
         public static GameManager Instance
         {
             get
@@ -33,13 +41,21 @@ namespace Game
                 return instance;
             }
         }
+
         public void Update()
         {
             switch (currentScreen)
             {
                 case "Menu":
+                    if (MenuScreen == null)
+                    {
+                        MenuScreen = new Menu();
+                        menuScreen.Start();
+                    }
                     menuScreen.Update();
                     GameplayScreen = null;
+                    VictoryScreen = null;
+                    DefeatScreen = null;
                     break;
 
                 case "Gameplay":
@@ -49,13 +65,24 @@ namespace Game
                         GameplayScreen.Start();
                     }
                     gameplayScreen.Update();
+                    MenuScreen = null;
                     break;
 
                 case "Victory":
+                    if (VictoryScreen == null)
+                    {
+                        VictoryScreen = new VictoryScreen();
+                        victoryScreen.Start();
+                    }
                     victoryScreen.Update();
                     break;
 
                 case "Defeat":
+                    if (DefeatScreen == null)
+                    {
+                        DefeatScreen = new DefeatScreen();
+                        defeatScreen.Start();
+                    }
                     defeatScreen.Update();
                     break;
 

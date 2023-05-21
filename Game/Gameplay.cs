@@ -17,12 +17,7 @@ namespace Game
         static List<Platforms> platforms = new List<Platforms>(); 
         static List<Lava> lavas = new List<Lava>(); 
         static List<Character> characters = new List<Character>();
-
-        //public static Platforms Platform => platform;
-
-        static SoundPlayer soundPlayer = new SoundPlayer("assets/Sounds/menu.wav");
-
-
+        
         public override void Start() 
         {
             monkey = new Character(new Vector2(600, 200));
@@ -32,7 +27,8 @@ namespace Game
             platforms.Add(new Platforms(new Vector2(700, 600)));
             lavas.Add(lava);
             characters.Add(monkey);
-            //soundPlayer.PlayLooping();
+            GameManager.Instance.soundPlayer = new SoundPlayer("assets/Sounds/gameplay.wav");
+            GameManager.Instance.soundPlayer.PlayLooping();
             time.InitializedTime();
         }
         public override void Update() 
@@ -64,9 +60,6 @@ namespace Game
         public override void Render() 
         {
             Engine.Clear();
-
-            soundPlayer = new SoundPlayer("assets/Sounds/gameplay.wav");
-            //soundPlayer.PlayLooping();
 
             Engine.Draw("assets/Animations/Sky.png", 0, 0, 1.2f, 1.55f, 0, 0, 0);
 
