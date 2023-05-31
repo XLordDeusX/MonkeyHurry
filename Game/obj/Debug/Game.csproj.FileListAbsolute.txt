@@ -140,7 +140,6 @@ C:\Users\Usuario\Desktop\MonkeyHurry\Game\obj\Debug\Game.exe
 C:\Users\Usuario\Desktop\MonkeyHurry\Game\obj\Debug\Game.pdb
 C:\Users\Usuario\Desktop\MonkeyHurry\Game\bin\Debug\assets\Animations\ship.png
 C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Platforms\Initial_Platform.png
-C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Sky.png
 C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Sounds\gameplay.wav
 C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Sounds\menu.wav
 C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\Game.cs
@@ -216,3 +215,4 @@ C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Sound
 C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Sounds\cool pigeon.wav
 C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Sounds\lose.wav
 C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Sounds\zip.wav
+C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Screens\mountain_texture.png

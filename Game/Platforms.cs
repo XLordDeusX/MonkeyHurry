@@ -25,7 +25,6 @@ namespace Game
             transform = new Transform(initialPos, 0, new Vector2(1,1));
             platform = CreateAnimation("Platform", "assets/Animations/Platforms/platform_", 2, 0, false);
             currentAnimation = platform;
-            //currentAnimation.Reset();
         }
         private Animation CreateAnimation(string p_animationID, string p_path, int p_texturesAmount, float p_animationSpeed, bool p_isLoop)
         {

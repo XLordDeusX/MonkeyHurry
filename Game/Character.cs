@@ -19,22 +19,28 @@ namespace Game
         private Animation currentAnimation;
 
         private Transform transform;
-        private Platforms platform;
         private float speedX = 150;
-        private float speedY = 150;
-        private float posIni;
-        private float posFinal;
-        private float diffPos;
+        private float posIniX;
+        private float posFinalX;
+        private float diffPosX;
+
+
+        private float speedY = 10;
+        private float posIniY;
+        private float posFinalY;
+        private float diffPosY;
 
         private float jumpTime;
         private bool canJump;
+
+        private float velJump = 10;
+        private float velUpControl = 8;
+        private float velDownControl = 5;
 
 
         public Transform Transform => transform;
         public float RealHeight => currentAnimation.CurrentFrame.Height * transform.scale.y;
         public float RealWidth => currentAnimation.CurrentFrame.Width * transform.scale.x;
-
-        //private bool is_grounded = true;
 
         public Character(Vector2 initialPos)
         {
@@ -49,8 +55,6 @@ namespace Game
             dead = CreateAnimation("Dead", "assets/Animations/Monkey/dying_left_", 3, 0.5f, false);
 
             currentAnimation = idleRight;
-            //platform = Gameplay.platform;
-            //currentAnimation.Reset();
         }
 
         private Animation CreateAnimation(string p_animationID, string p_path, int p_texturesAmount, float p_animationSpeed, bool p_isLoop)
@@ -69,56 +73,15 @@ namespace Game
 
         public void Update()
         {
-            if (diffPos > 0)
-            {
-                currentAnimation = idleRight;
-            }
-
-            if (diffPos < 0)
-            {
-                currentAnimation = idleLeft;
-            }
-
-            if (Engine.GetKey(Keys.D))
-            {
-                Move(new Vector2(speedX, 0));
-                currentAnimation = runRight;
-            }
-
-            if (Engine.GetKey(Keys.A))
-            {
-                Move(new Vector2(-speedX, 0));
-                currentAnimation = runLeft;
-            }
-
-            /*if (Engine.GetKey(Keys.W))
-            {
-                tiempoAire += Time.deltaTime;
-
-                Salto(new Vector2(0, -speedY * 2));
-
-                if(tiempoAire >= 1)
-                {
-                    Salto(new Vector2(0, speedY * 2));
-                }
-                //Move(new Vector2(0, -speedY));
-                currentAnimation = jumpLeft;
-            }*/
-
-            if (Engine.GetKey(Keys.S))
-            {
-                Move(new Vector2(0, speedY));
-                currentAnimation = jumpLeft;
-            }
+            InputDetection();
 
             currentAnimation.Update();
             if (!canJump)
             {
-                Salto(new Vector2(0, speedY * 2));  // GRAVEDAD PERPETUA
+                Gravity(new Vector2(0, speedY * velDownControl));  // GRAVEDAD PERPETUA
             }
-                
             JumpReady();
-
+            Engine.Debug(diffPosY);
         }
 
         public void Render()
@@ -137,42 +100,53 @@ namespace Game
             if (distanceX <= sumHalfWidths && distanceY <= sumHalfHeights)
             {
                 canJump = true;
+                jumpTime = 0;
                 return true;
             }
             canJump = false;
+            jumpTime = 0.5f;
             return false;
         }
+
         public void Move(Vector2 pos)
         {
-            posIni = transform.position.x;
+            posIniX = transform.position.x;
             transform.position.x += pos.x * Time.deltaTime;
-            posFinal = transform.position.x;
-            diffPos = posFinal - posIni;
-            transform.position.y += pos.y * Time.deltaTime;
+            posFinalX = transform.position.x;
+            diffPosX = posFinalX - posIniX;
         }
 
         public void Salto(Vector2 pos)
         {
-            transform.position.y += pos.y * Time.deltaTime;
+            posIniY = transform.position.y;
+            transform.position.y += pos.y * velJump * Time.deltaTime;
+            posFinalY = transform.position.y;
+            diffPosY = posFinalY - posIniY;
         }
+        public void Gravity(Vector2 pos)
+        {
+            posIniY = transform.position.y;
+            transform.position.y += pos.y * velJump * Time.deltaTime;
+            posFinalY = transform.position.y;
+            diffPosY = posFinalY - posIniY;
+        }
+
 
         private void JumpReady()
         {
             if (Engine.GetKey(Keys.SPACE))
             {
-                Salto(new Vector2(0, -speedY * 3));
+                Salto(new Vector2(0, -velJump * velUpControl));
+                Gravity(new Vector2(0, velDownControl * Time.deltaTime));
                 jumpTime += Time.deltaTime;
 
-                if (jumpTime > 1)
+                if (jumpTime > 0.4f)
                 {
-                    Salto(new Vector2(0, speedY * 3));
+                    velUpControl = 0;
                 }
             }
-            else
-            {
-                jumpTime = 0;
-            }
-            
+
+
         }
 
         public void ResetValues()
@@ -180,45 +154,47 @@ namespace Game
             transform.position = new Vector2(600, 200);
         }
 
-        /*public void InputDetection()
+        public void InputDetection()
         {
-            if (diffPos > 0 && is_grounded)
+            if (diffPosX > 0 && canJump)
             {
                 currentAnimation = idleRight;
             }
+            else if( diffPosX > 0 && !canJump)
+            {
+                currentAnimation = jumpRight;
+            }
 
-            if (diffPos < 0 && is_grounded)
+            if (diffPosX < 0 && canJump)
             {
                 currentAnimation = idleLeft;
             }
+            else if(diffPosX < 0 && !canJump)
+            {
+                currentAnimation = jumpLeft;
+            }
 
-            if (Engine.GetKey(Keys.D))
+            if (Engine.GetKey(Keys.D) && canJump)
             {
                 Move(new Vector2(speedX, 0));
                 currentAnimation = runRight;
             }
+            else if(Engine.GetKey(Keys.D) && !canJump)
+            {
+                Move(new Vector2(speedX, 0));
+                currentAnimation = jumpRight;
+            }
 
-            if (Engine.GetKey(Keys.A))
+            if (Engine.GetKey(Keys.A) && canJump)
             {
                 Move(new Vector2(-speedX, 0));
                 currentAnimation = runLeft;
             }
-
-            if (Engine.GetKey(Keys.W))
+            else if(Engine.GetKey(Keys.A) && !canJump)
             {
-                Move(new Vector2(0, -speedY));
-                is_grounded = false;
-
-                if (diffPos > 0 && is_grounded == false)
-                {
-                    currentAnimation = jumpRight;
-                }
-
-                if (diffPos < 0 && is_grounded == false)
-                {
-                    currentAnimation = jumpLeft;
-                }
+                Move(new Vector2(-speedX, 0));
+                currentAnimation = jumpLeft;
             }
-        }*/
+        }
     }
 }

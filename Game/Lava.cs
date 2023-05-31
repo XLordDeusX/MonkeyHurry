@@ -57,14 +57,8 @@ namespace Game
             float distanceMonkeyX = Math.Abs(transform.position.x - monkey.Transform.position.x);
             float distanceMonkeyY = Math.Abs(transform.position.y - monkey.Transform.position.y);
 
-            //float distancePlatformX = Math.Abs(transform.position.x - platform.Transform.position.x);
-            //float distancePlatformY = Math.Abs(transform.position.y - platform.Transform.position.y);
-
             float sumHalfWidths = RealWidth / 2 + monkey.RealWidth / 2;
             float sumHalfHeights = RealHeight / 2 + monkey.RealHeight / 2;
-
-            //float sumHalfWidthsPlat = RealWidth / 2 + platform.RealWidth / 2;
-            //float sumHalfHeightsPlat = RealHeight / 2 + platform.RealHeight / 2;
 
             if (distanceMonkeyX <= sumHalfWidths && distanceMonkeyY <= sumHalfHeights)
             {
@@ -72,11 +66,24 @@ namespace Game
                 GameManager.Instance.ChangeScreen(GameManager.Instance.defeat);
                 //monkey.ResetValues();
             }
+        }
 
-            //if (distancePlatformX <= sumHalfWidthsPlat && distancePlatformY <= sumHalfHeightsPlat)
-            //{
-            //    Engine.Debug("Colisiona");
-            //}
+        public bool IsTouchingPlatforms(Platforms p_platform)
+        {
+            float distancePlatformX = Math.Abs(transform.position.x - p_platform.Transform.position.x);
+            float distancePlatformY = Math.Abs(transform.position.y - p_platform.Transform.position.y);
+
+            float sumHalfWidthsPlat = RealWidth / 2 + p_platform.RealWidth / 2;
+            float sumHalfHeightsPlat = RealHeight / 2 + p_platform.RealHeight / 2;
+
+            if (distancePlatformX <= sumHalfWidthsPlat && distancePlatformY <= sumHalfHeightsPlat)
+            {
+                Engine.Debug("Colisiona");
+               // p_platform
+                return true;
+            }
+
+            return false;
         }
 
         public void Move(Vector2 pos)

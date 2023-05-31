@@ -17,10 +17,7 @@ namespace Game
         public string defeat = "Defeat";
         public string currentScreen;
 
-        private Menu menuScreen = new Menu();
-        private Gameplay gameplayScreen = new Gameplay();
-        private VictoryScreen victoryScreen = new VictoryScreen();
-        private DefeatScreen defeatScreen = new DefeatScreen();
+        public Level currentLevel;
 
         public SoundPlayer soundPlayer = new SoundPlayer();
 
@@ -44,83 +41,59 @@ namespace Game
 
         public void Update()
         {
-            switch (currentScreen)
-            {
-                case "Menu":
-                    if (MenuScreen == null)
-                    {
-                        MenuScreen = new Menu();
-                        menuScreen.Start();
-                    }
-                    menuScreen.Update();
-                    GameplayScreen = null;
-                    VictoryScreen = null;
-                    DefeatScreen = null;
-                    break;
-
-                case "Gameplay":
-                    if(GameplayScreen == null)
-                    {
-                        GameplayScreen = new Gameplay();
-                        GameplayScreen.Start();
-                    }
-                    gameplayScreen.Update();
-                    MenuScreen = null;
-                    break;
-
-                case "Victory":
-                    if (VictoryScreen == null)
-                    {
-                        VictoryScreen = new VictoryScreen();
-                        victoryScreen.Start();
-                    }
-                    victoryScreen.Update();
-                    break;
-
-                case "Defeat":
-                    if (DefeatScreen == null)
-                    {
-                        DefeatScreen = new DefeatScreen();
-                        defeatScreen.Start();
-                    }
-                    defeatScreen.Update();
-                    break;
-
-                default:
-                    break;
-            }
+            currentLevel.Update();
         }
 
         public void Render()
         {
             Engine.Clear();
-            switch (currentScreen)
-            {
-                case "Menu":
-                    menuScreen.Render();
-                    break;
-
-                case "Gameplay":
-                    gameplayScreen.Render();
-                    break;
-
-                case "Victory":
-                    victoryScreen.Render();
-                    break;
-
-                case "Defeat":
-                    defeatScreen.Render();
-                    break;
-
-                default:
-                    break;
-            }
+            currentLevel.Render();
             Engine.Show();
         }
 
         public void ChangeScreen(string newScreen)
         {
             currentScreen = newScreen;
+
+            switch (currentScreen)
+            {
+                case "Menu":
+                    if (MenuScreen == null)
+                    {
+                        MenuScreen = new Menu();
+                    }
+                    currentLevel = MenuScreen;
+                    break;
+
+                case "Gameplay":
+                    if (GameplayScreen == null)
+                    {
+                        GameplayScreen = new Gameplay();
+                    }
+                    currentLevel = GameplayScreen;
+                    break;
+
+                case "Victory":
+                    if (VictoryScreen == null)
+                    {
+                        VictoryScreen = new VictoryScreen();
+                    }
+                    currentLevel = VictoryScreen;
+                    break;
+
+                case "Defeat":
+                    if (DefeatScreen == null)
+                    {
+                        DefeatScreen = new DefeatScreen();
+                    }
+                    currentLevel = DefeatScreen;
+                    break;
+
+                default:
+                    break;
+            }
+
+            currentLevel.Start();
         }
 
         public void StartScreen()
