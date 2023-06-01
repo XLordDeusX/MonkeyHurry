@@ -25,17 +25,13 @@ namespace Game
         private float diffPosX;
 
 
-        private float speedY = 10;
+        private float speedY = 150;
         private float posIniY;
         private float posFinalY;
         private float diffPosY;
 
         private float jumpTime;
         private bool canJump;
-
-        private float velJump = 10;
-        private float velUpControl = 8;
-        private float velDownControl = 5;
 
 
         public Transform Transform => transform;
@@ -53,7 +49,7 @@ namespace Game
             jumpLeft = CreateAnimation("Jump Left", "assets/Animations/Monkey/jumping_left_", 4, 0.1f, false);
             jumpRight = CreateAnimation("Jump Right", "assets/Animations/Monkey/jumping_right_", 4, 0.1f, false);
             dead = CreateAnimation("Dead", "assets/Animations/Monkey/dying_left_", 3, 0.5f, false);
-
+            Random pp = new Random();
             currentAnimation = idleRight;
         }
 
@@ -78,10 +74,9 @@ namespace Game
             currentAnimation.Update();
             if (!canJump)
             {
-                Gravity(new Vector2(0, speedY * velDownControl));  // GRAVEDAD PERPETUA
+                //Salto(new Vector2(0, speedY * 3));  // GRAVEDAD PERPETUA
             }
             JumpReady();
-            Engine.Debug(diffPosY);
         }
 
         public void Render()
@@ -104,7 +99,6 @@ namespace Game
                 return true;
             }
             canJump = false;
-            jumpTime = 0.5f;
             return false;
         }
 
@@ -119,34 +113,24 @@ namespace Game
         public void Salto(Vector2 pos)
         {
             posIniY = transform.position.y;
-            transform.position.y += pos.y * velJump * Time.deltaTime;
+            transform.position.y += pos.y * Time.deltaTime;
             posFinalY = transform.position.y;
             diffPosY = posFinalY - posIniY;
         }
-        public void Gravity(Vector2 pos)
-        {
-            posIniY = transform.position.y;
-            transform.position.y += pos.y * velJump * Time.deltaTime;
-            posFinalY = transform.position.y;
-            diffPosY = posFinalY - posIniY;
-        }
-
 
         private void JumpReady()
         {
             if (Engine.GetKey(Keys.SPACE))
             {
-                Salto(new Vector2(0, -velJump * velUpControl));
-                Gravity(new Vector2(0, velDownControl * Time.deltaTime));
+                Salto(new Vector2(0, -speedY * 5));
+                
                 jumpTime += Time.deltaTime;
 
                 if (jumpTime > 0.4f)
                 {
-                    velUpControl = 0;
+                    Salto(new Vector2(0, speedY * 5));
                 }
             }
-
-
         }
 
         public void ResetValues()

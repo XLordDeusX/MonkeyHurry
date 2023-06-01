@@ -10,8 +10,8 @@ namespace Game
     {
         private Transform transform;
         private Character monkey;
-        private float speedX = 0;
-        private float speedY = 0;
+        private float speedY = 150;
+        private float timerLava;
 
         private Animation lava;
         private Animation currentAnimation;
@@ -42,7 +42,17 @@ namespace Game
         }
         public void Update()
         {
-            Move(new Vector2(speedX, speedY));
+            timerLava += Time.deltaTime;
+            Engine.Debug(timerLava);
+            if(timerLava > 3)
+            {
+                Move(new Vector2(0, -speedY));
+                
+            }
+            else if (timerLava > 10)
+            {
+                Move(new Vector2(0, -speedY));
+            }
             currentAnimation.Update();
             IsBoxColliding();
         }
