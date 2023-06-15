@@ -6,24 +6,16 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public class Lava
+    public class Lava : GameObject
     {
-        private Transform transform;
-        private Character monkey;
-        private float speedY = 150;
-        private float timerLava;
-
         private Animation lava;
-        private Animation currentAnimation;
+        private float speedY = 150;
+        private float timerLava = -5;
+        private float realTimer = -5;
 
-        public float RealHeight => currentAnimation.CurrentFrame.Height * transform.scale.y;
-        public float RealWidth => currentAnimation.CurrentFrame.Width * transform.scale.x;
-
-        public Lava(Vector2 initialPos)
+        public Lava(string p_name, Transform p_tr) : base(p_name,p_tr)
         {
-            transform = new Transform(initialPos, 0, new Vector2(1, 1));
             lava = CreateAnimation("Lava", "assets/Animations/Lava/lava_", 8, 0.06f, true);
-            monkey = Gameplay.monkey;
             currentAnimation = lava;
             currentAnimation.Reset();
         }
@@ -43,39 +35,34 @@ namespace Game
         public void Update()
         {
             timerLava += Time.deltaTime;
-            Engine.Debug(timerLava);
-            if(timerLava > 3)
+            realTimer += Time.deltaTime;
+
+            if(timerLava >= 3 && timerLava <= 7)
             {
                 Move(new Vector2(0, -speedY));
-                
             }
-            else if (timerLava > 10)
+            
+            if (timerLava >= 8 && timerLava <= 12)
             {
-                Move(new Vector2(0, -speedY));
+                Move(new Vector2(0, speedY));
+            }
+
+            if(timerLava >= 14)
+            {
+                timerLava = -5;
             }
             currentAnimation.Update();
-            IsBoxColliding();
+
+            if (realTimer >= 40)
+            {
+                realTimer = -5;
+                GameManager.Instance.ChangeScreen(GameManager.Instance.victory);
+            }
         }
 
         public void Render()
         {
             Engine.Draw(currentAnimation.CurrentFrame, transform.position.x, transform.position.y, transform.scale.x, transform.scale.y, transform.rotation, RealWidth / 2f, RealHeight / 2f);
-        }
-
-        public void IsBoxColliding()
-        {
-            float distanceMonkeyX = Math.Abs(transform.position.x - monkey.Transform.position.x);
-            float distanceMonkeyY = Math.Abs(transform.position.y - monkey.Transform.position.y);
-
-            float sumHalfWidths = RealWidth / 2 + monkey.RealWidth / 2;
-            float sumHalfHeights = RealHeight / 2 + monkey.RealHeight / 2;
-
-            if (distanceMonkeyX <= sumHalfWidths && distanceMonkeyY <= sumHalfHeights)
-            {
-                Engine.Debug("SE MURIO");
-                GameManager.Instance.ChangeScreen(GameManager.Instance.defeat);
-                //monkey.ResetValues();
-            }
         }
 
         public bool IsTouchingPlatforms(Platforms p_platform)
@@ -88,8 +75,6 @@ namespace Game
 
             if (distancePlatformX <= sumHalfWidthsPlat && distancePlatformY <= sumHalfHeightsPlat)
             {
-                Engine.Debug("Colisiona");
-               // p_platform
                 return true;
             }
 

@@ -43,6 +43,7 @@
     <Compile Include="Lava.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="DefeatScreen.cs" />
+    <Compile Include="LifeController.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="Platforms.cs" />
     <Compile Include="Character.cs" />
@@ -170,6 +171,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="assets\Sounds\zip.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\UI\Mono_cabeza_1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Engine.dll">

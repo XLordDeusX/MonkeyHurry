@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Game
 {
     //This part is related to the main character
-    public class Character
+    public class Character : GameObject
     {
         private Animation idleLeft;
         private Animation idleRight;
@@ -18,7 +18,6 @@ namespace Game
         private Animation dead;
         private Animation currentAnimation;
 
-        private Transform transform;
         private float speedX = 150;
         private float posIniX;
         private float posFinalX;
@@ -33,15 +32,16 @@ namespace Game
         private float jumpTime;
         private bool canJump;
 
+        private LifeController monkeyLife = new LifeController(new Vector2(0, 0));
+
+        public event Action OnDie;
 
         public Transform Transform => transform;
         public float RealHeight => currentAnimation.CurrentFrame.Height * transform.scale.y;
         public float RealWidth => currentAnimation.CurrentFrame.Width * transform.scale.x;
 
-        public Character(Vector2 initialPos)
-        {
-            transform = new Transform(initialPos, 0, new Vector2(1.5f, 1.5f));
-
+        public Character(string p_name, Transform p_tr) : base(p_name, p_tr)
+        {   
             idleLeft = CreateAnimation("Idle", "assets/Animations/Monkey/idle_left_", 2, 0, false);
             idleRight = CreateAnimation("Idle", "assets/Animations/Monkey/idle_right_", 2, 0, false);
             runLeft = CreateAnimation("Run Left", "assets/Animations/Monkey/walking_left_", 3, 0.06f, true);
@@ -49,7 +49,6 @@ namespace Game
             jumpLeft = CreateAnimation("Jump Left", "assets/Animations/Monkey/jumping_left_", 4, 0.1f, false);
             jumpRight = CreateAnimation("Jump Right", "assets/Animations/Monkey/jumping_right_", 4, 0.1f, false);
             dead = CreateAnimation("Dead", "assets/Animations/Monkey/dying_left_", 3, 0.5f, false);
-            Random pp = new Random();
             currentAnimation = idleRight;
         }
 
@@ -74,7 +73,7 @@ namespace Game
             currentAnimation.Update();
             if (!canJump)
             {
-                //Salto(new Vector2(0, speedY * 3));  // GRAVEDAD PERPETUA
+                Salto(new Vector2(0, speedY * 3));  // GRAVEDAD PERPETUA
             }
             JumpReady();
         }
@@ -84,18 +83,27 @@ namespace Game
             Engine.Draw(currentAnimation.CurrentFrame, transform.position.x, transform.position.y, transform.scale.x, transform.scale.y, transform.rotation, RealWidth / 2f, RealHeight / 2f);
         }
 
-        public bool IsBoxColliding(Platforms p_platform)
+        public bool IsBoxColliding(GameObject p_obj)
         {
-            float distanceX = Math.Abs(transform.position.x - p_platform.Transform.position.x);
-            float distanceY = Math.Abs(transform.position.y - p_platform.Transform.position.y);
+            float distanceX = Math.Abs(transform.position.x - p_obj.transform.position.x);
+            float distanceY = Math.Abs(transform.position.y - p_obj.transform.position.y);
 
-            float sumHalfWidths = RealWidth / 2 + p_platform.RealWidth / 2;
-            float sumHalfHeights = RealHeight / 2 + p_platform.RealHeight / 2;
+            float sumHalfWidths = RealWidth / 2 + p_obj.RealWidth / 2;
+            float sumHalfHeights = RealHeight / 2 + p_obj.RealHeight / 2;
 
             if (distanceX <= sumHalfWidths && distanceY <= sumHalfHeights)
             {
-                canJump = true;
-                jumpTime = 0;
+                if(p_obj.name == "platform")
+                {
+                    canJump = true;
+                    jumpTime = 0;
+                }
+                else
+                {
+                    monkeyLife.GetDamage();
+                    ResetValues();
+                }
+              
                 return true;
             }
             canJump = false;
@@ -135,7 +143,7 @@ namespace Game
 
         public void ResetValues()
         {
-            transform.position = new Vector2(600, 200);
+            transform.position = new Vector2(600, -200);
         }
 
         public void InputDetection()

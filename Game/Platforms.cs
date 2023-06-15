@@ -6,23 +6,31 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public class Platforms
+    public class Platforms : GameObject
     {
-        private Transform transform;
         private float speedX = 0;
         private float speedY = 0;
 
         private Animation platform;
-        private Animation currentAnimation;
+      
 
 
-        public Transform Transform => transform;
-        public float RealHeight => currentAnimation.CurrentFrame.Height * transform.scale.y;
-        public float RealWidth => currentAnimation.CurrentFrame.Width * transform.scale.x;
-        
-        public Platforms(Vector2 initialPos)
+        public Transform Transform
         {
-            transform = new Transform(initialPos, 0, new Vector2(1,1));
+            get
+            {
+                return transform;
+            }
+
+            set
+            {
+                transform = value;
+            }
+        }
+
+        
+        public Platforms(string p_name, Transform p_transform) : base(p_name,p_transform)
+        {
             platform = CreateAnimation("Platform", "assets/Animations/Platforms/platform_", 2, 0, false);
             currentAnimation = platform;
         }
