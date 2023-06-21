@@ -43,10 +43,12 @@
     <Compile Include="GameManager.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="Gameplay.cs" />
+    <Compile Include="IDamageable.cs" />
+    <Compile Include="IRenderizable.cs" />
     <Compile Include="Lava.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="DefeatScreen.cs" />
-    <Compile Include="LifeController.cs" />
+    <Compile Include="LifeUnits.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="Platforms.cs" />
     <Compile Include="Character.cs" />
@@ -55,6 +57,7 @@
     </Compile>
     <Compile Include="PoolGeneric.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="RenderizablesManager.cs" />
     <Compile Include="Time.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="VictoryScreen.cs" />
