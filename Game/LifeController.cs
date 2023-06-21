@@ -19,7 +19,6 @@ namespace Game
         //public event GetDamageDelegate onGetDamage;
 
         public int Life => life;
-        public Transform Transform => transform;
         public float RealHeight => currentAnimation.CurrentFrame.Height * transform.scale.y;
         public float RealWidth => currentAnimation.CurrentFrame.Width * transform.scale.x;
 
@@ -51,24 +50,54 @@ namespace Game
         public void GetDamage()
         {
             life -= 1;
-            if (Life == 0)
+            lifes.RemoveAt(lifes.Count - 1);
+            
+            if (life == 0)
             {
                 GameManager.Instance.ChangeScreen(GameManager.Instance.defeat);
             }
+
+            /*switch (life)
+            {
+                case 2:
+                    Engine.Debug(lifes.Count);
+                    //lifes.RemoveAt(2);
+                    lifes.Remove(this);
+                    
+                    break;
+
+                case 1:
+                    Engine.Debug(lifes.Count);
+                    //lifes.RemoveAt(1);
+                    lifes.Remove(this);
+                    
+                    break;
+
+                case 0:
+                    lifes.RemoveAt(0);
+                    GameManager.Instance.ChangeScreen(GameManager.Instance.defeat);
+                    
+                    break;
+
+                default:
+                    break;
+            }*/
         }
         public void Render()
         {
             for (int i = 0; i < lifes.Count; i++)
             {
-                lifes[i].transform.position.x = 10 + (10 * i);
+                float offset = 20;
+                lifes[i].transform.position.x = offset + (RealWidth * i);
+
+                Engine.Draw(currentAnimation.CurrentFrame, transform.position.x, transform.position.y, transform.scale.x, transform.scale.y, transform.rotation, RealWidth / 2f, RealHeight / 2f);
             }
-            float offoset = 10;
+            /*float offset = 10;
             foreach(var life in lifes)
             {
-                offoset += 10;
-                Engine.Draw(currentAnimation.CurrentFrame, transform.position.x + offoset, transform.position.y, transform.scale.x, transform.scale.y, transform.rotation, RealWidth / 2f, RealHeight / 2f);
-            }
-            //Engine.Draw(currentAnimation.CurrentFrame, transform.position.x, transform.position.y, transform.scale.x, transform.scale.y, transform.rotation, RealWidth / 2f, RealHeight / 2f);
+                offset += 46;
+                Engine.Draw(currentAnimation.CurrentFrame, transform.position.x + offset, transform.position.y, transform.scale.x, transform.scale.y, transform.rotation, RealWidth / 2f, RealHeight / 2f);
+            }*/
         }
     }
 }

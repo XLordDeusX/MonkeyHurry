@@ -7,21 +7,6 @@ using System.Media;
 
 namespace Game
 {
-    public class GameObject
-    {
-        public string name;
-        public Transform transform;
-        protected Animation currentAnimation;
-
-        public float RealHeight => currentAnimation.CurrentFrame.Height * transform.scale.y;
-        public float RealWidth => currentAnimation.CurrentFrame.Width * transform.scale.x;
-
-        public GameObject(string p_name, Transform p_trns)
-        {
-            name = p_name;
-            transform = p_trns;
-        }
-    }
     public class Gameplay : Level 
     {
         public Time time = new Time();
