@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Game
 {
     //This part is related to the main character
-    public class Character : GameObject, IRenderizable
+    public class Character : GameObject, IRenderizable, IDamageable
     {
         private Animation idleLeft;
         private Animation idleRight;
@@ -31,7 +31,16 @@ namespace Game
         private float jumpTime;
         private bool canJump;
 
-        private LifeController monkeyLife = new LifeController(new Vector2(0, 0));
+        private int lifePoints = 3;
+        private bool isDestroyed = false;
+        public int LifePoints => lifePoints;
+        public bool IsDestroyed
+        {
+            get => isDestroyed;
+            set => isDestroyed = value;
+        }
+        public event OnLifeChanged OnLifeChanged;
+        public event OnDestroyed OnDestroyed;
 
         //public event Action OnDie;
 
@@ -93,7 +102,7 @@ namespace Game
                 }
                 else
                 {
-                    monkeyLife.GetDamage(1);
+                    GetDamage(1);
                     ResetValues();
                 }
               
@@ -146,6 +155,7 @@ namespace Game
                 transform.position.x = 930;
             }
         }
+
         public void ResetValues()
         {
             transform.position = new Vector2(600, -200);
@@ -192,6 +202,24 @@ namespace Game
                 Move(new Vector2(-speedX, 0));
                 currentAnimation = jumpLeft;
             }
+        }
+
+        public void GetDamage(int p_damage)
+        {
+            lifePoints -= p_damage;
+            //OnLifeChanged.Invoke(lifePoints);
+
+            if (lifePoints <= 0)
+            {
+                Destroy();
+                GameManager.Instance.ChangeScreen(GameManager.Instance.defeat);
+            }
+        }
+
+        public void Destroy()
+        {
+            IsDestroyed = true;
+            //OnDestroyed.Invoke(this);
         }
     }
 }

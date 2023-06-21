@@ -6,21 +6,17 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public class LifeController
+    public class LifeUnits
     {
-        private int life = 3;
         private Animation idle;
         private Animation currentAnimation;
         private Transform transform;
-
-        //public delegate void OnGetDamage();
-        //public event OnGetDamage OnGetDamage;
 
         public float RealHeight => currentAnimation.CurrentFrame.Height * transform.scale.y;
         public float RealWidth => currentAnimation.CurrentFrame.Width * transform.scale.x;
 
 
-        public LifeController(Vector2 initialPos)
+        public LifeUnits(Vector2 initialPos)
         {
             transform = new Transform(initialPos, 0, new Vector2(1, 1));
             idle = CreateAnimation("Idle", "assets/UI/Mono_cabeza_", 2, 0, false);
@@ -41,15 +37,6 @@ namespace Game
             return animation;
         }
 
-        public void GetDamage(int damage)
-        {
-            life -= damage;
-
-            if (life == 0)
-            {
-                GameManager.Instance.ChangeScreen(GameManager.Instance.defeat);
-            }
-        }
         public void Render()
         {
             Engine.Draw(currentAnimation.CurrentFrame, transform.position.x, transform.position.y, transform.scale.x, transform.scale.y, transform.rotation, RealWidth / 2f, RealHeight / 2f);
