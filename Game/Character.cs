@@ -22,7 +22,6 @@ namespace Game
         private float posFinalX;
         private float diffPosX;
 
-
         private float speedY = 150;
         private float posIniY;
         private float posFinalY;
@@ -34,7 +33,6 @@ namespace Game
         private LifeController monkeyLife = new LifeController(new Vector2(0, 0));
 
         public event Action OnDie;
-
 
         public Character(string p_name, Transform p_tr) : base(p_name, p_tr)
         {   

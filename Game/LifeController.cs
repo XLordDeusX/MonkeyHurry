@@ -19,7 +19,6 @@ namespace Game
         public float RealHeight => currentAnimation.CurrentFrame.Height * transform.scale.y;
         public float RealWidth => currentAnimation.CurrentFrame.Width * transform.scale.x;
 
-
         public LifeController(Vector2 initialPos)
         {
             transform = new Transform(initialPos, 0, new Vector2(1, 1));

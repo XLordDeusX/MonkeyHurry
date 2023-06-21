@@ -61,7 +61,6 @@ namespace Game
                     continue;
                 }
 
-
                 if (monkey.IsBoxColliding(lava))
                 {
                     for (int i = 1; i < lifes.Count; i++)
@@ -71,12 +70,8 @@ namespace Game
                     break;
                 }
                      
-                   
-                
-
                 if (monkey.IsBoxColliding(platform))
                     break;
-
 
             }
             time.Update();
