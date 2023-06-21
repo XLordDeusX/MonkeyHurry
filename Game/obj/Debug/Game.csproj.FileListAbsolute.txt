@@ -61,18 +61,7 @@ C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets
 C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Lava\lava_6.png
 C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Lava\lava_7.png
 C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Lava\lava_8.png
-C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\dying_1.png
-C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\dying_2.png
-C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\dying_3.png
-C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\idle_1.png
-C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\jumping_1.png
-C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\jumping_2.png
-C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\walking_1.png
-C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\walking_2.png
-C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\walking_3.png
-C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\platform.png
 C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\Engine.dll
-C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\ship.png
 C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\Game.cs
 C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\Game.exe
 C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\Game.pdb
@@ -81,7 +70,6 @@ C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\obj\Debug\Game.c
 C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\obj\Debug\Game.csproj.CoreCompileInputs.cache
 C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\obj\Debug\Game.exe
 C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\obj\Debug\Game.pdb
-C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Sky.png
 C:\Users\Maria Eguenia  Rodri\Desktop\MonkeyHurry_revision\Game\bin\Debug\assets\Animations\Lava\lava_1.png
 C:\Users\Maria Eguenia  Rodri\Desktop\MonkeyHurry_revision\Game\bin\Debug\assets\Animations\Lava\lava_2.png
 C:\Users\Maria Eguenia  Rodri\Desktop\MonkeyHurry_revision\Game\bin\Debug\assets\Animations\Lava\lava_3.png
@@ -265,3 +253,35 @@ C:\Users\Usuario\Documents\GitHub\MonkeyHurry\Game\obj\Debug\Game.csproj.Assembl
 C:\Users\Usuario\Documents\GitHub\MonkeyHurry\Game\obj\Debug\Game.csproj.CoreCompileInputs.cache
 C:\Users\Usuario\Documents\GitHub\MonkeyHurry\Game\obj\Debug\Game.exe
 C:\Users\Usuario\Documents\GitHub\MonkeyHurry\Game\obj\Debug\Game.pdb
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\dying_left_1.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\dying_left_2.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\dying_left_3.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\idle_left_1.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\idle_right_1.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\jumping_left_1.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\jumping_left_3.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\jumping_left_4.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\jumping_left_2.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\jumping_right_1.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\jumping_right_2.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\jumping_right_3.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\jumping_right_4.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\walking_left_1.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\walking_left_2.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\walking_left_3.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\walking_right_1.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\walking_right_2.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\walking_right_3.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Platforms\Initial_Platform.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Platforms\platform_1.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Screens\Game_Over.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Screens\Menu.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Screens\mountain_texture_1.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Screens\You_Won.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Sounds\3.wav
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Sounds\cool pigeon.wav
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Sounds\gameplay.wav
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Sounds\lose.wav
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Sounds\menu.wav
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Sounds\zip.wav
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\UI\Mono_cabeza_1.png

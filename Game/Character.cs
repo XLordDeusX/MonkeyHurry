@@ -161,6 +161,19 @@ namespace Game
             transform.position = new Vector2(600, -200);
         }
 
+        public void Shoot()
+        {
+            var banana = Gameplay.bananaPool.GetObjectsFromPool();
+            if (banana == default)
+            {
+                banana = new Banana(transform.position);
+            }
+            else
+            {
+                banana.Reset(transform.position.x + 1, transform.position.y);
+            }
+        }
+
         public void InputDetection()
         {
             if (diffPosX > 0 && canJump)
@@ -201,6 +214,10 @@ namespace Game
             {
                 Move(new Vector2(-speedX, 0));
                 currentAnimation = jumpLeft;
+            }
+            if (Engine.GetKeyDown(Keys.Q))
+            {
+                Shoot();
             }
         }
 

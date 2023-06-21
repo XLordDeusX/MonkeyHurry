@@ -17,6 +17,8 @@ namespace Game
 
         static List<Platforms> platforms = new List<Platforms>();
         static List<LifeUnits> lifes = new List<LifeUnits>();
+        public static PoolGeneric<Banana> bananaPool = new PoolGeneric<Banana>();
+
 
         readonly int offset = 25;
 
