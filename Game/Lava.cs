@@ -60,11 +60,6 @@ namespace Game
             }
         }
 
-        public void Render()
-        {
-            Engine.Draw(currentAnimation.CurrentFrame, transform.position.x, transform.position.y, transform.scale.x, transform.scale.y, transform.rotation, RealWidth / 2f, RealHeight / 2f);
-        }
-
         public bool IsTouchingPlatforms(Platforms p_platform)
         {
             float distancePlatformX = Math.Abs(transform.position.x - p_platform.Transform.position.x);

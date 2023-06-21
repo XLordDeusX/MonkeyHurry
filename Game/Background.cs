@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public class Platforms : GameObject
+    public class Background : GameObject
     {
-        private Animation platform;
-        private float speedX = 0;
-        private float speedY = 0;
-
+        private Animation background;
         public Transform Transform
         {
             get
@@ -24,11 +21,11 @@ namespace Game
                 transform = value;
             }
         }
-        
-        public Platforms(string p_name, Transform p_transform) : base(p_name,p_transform)
+
+        public Background(string p_name, Transform p_transform) : base(p_name, p_transform)
         {
-            platform = CreateAnimation("Platform", "assets/Animations/Platforms/platform_", 2, 0, false);
-            currentAnimation = platform;
+            background = CreateAnimation("backg", "assets/Screens/mountain_texture_", 2, 0, false);
+            currentAnimation = background;
         }
 
         private Animation CreateAnimation(string p_animationID, string p_path, int p_texturesAmount, float p_animationSpeed, bool p_isLoop)
@@ -44,17 +41,6 @@ namespace Game
 
             return animation;
         }
-        
-        public void Update()
-        {
-            Move(new Vector2(speedX, speedY));
-            currentAnimation.Update();
-        }
 
-        public void Move(Vector2 pos)
-        {
-            transform.position.x += pos.x * Time.deltaTime;
-            transform.position.y += pos.y * Time.deltaTime;
-        }
     }
 }
