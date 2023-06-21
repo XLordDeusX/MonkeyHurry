@@ -17,6 +17,7 @@ namespace Game
 
         static List<Platforms> platforms = new List<Platforms>();
         static List<LifeController> lifes = new List<LifeController>();
+        public static PoolGeneric<Banana> bananaPool = new PoolGeneric<Banana>();
 
         //public event Action<GameObject,GameObject> OnCollisionEnter;
 
@@ -47,6 +48,11 @@ namespace Game
         {
             lava.Update();
             monkey.Update();
+
+            for (int i = 0; i < bananaPool.GetUsedObjs().Count; i++)
+            {
+                bananaPool.GetUsedObjs()[i].Update();
+            }
 
             foreach (var platform in platforms)
             {

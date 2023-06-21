@@ -22,7 +22,6 @@ namespace Game
         private float posFinalX;
         private float diffPosX;
 
-
         private float speedY = 150;
         private float posIniY;
         private float posFinalY;
@@ -32,10 +31,6 @@ namespace Game
         private bool canJump;
 
         private LifeController monkeyLife = new LifeController(new Vector2(0, 0));
-
-        //public event Action OnDie;
-
-
         public Character(string p_name, Transform p_transform) : base(p_name, p_transform)
         {   
             idleLeft = CreateAnimation("Idle", "assets/Animations/Monkey/idle_left_", 2, 0, false);
@@ -137,6 +132,19 @@ namespace Game
             transform.position = new Vector2(600, -200);
         }
 
+        public void Shoot()
+        {
+            var banana = Gameplay.bananaPool.GetObjectsFromPool();
+            if (banana == default)
+            {
+                banana = new Banana(transform.position);
+            }
+            else
+            {
+                banana.Reset(transform.position.x + 1, transform.position.y);
+            }
+        }
+
         public void InputDetection()
         {
             if (diffPosX > 0 && canJump)
@@ -177,6 +185,10 @@ namespace Game
             {
                 Move(new Vector2(-speedX, 0));
                 currentAnimation = jumpLeft;
+            }
+            if (Engine.GetKeyDown(Keys.Q))
+            {
+                Shoot();
             }
         }
     }
