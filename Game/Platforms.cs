@@ -51,6 +51,11 @@ namespace Game
             currentAnimation.Update();
         }
 
+        public void Render()
+        {
+            Engine.Draw(currentAnimation.CurrentFrame, transform.position.x, transform.position.y, transform.scale.x, transform.scale.y, transform.rotation, RealWidth / 2f, RealHeight / 2f);
+        }
+
         public void Move(Vector2 pos)
         {
             transform.position.x += pos.x * Time.deltaTime;

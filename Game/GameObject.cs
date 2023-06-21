@@ -20,10 +20,5 @@ namespace Game
             name = p_name;
             transform = p_transform;
         }
-
-        public void Render()
-        {
-            Engine.Draw(currentAnimation.CurrentFrame, transform.position.x, transform.position.y, transform.scale.x, transform.scale.y, transform.rotation, RealWidth / 2f, RealHeight / 2f);
-        }
     }
 }

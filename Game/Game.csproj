@@ -38,7 +38,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Animation.cs" />
-    <Compile Include="Background.cs" />
     <Compile Include="GameManager.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="Gameplay.cs" />
@@ -152,7 +151,7 @@
     <Content Include="assets\Screens\Menu.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\Screens\mountain_texture_1.png">
+    <Content Include="assets\Screens\mountain_texture.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="assets\Screens\You_Won.png">

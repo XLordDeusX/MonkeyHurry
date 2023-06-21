@@ -12,13 +12,12 @@ namespace Game
         public Time time = new Time();
         public LifeController life = new LifeController(new Vector2(0, 0));
         public static Character monkey;
-        public static Background background;
-        public static Lava lava;
+        public Lava lava;
 
         static List<Platforms> platforms = new List<Platforms>();
         static List<LifeController> lifes = new List<LifeController>();
 
-        //public event Action<GameObject,GameObject> OnCollisionEnter;
+        public event Action<GameObject,GameObject> OnCollisionEnter;
 
         public override void Start() 
         {
@@ -29,8 +28,6 @@ namespace Game
             monkey = new Character("monkey", new Transform(new Vector2(600,-500), 0, new Vector2(1.5f, 1.5f)));
             
             lava = new Lava("lava", new Transform(new Vector2(478, 1150),0,new Vector2(1,1)));
-
-            background = new Background("background", new Transform(new Vector2(500, -1500), 0, new Vector2(1, 1)));
 
             platforms.Add(new Platforms("platform", new Transform(new Vector2(700, 100), 0, new Vector2(1, 1))));
             platforms.Add(new Platforms("platform", new Transform(new Vector2(550, 250), 0, new Vector2(1, 1))));
@@ -72,11 +69,11 @@ namespace Game
                     }
                     break;
                 }
-                  
+                     
                 if (monkey.IsBoxColliding(platform))
                     break;
-            }
 
+            }
             time.Update();
         }
 
@@ -84,7 +81,7 @@ namespace Game
         {
             Engine.Clear();
 
-            background.Render();
+            Engine.Draw("assets/Screens/mountain_texture.png", 0, 0, 1, 1, 0, 0, 0);
 
             foreach (var life in lifes)
             {
