@@ -37,25 +37,28 @@ namespace Game
             timerLava += Time.deltaTime;
             realTimer += Time.deltaTime;
 
-            if(timerLava >= 3 && timerLava <= 7)
+            if(timerLava >= 2.5f && timerLava <= 5.8f)
             {
-                Move(new Vector2(0, -speedY));
+                //Move(new Vector2(0, -speedY));
+                Move(new Vector2(0, -speedY*1.1f));
+
             }
             
-            if (timerLava >= 8 && timerLava <= 12)
+            if (timerLava >= 6.2f && timerLava <= 9.5f)
             {
-                Move(new Vector2(0, speedY));
+                //Move(new Vector2(0, speedY));
+                Move(new Vector2(0, speedY*1.1f));
             }
 
-            if(timerLava >= 14)
+            if(timerLava >= 10.5f)
             {
-                timerLava = -5;
+                timerLava = -1f;
             }
             currentAnimation.Update();
 
-            if (realTimer >= 40)
+            if (realTimer >= 40f)
             {
-                realTimer = -5;
+                realTimer = -5f;
                 GameManager.Instance.ChangeScreen(GameManager.Instance.victory);
             }
         }
