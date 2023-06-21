@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public class Background : GameObject
+    public class Background : GameObject, IRenderizable
     {
         private Animation background;
         public Transform Transform
@@ -26,6 +26,7 @@ namespace Game
         {
             background = CreateAnimation("backg", "assets/Screens/mountain_texture_", 2, 0, false);
             currentAnimation = background;
+            RenderizablesManager.Instance.AddObjet(this);
         }
 
         private Animation CreateAnimation(string p_animationID, string p_path, int p_texturesAmount, float p_animationSpeed, bool p_isLoop)

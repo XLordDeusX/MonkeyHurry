@@ -18,20 +18,20 @@ namespace Game
         static List<Platforms> platforms = new List<Platforms>();
         static List<LifeController> lifes = new List<LifeController>();
 
+        int offset = 25;
+
         //public event Action<GameObject,GameObject> OnCollisionEnter;
 
         public override void Start() 
         {
-            lifes.Add(new LifeController(new Vector2(life.RealWidth, 25)));
-            lifes.Add(new LifeController(new Vector2((life.RealWidth * 2), 25)));
-            lifes.Add(new LifeController(new Vector2((life.RealWidth * 3), 25)));
-
-            monkey = new Character("monkey", new Transform(new Vector2(600,-500), 0, new Vector2(1.5f, 1.5f)));
-            
-            lava = new Lava("lava", new Transform(new Vector2(478, 1150),0,new Vector2(1,1)));
-
             background = new Background("background", new Transform(new Vector2(500, -1500), 0, new Vector2(1, 1)));
 
+            lifes.Add(new LifeController(new Vector2(offset, 25)));
+            lifes.Add(new LifeController(new Vector2(offset + (life.RealWidth), 25)));
+            lifes.Add(new LifeController(new Vector2(offset +(life.RealWidth * 2), 25)));
+
+            monkey = new Character("monkey", new Transform(new Vector2(600, -500), 0, new Vector2(1.5f, 1.5f)));
+            
             platforms.Add(new Platforms("platform", new Transform(new Vector2(850, 500), 0, new Vector2(1, 1))));
             platforms.Add(new Platforms("platform", new Transform(new Vector2(700, 500), 0, new Vector2(1, 1))));
             platforms.Add(new Platforms("platform", new Transform(new Vector2(550, 500), 0, new Vector2(1, 1))));
@@ -44,7 +44,9 @@ namespace Game
             platforms.Add(new Platforms("platform", new Transform(new Vector2(350, 350), 0, new Vector2(1, 1))));
             platforms.Add(new Platforms("platform", new Transform(new Vector2(500, 500), 0, new Vector2(1, 1))));
             platforms.Add(new Platforms("platform", new Transform(new Vector2(700, 650), 0, new Vector2(1, 1))));
-            
+
+            lava = new Lava("lava", new Transform(new Vector2(478, 1150), 0, new Vector2(1, 1)));
+
             GameManager.Instance.soundPlayer = new SoundPlayer("assets/Sounds/gameplay.wav");
             GameManager.Instance.soundPlayer.PlayLooping();
 
@@ -91,21 +93,15 @@ namespace Game
         {
             Engine.Clear();
 
-            background.Render();
+            foreach (var item in RenderizablesManager.Instance.GetObjets())
+            {
+                item.Render();
+            }
 
             foreach (var life in lifes)
             {
                 life.Render();
             }
-            
-            monkey.Render();
-
-            foreach (var platform in platforms)
-            {
-                platform.Render();
-            }
-
-            lava.Render();
 
             Engine.Show();
         }

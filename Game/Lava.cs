@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public class Lava : GameObject
+    public class Lava : GameObject, IRenderizable
     {
         private Animation lava;
-        private float speedY = 0;
+        private float speedY = 150;
         private float timerLava = -5;
         private float realTimer = -5;
 
@@ -17,7 +17,7 @@ namespace Game
         {
             lava = CreateAnimation("Lava", "assets/Animations/Lava/lava_", 8, 0.06f, true);
             currentAnimation = lava;
-            currentAnimation.Reset();
+            RenderizablesManager.Instance.AddObjet(this);
         }
         private Animation CreateAnimation(string p_animationID, string p_path, int p_texturesAmount, float p_animationSpeed, bool p_isLoop)
         {

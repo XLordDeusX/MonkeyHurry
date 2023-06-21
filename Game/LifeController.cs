@@ -13,8 +13,8 @@ namespace Game
         private Animation currentAnimation;
         private Transform transform;
 
-        //public delegate void GetDamageDelegate();
-        //public event GetDamageDelegate onGetDamage;
+        //public delegate void OnGetDamage();
+        //public event OnGetDamage OnGetDamage;
 
         public float RealHeight => currentAnimation.CurrentFrame.Height * transform.scale.y;
         public float RealWidth => currentAnimation.CurrentFrame.Width * transform.scale.x;
