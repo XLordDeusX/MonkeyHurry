@@ -39,6 +39,7 @@
   <ItemGroup>
     <Compile Include="Animation.cs" />
     <Compile Include="GameManager.cs" />
+    <Compile Include="GameObject.cs" />
     <Compile Include="Gameplay.cs" />
     <Compile Include="Lava.cs" />
     <Compile Include="Level.cs" />

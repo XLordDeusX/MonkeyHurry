@@ -16,7 +16,6 @@ namespace Game
         private Animation jumpLeft;
         private Animation jumpRight;
         private Animation dead;
-        private Animation currentAnimation;
 
         private float speedX = 150;
         private float posIniX;
@@ -36,9 +35,6 @@ namespace Game
 
         public event Action OnDie;
 
-        public Transform Transform => transform;
-        public float RealHeight => currentAnimation.CurrentFrame.Height * transform.scale.y;
-        public float RealWidth => currentAnimation.CurrentFrame.Width * transform.scale.x;
 
         public Character(string p_name, Transform p_tr) : base(p_name, p_tr)
         {   
@@ -100,7 +96,7 @@ namespace Game
                 }
                 else
                 {
-                    monkeyLife.GetDamage();
+                    monkeyLife.GetDamage(1);
                     ResetValues();
                 }
               

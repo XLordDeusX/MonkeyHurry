@@ -13,13 +13,9 @@ namespace Game
         private Animation currentAnimation;
         private Transform transform;
 
-        private List<LifeController> lifes = new List<LifeController>();
-
         //public delegate void GetDamageDelegate();
         //public event GetDamageDelegate onGetDamage;
 
-        public int Life => life;
-        public Transform Transform => transform;
         public float RealHeight => currentAnimation.CurrentFrame.Height * transform.scale.y;
         public float RealWidth => currentAnimation.CurrentFrame.Width * transform.scale.x;
 
@@ -28,9 +24,6 @@ namespace Game
         {
             transform = new Transform(initialPos, 0, new Vector2(1, 1));
             idle = CreateAnimation("Idle", "assets/UI/Mono_cabeza_", 2, 0, false);
-            lifes.Add(this);
-            lifes.Add(this);
-            lifes.Add(this);
             currentAnimation = idle;
         }
 
@@ -48,27 +41,18 @@ namespace Game
             return animation;
         }
 
-        public void GetDamage()
+        public void GetDamage(int damage)
         {
-            life -= 1;
-            if (Life == 0)
+            life -= damage;
+
+            if (life == 0)
             {
                 GameManager.Instance.ChangeScreen(GameManager.Instance.defeat);
             }
         }
         public void Render()
         {
-            for (int i = 0; i < lifes.Count; i++)
-            {
-                lifes[i].transform.position.x = 10 + (10 * i);
-            }
-            float offoset = 10;
-            foreach(var life in lifes)
-            {
-                offoset += 10;
-                Engine.Draw(currentAnimation.CurrentFrame, transform.position.x + offoset, transform.position.y, transform.scale.x, transform.scale.y, transform.rotation, RealWidth / 2f, RealHeight / 2f);
-            }
-            //Engine.Draw(currentAnimation.CurrentFrame, transform.position.x, transform.position.y, transform.scale.x, transform.scale.y, transform.rotation, RealWidth / 2f, RealHeight / 2f);
+            Engine.Draw(currentAnimation.CurrentFrame, transform.position.x, transform.position.y, transform.scale.x, transform.scale.y, transform.rotation, RealWidth / 2f, RealHeight / 2f);
         }
     }
 }

@@ -7,39 +7,25 @@ using System.Media;
 
 namespace Game
 {
-    public class GameObject
-    {
-        public string name;
-        public Transform transform;
-        protected Animation currentAnimation;
-
-        public float RealHeight => currentAnimation.CurrentFrame.Height * transform.scale.y;
-        public float RealWidth => currentAnimation.CurrentFrame.Width * transform.scale.x;
-
-        public GameObject(string p_name, Transform p_trns)
-        {
-            name = p_name;
-            transform = p_trns;
-        }
-    }
-    public class Gameplay : Level 
+    public class Gameplay : Level
     {
         public Time time = new Time();
-        public LifeController life; 
+        public LifeController life = new LifeController(new Vector2(0, 0));
         public static Character monkey;
         public Lava lava;
 
         static List<Platforms> platforms = new List<Platforms>();
         static List<LifeController> lifes = new List<LifeController>();
 
-
         public event Action<GameObject,GameObject> OnCollisionEnter;
 
         public override void Start() 
         {
-            lifes.Add(new LifeController(new Vector2(0, 25)));
-            monkey = new Character("monkey", new Transform(new Vector2(600,-500), 0, new Vector2(1.5f, 1.5f)));
+            lifes.Add(new LifeController(new Vector2(life.RealWidth, 25)));
+            lifes.Add(new LifeController(new Vector2((life.RealWidth * 2), 25)));
+            lifes.Add(new LifeController(new Vector2((life.RealWidth * 3), 25)));
 
+            monkey = new Character("monkey", new Transform(new Vector2(600,-500), 0, new Vector2(1.5f, 1.5f)));
             
             lava = new Lava("lava", new Transform(new Vector2(478, 1150),0,new Vector2(1,1)));
 
@@ -51,6 +37,7 @@ namespace Game
             
             GameManager.Instance.soundPlayer = new SoundPlayer("assets/Sounds/gameplay.wav");
             GameManager.Instance.soundPlayer.PlayLooping();
+
             time.InitializedTime();
         }
         public override void Update() 
@@ -76,7 +63,15 @@ namespace Game
 
 
                 if (monkey.IsBoxColliding(lava))
-                     break;
+                {
+                    for (int i = 1; i < lifes.Count; i++)
+                    {
+                        lifes.RemoveAt(lifes.Count - i);
+                    }
+                    break;
+                }
+                     
+                   
                 
 
                 if (monkey.IsBoxColliding(platform))

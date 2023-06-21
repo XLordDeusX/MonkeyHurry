@@ -8,12 +8,9 @@ namespace Game
 {
     public class Platforms : GameObject
     {
+        private Animation platform;
         private float speedX = 0;
         private float speedY = 0;
-
-        private Animation platform;
-      
-
 
         public Transform Transform
         {
@@ -27,13 +24,13 @@ namespace Game
                 transform = value;
             }
         }
-
         
         public Platforms(string p_name, Transform p_transform) : base(p_name,p_transform)
         {
             platform = CreateAnimation("Platform", "assets/Animations/Platforms/platform_", 2, 0, false);
             currentAnimation = platform;
         }
+
         private Animation CreateAnimation(string p_animationID, string p_path, int p_texturesAmount, float p_animationSpeed, bool p_isLoop)
         {
             List<Texture> animationFrames = new List<Texture>();
@@ -47,6 +44,7 @@ namespace Game
 
             return animation;
         }
+        
         public void Update()
         {
             Move(new Vector2(speedX, speedY));
