@@ -22,6 +22,7 @@ namespace Game
         private float posFinalX;
         private float diffPosX;
 
+
         private float speedY = 150;
         private float posIniY;
         private float posFinalY;
@@ -32,9 +33,10 @@ namespace Game
 
         private LifeController monkeyLife = new LifeController(new Vector2(0, 0));
 
-        public event Action OnDie;
+        //public event Action OnDie;
 
-        public Character(string p_name, Transform p_tr) : base(p_name, p_tr)
+
+        public Character(string p_name, Transform p_transform) : base(p_name, p_transform)
         {   
             idleLeft = CreateAnimation("Idle", "assets/Animations/Monkey/idle_left_", 2, 0, false);
             idleRight = CreateAnimation("Idle", "assets/Animations/Monkey/idle_right_", 2, 0, false);
@@ -70,11 +72,6 @@ namespace Game
                 Salto(new Vector2(0, speedY * 3));  // GRAVEDAD PERPETUA
             }
             JumpReady();
-        }
-
-        public void Render()
-        {
-            Engine.Draw(currentAnimation.CurrentFrame, transform.position.x, transform.position.y, transform.scale.x, transform.scale.y, transform.rotation, RealWidth / 2f, RealHeight / 2f);
         }
 
         public bool IsBoxColliding(GameObject p_obj)
