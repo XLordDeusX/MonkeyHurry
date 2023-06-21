@@ -51,6 +51,7 @@
     <Compile Include="Game.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="PoolGeneric.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Time.cs" />
     <Compile Include="Utils.cs" />
