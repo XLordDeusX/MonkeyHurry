@@ -72,6 +72,7 @@ namespace Game
                 Salto(new Vector2(0, speedY * 3));  // GRAVEDAD PERPETUA
             }
             JumpReady();
+            ScreenCrossing();
         }
 
         public bool IsBoxColliding(GameObject p_obj)
@@ -132,6 +133,18 @@ namespace Game
             }
         }
 
+        public void ScreenCrossing()
+        {
+            if(transform.position.x > 950)
+            {
+                transform.position.x = 10;
+            }
+
+            if(transform.position.x < 0)
+            {
+                transform.position.x = 930;
+            }
+        }
         public void ResetValues()
         {
             transform.position = new Vector2(600, -200);

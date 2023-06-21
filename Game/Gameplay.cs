@@ -32,6 +32,13 @@ namespace Game
 
             background = new Background("background", new Transform(new Vector2(500, -1500), 0, new Vector2(1, 1)));
 
+            platforms.Add(new Platforms("platform", new Transform(new Vector2(850, 500), 0, new Vector2(1, 1))));
+            platforms.Add(new Platforms("platform", new Transform(new Vector2(700, 500), 0, new Vector2(1, 1))));
+            platforms.Add(new Platforms("platform", new Transform(new Vector2(550, 500), 0, new Vector2(1, 1))));
+            platforms.Add(new Platforms("platform", new Transform(new Vector2(350, 500), 0, new Vector2(1, 1))));
+            platforms.Add(new Platforms("platform", new Transform(new Vector2(150, 500), 0, new Vector2(1, 1))));
+            platforms.Add(new Platforms("platform", new Transform(new Vector2(0, 500), 0, new Vector2(1, 1))));
+
             platforms.Add(new Platforms("platform", new Transform(new Vector2(700, 100), 0, new Vector2(1, 1))));
             platforms.Add(new Platforms("platform", new Transform(new Vector2(550, 250), 0, new Vector2(1, 1))));
             platforms.Add(new Platforms("platform", new Transform(new Vector2(350, 350), 0, new Vector2(1, 1))));

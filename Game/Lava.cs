@@ -9,7 +9,7 @@ namespace Game
     public class Lava : GameObject
     {
         private Animation lava;
-        private float speedY = 150;
+        private float speedY = 0;
         private float timerLava = -5;
         private float realTimer = -5;
 
