@@ -28,5 +28,15 @@ namespace Game
             }
             return default;
         }
+
+        public void AddNewObj(T p_obj)
+        {
+            m_inUseObjects.Add(p_obj);
+        }
+
+        public List<T> GetUsedObjs()
+        {
+            return new List<T>(m_inUseObjects);
+        }
     }
 }

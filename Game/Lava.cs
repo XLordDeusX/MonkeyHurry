@@ -40,7 +40,6 @@ namespace Game
             if(timerLava >= 2.5f && timerLava <= 5.8f)
             {
                 Move(new Vector2(0, -speedY*1.1f));
-
             }
             
             if (timerLava >= 6.2f && timerLava <= 9.5f)
