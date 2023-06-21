@@ -96,7 +96,7 @@ namespace Game
                 }
                 else
                 {
-                    monkeyLife.GetDamage();
+                    monkeyLife.GetDamage(1);
                     ResetValues();
                 }
               
