@@ -24,7 +24,7 @@ namespace Game
         public override void Render()
         {
             Engine.Clear();
-            Engine.Draw("assets/Screens/You_Won.png", 0, 0, 1.2f, 1.55f, 0, 0, 0);
+            Engine.Draw("assets/Screens/You_Won.png", 0, 0, 1, 1.55f, 0, 50, 0);
             Engine.Show();
         }
     }
