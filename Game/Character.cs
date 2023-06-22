@@ -132,13 +132,13 @@ namespace Game
         {
             if (Engine.GetKey(Keys.SPACE))
             {
-                Salto(new Vector2(0, -speedY * 5));
+                Salto(new Vector2(0, -speedY * 6.5f));
                 
                 jumpTime += Time.deltaTime;
 
                 if (jumpTime > 0.4f)
                 {
-                    Salto(new Vector2(0, speedY * 5));
+                    Salto(new Vector2(0, speedY * 6.5f));
                 }
             }
         }

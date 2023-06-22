@@ -33,9 +33,10 @@ namespace Game
             monkey = new Character("monkey", new Transform(new Vector2(600, -500), 0, new Vector2(1.5f, 1.5f)));
 
             platforms.Add(new Platforms("platform", new Transform(new Vector2(700, 100), 0, new Vector2(1, 1))));
-            platforms.Add(new Platforms("platform", new Transform(new Vector2(550, 250), 0, new Vector2(1, 1))));
-            platforms.Add(new Platforms("platform", new Transform(new Vector2(350, 350), 0, new Vector2(1, 1))));
-            platforms.Add(new Platforms("platform", new Transform(new Vector2(500, 500), 0, new Vector2(1, 1))));
+            platforms.Add(new Platforms("platform", new Transform(new Vector2(600, 220), 0, new Vector2(1, 1))));
+            platforms.Add(new Platforms("platform", new Transform(new Vector2(550, 340), 0, new Vector2(1, 1))));
+            platforms.Add(new Platforms("platform", new Transform(new Vector2(350, 460), 0, new Vector2(1, 1))));
+            platforms.Add(new Platforms("platform", new Transform(new Vector2(500, 580), 0, new Vector2(1, 1))));
             platforms.Add(new Platforms("platform", new Transform(new Vector2(700, 650), 0, new Vector2(1, 1))));
 
             lava = new Lava("lava", new Transform(new Vector2(478, 1150), 0, new Vector2(1, 1)));
@@ -52,19 +53,18 @@ namespace Game
 
             foreach (var platform in platforms)
             {
-                platform.Update();
-            }
-
-            foreach (var platform in platforms)
-            {
                 if (lava.IsTouchingPlatforms(platform))
                 {
                     Random platformPosX = new Random();
                     var posX = platformPosX.Next(100, 800);
                     platform.transform.position.x = posX;
-                    
+
                     continue;
                 }
+            }
+
+            foreach (var platform in platforms)
+            {
 
                 if (monkey.IsBoxColliding(lava))
                 {
@@ -79,6 +79,12 @@ namespace Game
                     break;
             }
 
+            if(lava.timerLava > 11)
+            {
+                monkey.transform.position.x = platforms[5].transform.position.x;
+                monkey.transform.position.y = platforms[5].transform.position.y - 50;
+            }
+            
             time.Update();
         }
 

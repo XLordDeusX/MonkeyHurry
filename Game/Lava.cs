@@ -9,8 +9,8 @@ namespace Game
     public class Lava : GameObject, IRenderizable
     {
         private Animation lava;
-        private float speedY = 150;
-        private float timerLava = -5;
+        private float speedY = 165;
+        public float timerLava = -5;
         private float realTimer = -5;
 
         public Lava(string p_name, Transform p_transform) : base(p_name,p_transform)
@@ -37,25 +37,24 @@ namespace Game
             timerLava += Time.deltaTime;
             realTimer += Time.deltaTime;
 
-            if(timerLava >= 3 && timerLava <= 7)
+            if(timerLava >= 2.5f && timerLava <= 5.8f)
             {
                 Move(new Vector2(0, -speedY));
             }
             
-            if (timerLava >= 8 && timerLava <= 12)
+            if (timerLava >= 6.2f && timerLava <= 9.5f)
             {
                 Move(new Vector2(0, speedY));
             }
 
-            if(timerLava >= 14)
+            if(timerLava >= 10.5f)
             {
-                timerLava = -5;
+                timerLava = -1;
             }
             currentAnimation.Update();
 
             if (realTimer >= 40)
             {
-                realTimer = -5;
                 GameManager.Instance.ChangeScreen(GameManager.Instance.victory);
             }
         }
