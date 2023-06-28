@@ -216,3 +216,4 @@ C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\Game.pdb
 C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\obj\Debug\Game.csproj.CoreCompileInputs.cache
 C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\obj\Debug\Game.exe
 C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\obj\Debug\Game.pdb
+C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\obj\Debug\Game.csproj.AssemblyReference.cache

@@ -43,6 +43,7 @@
     <Compile Include="GameManager.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="Gameplay.cs" />
+    <Compile Include="GenericPool.cs" />
     <Compile Include="IDamageable.cs" />
     <Compile Include="IRenderizable.cs" />
     <Compile Include="Lava.cs" />
