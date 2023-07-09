@@ -32,12 +32,16 @@ namespace Game
 
             monkey = new Character("monkey", new Transform(new Vector2(600, -500), 0, new Vector2(1.5f, 1.5f)));
 
-            platforms.Add(new Platforms("platform", new Transform(new Vector2(700, 100), 0, new Vector2(1, 1))));
+            platforms.Add(PlatformFactory.CreatePlatforms(PlatformType.Big, new Vector2(700, 100)));
+            platforms.Add(PlatformFactory.CreatePlatforms(PlatformType.Medium, new Vector2(350, 460)));
+            platforms.Add(PlatformFactory.CreatePlatforms(PlatformType.Small, new Vector2(700, 650)));
+
+            /*platforms.Add(new Platforms("platform", new Transform(new Vector2(700, 100), 0, new Vector2(1, 1))));
             platforms.Add(new Platforms("platform", new Transform(new Vector2(600, 220), 0, new Vector2(1, 1))));
             platforms.Add(new Platforms("platform", new Transform(new Vector2(550, 340), 0, new Vector2(1, 1))));
             platforms.Add(new Platforms("platform", new Transform(new Vector2(350, 460), 0, new Vector2(1, 1))));
             platforms.Add(new Platforms("platform", new Transform(new Vector2(500, 580), 0, new Vector2(1, 1))));
-            platforms.Add(new Platforms("platform", new Transform(new Vector2(700, 650), 0, new Vector2(1, 1))));
+            platforms.Add(new Platforms("platform", new Transform(new Vector2(700, 650), 0, new Vector2(1, 1))));*/
 
             lava = new Lava("lava", new Transform(new Vector2(478, 1150), 0, new Vector2(1, 1)));
 
