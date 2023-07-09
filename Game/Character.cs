@@ -15,13 +15,12 @@ namespace Game
         private Animation runRight;
         private Animation jumpLeft;
         private Animation jumpRight;
-        private Animation dead;
+        //private Animation dead;
 
         private float speedX = 150;
         private float posIniX;
         private float posFinalX;
         private float diffPosX;
-
 
         private float speedY = 150;
         private float posIniY;
@@ -53,7 +52,7 @@ namespace Game
             runRight = CreateAnimation("Run Right", "assets/Animations/Monkey/walking_right_", 3, 0.06f, true);
             jumpLeft = CreateAnimation("Jump Left", "assets/Animations/Monkey/jumping_left_", 4, 0.1f, false);
             jumpRight = CreateAnimation("Jump Right", "assets/Animations/Monkey/jumping_right_", 4, 0.1f, false);
-            dead = CreateAnimation("Dead", "assets/Animations/Monkey/dying_left_", 3, 0.5f, false);
+            //dead = CreateAnimation("Dead", "assets/Animations/Monkey/dying_left_", 3, 0.5f, false);
             currentAnimation = idleRight;
             RenderizablesManager.Instance.AddObjet(this);
         }
