@@ -14,6 +14,7 @@ namespace Game
         {
             idle = CreateAnimation("Idle", "assets/UI/Mono_cabeza_", 2, 0, false);
             currentAnimation = idle;
+            //RenderizablesManager.Instance.AddObjet(this);
         }
 
         private Animation CreateAnimation(string p_animationID, string p_path, int p_texturesAmount, float p_animationSpeed, bool p_isLoop)

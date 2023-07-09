@@ -30,6 +30,7 @@ namespace Game
         private float jumpTime;
         private bool canJump;
 
+        private int hitDamage = 1;
         private int lifePoints = 3;
         private bool isDestroyed = false;
         public int LifePoints => lifePoints;
@@ -101,15 +102,26 @@ namespace Game
                 }
                 else
                 {
-                    GetDamage(1);
-                    ResetValues();
+                    canJump = false;
                 }
               
                 return true;
             }
-            canJump = false;
+
+            if (distanceX <= sumHalfWidths && distanceY <= sumHalfHeights)
+            {
+                if (p_obj.name == "lava")
+                {
+                    GetDamage(hitDamage);
+                    ResetValues();
+                }
+
+                return true;
+            }
+
             return false;
         }
+
 
         public void Move(Vector2 pos)
         {
