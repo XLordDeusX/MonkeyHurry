@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Game
 {
     //This part is related to the main character
-    public class Character : GameObject, IRenderizable, IDamageable
+    public class Character : GameObject, IDamageable
     {
         private Animation idleLeft;
         private Animation idleRight;

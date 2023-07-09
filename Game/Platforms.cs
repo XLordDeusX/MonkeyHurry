@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public class Platforms : GameObject, IRenderizable
+    public class Platforms : GameObject
     {
         private Animation platform;
         private float speedX = 0;
