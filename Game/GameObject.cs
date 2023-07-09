@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public class GameObject
+    public class GameObject : IRenderizable
     {
         public string name;
         public Transform transform;

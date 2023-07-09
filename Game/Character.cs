@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Game
 {
     //This part is related to the main character
-    public class Character : GameObject
+    public class Character : GameObject, IDamageable
     {
         private Animation idleLeft;
         private Animation idleRight;
@@ -22,6 +22,7 @@ namespace Game
         private float posFinalX;
         private float diffPosX;
 
+
         private float speedY = 150;
         private float posIniY;
         private float posFinalY;
@@ -30,7 +31,20 @@ namespace Game
         private float jumpTime;
         private bool canJump;
 
-        private LifeController monkeyLife = new LifeController(new Vector2(0, 0));
+        private int lifePoints = 3;
+        private bool isDestroyed = false;
+        public int LifePoints => lifePoints;
+        public bool IsDestroyed
+        {
+            get => isDestroyed;
+            set => isDestroyed = value;
+        }
+        public event OnLifeChanged OnLifeChanged;
+        public event OnDestroyed OnDestroyed;
+
+        //public event Action OnDie;
+
+
         public Character(string p_name, Transform p_transform) : base(p_name, p_transform)
         {   
             idleLeft = CreateAnimation("Idle", "assets/Animations/Monkey/idle_left_", 2, 0, false);
@@ -41,6 +55,7 @@ namespace Game
             jumpRight = CreateAnimation("Jump Right", "assets/Animations/Monkey/jumping_right_", 4, 0.1f, false);
             dead = CreateAnimation("Dead", "assets/Animations/Monkey/dying_left_", 3, 0.5f, false);
             currentAnimation = idleRight;
+            RenderizablesManager.Instance.AddObjet(this);
         }
 
         private Animation CreateAnimation(string p_animationID, string p_path, int p_texturesAmount, float p_animationSpeed, bool p_isLoop)
@@ -67,6 +82,7 @@ namespace Game
                 Salto(new Vector2(0, speedY * 3));  // GRAVEDAD PERPETUA
             }
             JumpReady();
+            ScreenCrossing();
         }
 
         public bool IsBoxColliding(GameObject p_obj)
@@ -86,7 +102,7 @@ namespace Game
                 }
                 else
                 {
-                    monkeyLife.GetDamage(1);
+                    GetDamage(1);
                     ResetValues();
                 }
               
@@ -116,33 +132,33 @@ namespace Game
         {
             if (Engine.GetKey(Keys.SPACE))
             {
-                Salto(new Vector2(0, -speedY * 5));
+                Salto(new Vector2(0, -speedY * 6.5f));
                 
                 jumpTime += Time.deltaTime;
 
                 if (jumpTime > 0.4f)
                 {
-                    Salto(new Vector2(0, speedY * 5));
+                    Salto(new Vector2(0, speedY * 6.5f));
                 }
+            }
+        }
+
+        public void ScreenCrossing()
+        {
+            if(transform.position.x > 950)
+            {
+                transform.position.x = 10;
+            }
+
+            if(transform.position.x < 0)
+            {
+                transform.position.x = 930;
             }
         }
 
         public void ResetValues()
         {
             transform.position = new Vector2(600, -200);
-        }
-
-        public void Shoot()
-        {
-            var banana = Gameplay.bananaPool.GetObjectsFromPool();
-            if (banana == default)
-            {
-                banana = new Banana(transform.position);
-            }
-            else
-            {
-                banana.Reset(transform.position.x + 1, transform.position.y);
-            }
         }
 
         public void InputDetection()
@@ -186,10 +202,24 @@ namespace Game
                 Move(new Vector2(-speedX, 0));
                 currentAnimation = jumpLeft;
             }
-            if (Engine.GetKeyDown(Keys.Q))
+        }
+
+        public void GetDamage(int p_damage)
+        {
+            lifePoints -= p_damage;
+            //OnLifeChanged.Invoke(lifePoints);
+
+            if (lifePoints <= 0)
             {
-                Shoot();
+                Destroy();
+                GameManager.Instance.ChangeScreen(GameManager.Instance.defeat);
             }
+        }
+
+        public void Destroy()
+        {
+            IsDestroyed = true;
+            //OnDestroyed.Invoke(this);
         }
     }
 }

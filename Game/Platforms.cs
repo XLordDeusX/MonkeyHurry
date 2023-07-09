@@ -29,6 +29,7 @@ namespace Game
         {
             platform = CreateAnimation("Platform", "assets/Animations/Platforms/platform_", 2, 0, false);
             currentAnimation = platform;
+            RenderizablesManager.Instance.AddObjet(this);
         }
 
         private Animation CreateAnimation(string p_animationID, string p_path, int p_texturesAmount, float p_animationSpeed, bool p_isLoop)

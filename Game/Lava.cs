@@ -9,15 +9,15 @@ namespace Game
     public class Lava : GameObject
     {
         private Animation lava;
-        private float speedY = 150;
-        private float timerLava = -5;
+        private float speedY = 165;
+        public float timerLava = -5;
         private float realTimer = -5;
 
-        public Lava(string p_name, Transform p_tr) : base(p_name,p_tr)
+        public Lava(string p_name, Transform p_transform) : base(p_name,p_transform)
         {
             lava = CreateAnimation("Lava", "assets/Animations/Lava/lava_", 8, 0.06f, true);
             currentAnimation = lava;
-            currentAnimation.Reset();
+            RenderizablesManager.Instance.AddObjet(this);
         }
         private Animation CreateAnimation(string p_animationID, string p_path, int p_texturesAmount, float p_animationSpeed, bool p_isLoop)
         {
@@ -39,23 +39,22 @@ namespace Game
 
             if(timerLava >= 2.5f && timerLava <= 5.8f)
             {
-                Move(new Vector2(0, -speedY*1.1f));
+                Move(new Vector2(0, -speedY));
             }
             
             if (timerLava >= 6.2f && timerLava <= 9.5f)
             {
-                Move(new Vector2(0, speedY*1.1f));
+                Move(new Vector2(0, speedY));
             }
 
             if(timerLava >= 10.5f)
             {
-                timerLava = -1f;
+                timerLava = -1;
             }
             currentAnimation.Update();
 
-            if (realTimer >= 40f)
+            if (realTimer >= 40)
             {
-                realTimer = -5f;
                 GameManager.Instance.ChangeScreen(GameManager.Instance.victory);
             }
         }
