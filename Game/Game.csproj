@@ -38,19 +38,32 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Animation.cs" />
-    <Compile Include="RendereableObject.cs" />
-    <Compile Include="Structures.cs" />
+    <Compile Include="Background.cs" />
+    <Compile Include="Banana.cs" />
+    <Compile Include="BoostFactory.cs" />
+    <Compile Include="GameManager.cs" />
+    <Compile Include="GameObject.cs" />
+    <Compile Include="Gameplay.cs" />
+    <Compile Include="GenericPool.cs" />
+    <Compile Include="IDamageable.cs" />
+    <Compile Include="IRenderizable.cs" />
+    <Compile Include="Lava.cs" />
+    <Compile Include="Level.cs" />
+    <Compile Include="DefeatScreen.cs" />
+    <Compile Include="LifeUnits.cs" />
+    <Compile Include="Menu.cs" />
+    <Compile Include="Platforms.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="Game.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="RenderizablesManager.cs" />
+    <Compile Include="Time.cs" />
     <Compile Include="Utils.cs" />
+    <Compile Include="VictoryScreen.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="assets\Animations\Initial_Platform.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="assets\Animations\Lava\lava_1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -75,43 +88,106 @@
     <Content Include="assets\Animations\Lava\lava_8.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\Animations\Monkey\dying_1.png">
+    <Content Include="assets\Animations\Monkey\dying_left_1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\Animations\Monkey\dying_2.png">
+    <Content Include="assets\Animations\Monkey\dying_left_2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\Animations\Monkey\dying_3.png">
+    <Content Include="assets\Animations\Monkey\dying_left_3.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\Animations\Monkey\idle_1.png">
+    <Content Include="assets\Animations\Monkey\idle_left_1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\Animations\Monkey\jumping_1.png">
+    <Content Include="assets\Animations\Monkey\idle_right_1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\Animations\Monkey\jumping_2.png">
+    <Content Include="assets\Animations\Monkey\jumping_left_1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\Animations\Monkey\walking_1.png">
+    <Content Include="assets\Animations\Monkey\jumping_left_3.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\Animations\Monkey\walking_2.png">
+    <Content Include="assets\Animations\Monkey\jumping_left_4.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\Animations\Monkey\walking_3.png">
+    <Content Include="assets\Animations\Monkey\jumping_left_2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\Animations\platform.png">
+    <Content Include="assets\Animations\Monkey\jumping_right_1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\Animations\Sky.png">
+    <Content Include="assets\Animations\Monkey\jumping_right_2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Animations\Monkey\jumping_right_3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Animations\Monkey\jumping_right_4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Animations\Monkey\walking_left_1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Animations\Monkey\walking_left_2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Animations\Monkey\walking_left_3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Animations\Monkey\walking_right_1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Animations\Monkey\walking_right_2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Animations\Monkey\walking_right_3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Animations\Platforms\Initial_Platform.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Animations\Platforms\platform_1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Items\banana.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Screens\Game_Over.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Screens\Menu.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Screens\mountain_texture_1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Screens\You_Won.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Sounds\3.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Sounds\cool pigeon.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Sounds\gameplay.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Sounds\lose.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Sounds\menu.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Sounds\zip.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\UI\Mono_cabeza_1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Engine.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ship.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

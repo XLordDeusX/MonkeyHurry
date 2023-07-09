@@ -1,46 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Game
 {
-    public class Animation
-    {
-        private bool isLoop;
-        private string Id;
-        private float speed;
-        private float currentAnimationTime;
-        private int currentFrame = 0;
-        private List<Texture> frames = new List<Texture>();
+	public class Animation
+	{
+		private bool isLoop;
+		private string id;
+		private float speed = 0;
+		private float currentTime = 0;
+		private int currentFrame = 0;
+        private List<Texture> frames;
 
-        //Starts from the initial frame
-        public Texture CurrentTexture => frames[currentFrame];
-
-        public Animation(string Id,float speed, List<Texture> frames = null, bool isLoop = true)
+		public Texture CurrentFrame => frames[currentFrame];
+		public Animation(string id, float speed, List<Texture> frames, bool isLoop = true)
         {
-            this.Id = Id;
-            this.speed = speed;
-            this.isLoop = isLoop;
+			this.id = id;
+			this.speed = speed;
+			this.isLoop = isLoop;
             this.frames = frames;
-            this.currentFrame = 0;
         }
+
         public void Reset()
         {
             this.currentFrame = 0;
-            this.currentAnimationTime = 0;
+            this.currentTime = 0;
         }
+
         public void Update()
         {
-            currentAnimationTime += Program.deltaTime;
+            currentTime += Time.deltaTime;
 
-            if(currentAnimationTime >= speed)
+            if (currentTime >= speed)
             {
-                currentAnimationTime = 0f;
-                currentAnimationTime++;
+                currentFrame++;
+                currentTime = 0;
 
-                if(currentFrame >= frames.Count)
+                if (currentFrame >= frames.Count)
                 {
                     if (isLoop)
                     {
@@ -53,5 +49,6 @@ namespace Game
                 }
             }
         }
-    }
+	}
 }
+
