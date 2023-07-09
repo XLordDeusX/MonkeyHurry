@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Game
 {
     //This part is related to the main character
-    public class Character
+    public class Character : GameObject, IDamageable
     {
         private Animation idleLeft;
         private Animation idleRight;
@@ -16,30 +16,37 @@ namespace Game
         private Animation jumpLeft;
         private Animation jumpRight;
         private Animation dead;
-        private Animation currentAnimation;
 
-        private Transform transform;
-        private Platforms platform;
         private float speedX = 150;
+        private float posIniX;
+        private float posFinalX;
+        private float diffPosX;
+
+
         private float speedY = 150;
-        private float posIni;
-        private float posFinal;
-        private float diffPos;
+        private float posIniY;
+        private float posFinalY;
+        private float diffPosY;
 
         private float jumpTime;
         private bool canJump;
 
-
-        public Transform Transform => transform;
-        public float RealHeight => currentAnimation.CurrentFrame.Height * transform.scale.y;
-        public float RealWidth => currentAnimation.CurrentFrame.Width * transform.scale.x;
-
-        //private bool is_grounded = true;
-
-        public Character(Vector2 initialPos)
+        private int lifePoints = 3;
+        private bool isDestroyed = false;
+        public int LifePoints => lifePoints;
+        public bool IsDestroyed
         {
-            transform = new Transform(initialPos, 0, new Vector2(1.5f, 1.5f));
+            get => isDestroyed;
+            set => isDestroyed = value;
+        }
+        public event OnLifeChanged OnLifeChanged;
+        public event OnDestroyed OnDestroyed;
 
+        //public event Action OnDie;
+
+
+        public Character(string p_name, Transform p_transform) : base(p_name, p_transform)
+        {   
             idleLeft = CreateAnimation("Idle", "assets/Animations/Monkey/idle_left_", 2, 0, false);
             idleRight = CreateAnimation("Idle", "assets/Animations/Monkey/idle_right_", 2, 0, false);
             runLeft = CreateAnimation("Run Left", "assets/Animations/Monkey/walking_left_", 3, 0.06f, true);
@@ -47,10 +54,8 @@ namespace Game
             jumpLeft = CreateAnimation("Jump Left", "assets/Animations/Monkey/jumping_left_", 4, 0.1f, false);
             jumpRight = CreateAnimation("Jump Right", "assets/Animations/Monkey/jumping_right_", 4, 0.1f, false);
             dead = CreateAnimation("Dead", "assets/Animations/Monkey/dying_left_", 3, 0.5f, false);
-
             currentAnimation = idleRight;
-            //platform = Gameplay.platform;
-            //currentAnimation.Reset();
+            RenderizablesManager.Instance.AddObjet(this);
         }
 
         private Animation CreateAnimation(string p_animationID, string p_path, int p_texturesAmount, float p_animationSpeed, bool p_isLoop)
@@ -69,156 +74,152 @@ namespace Game
 
         public void Update()
         {
-            if (diffPos > 0)
-            {
-                currentAnimation = idleRight;
-            }
-
-            if (diffPos < 0)
-            {
-                currentAnimation = idleLeft;
-            }
-
-            if (Engine.GetKey(Keys.D))
-            {
-                Move(new Vector2(speedX, 0));
-                currentAnimation = runRight;
-            }
-
-            if (Engine.GetKey(Keys.A))
-            {
-                Move(new Vector2(-speedX, 0));
-                currentAnimation = runLeft;
-            }
-
-            /*if (Engine.GetKey(Keys.W))
-            {
-                tiempoAire += Time.deltaTime;
-
-                Salto(new Vector2(0, -speedY * 2));
-
-                if(tiempoAire >= 1)
-                {
-                    Salto(new Vector2(0, speedY * 2));
-                }
-                //Move(new Vector2(0, -speedY));
-                currentAnimation = jumpLeft;
-            }*/
-
-            if (Engine.GetKey(Keys.S))
-            {
-                Move(new Vector2(0, speedY));
-                currentAnimation = jumpLeft;
-            }
+            InputDetection();
 
             currentAnimation.Update();
             if (!canJump)
             {
-                Salto(new Vector2(0, speedY * 2));  // GRAVEDAD PERPETUA
+                Salto(new Vector2(0, speedY * 3));  // GRAVEDAD PERPETUA
             }
-                
             JumpReady();
-
+            ScreenCrossing();
         }
 
-        public void Render()
+        public bool IsBoxColliding(GameObject p_obj)
         {
-            Engine.Draw(currentAnimation.CurrentFrame, transform.position.x, transform.position.y, transform.scale.x, transform.scale.y, transform.rotation, RealWidth / 2f, RealHeight / 2f);
-        }
+            float distanceX = Math.Abs(transform.position.x - p_obj.transform.position.x);
+            float distanceY = Math.Abs(transform.position.y - p_obj.transform.position.y);
 
-        public bool IsBoxColliding(Platforms p_platform)
-        {
-            float distanceX = Math.Abs(transform.position.x - p_platform.Transform.position.x);
-            float distanceY = Math.Abs(transform.position.y - p_platform.Transform.position.y);
-
-            float sumHalfWidths = RealWidth / 2 + p_platform.RealWidth / 2;
-            float sumHalfHeights = RealHeight / 2 + p_platform.RealHeight / 2;
+            float sumHalfWidths = RealWidth / 2 + p_obj.RealWidth / 2;
+            float sumHalfHeights = RealHeight / 2 + p_obj.RealHeight / 2;
 
             if (distanceX <= sumHalfWidths && distanceY <= sumHalfHeights)
             {
-                canJump = true;
+                if(p_obj.name == "platform")
+                {
+                    canJump = true;
+                    jumpTime = 0;
+                }
+                else
+                {
+                    GetDamage(1);
+                    ResetValues();
+                }
+              
                 return true;
             }
             canJump = false;
             return false;
         }
+
         public void Move(Vector2 pos)
         {
-            posIni = transform.position.x;
+            posIniX = transform.position.x;
             transform.position.x += pos.x * Time.deltaTime;
-            posFinal = transform.position.x;
-            diffPos = posFinal - posIni;
-            transform.position.y += pos.y * Time.deltaTime;
+            posFinalX = transform.position.x;
+            diffPosX = posFinalX - posIniX;
         }
 
         public void Salto(Vector2 pos)
         {
+            posIniY = transform.position.y;
             transform.position.y += pos.y * Time.deltaTime;
+            posFinalY = transform.position.y;
+            diffPosY = posFinalY - posIniY;
         }
 
         private void JumpReady()
         {
             if (Engine.GetKey(Keys.SPACE))
             {
-                Salto(new Vector2(0, -speedY * 3));
+                Salto(new Vector2(0, -speedY * 6.5f));
+                
                 jumpTime += Time.deltaTime;
 
-                if (jumpTime > 1)
+                if (jumpTime > 0.4f)
                 {
-                    Salto(new Vector2(0, speedY * 3));
+                    Salto(new Vector2(0, speedY * 6.5f));
                 }
             }
-            else
+        }
+
+        public void ScreenCrossing()
+        {
+            if(transform.position.x > 950)
             {
-                jumpTime = 0;
+                transform.position.x = 10;
             }
-            
+
+            if(transform.position.x < 0)
+            {
+                transform.position.x = 930;
+            }
         }
 
         public void ResetValues()
         {
-            transform.position = new Vector2(600, 200);
+            transform.position = new Vector2(600, -200);
         }
 
-        /*public void InputDetection()
+        public void InputDetection()
         {
-            if (diffPos > 0 && is_grounded)
+            if (diffPosX > 0 && canJump)
             {
                 currentAnimation = idleRight;
             }
+            else if( diffPosX > 0 && !canJump)
+            {
+                currentAnimation = jumpRight;
+            }
 
-            if (diffPos < 0 && is_grounded)
+            if (diffPosX < 0 && canJump)
             {
                 currentAnimation = idleLeft;
             }
+            else if(diffPosX < 0 && !canJump)
+            {
+                currentAnimation = jumpLeft;
+            }
 
-            if (Engine.GetKey(Keys.D))
+            if (Engine.GetKey(Keys.D) && canJump)
             {
                 Move(new Vector2(speedX, 0));
                 currentAnimation = runRight;
             }
+            else if(Engine.GetKey(Keys.D) && !canJump)
+            {
+                Move(new Vector2(speedX, 0));
+                currentAnimation = jumpRight;
+            }
 
-            if (Engine.GetKey(Keys.A))
+            if (Engine.GetKey(Keys.A) && canJump)
             {
                 Move(new Vector2(-speedX, 0));
                 currentAnimation = runLeft;
             }
-
-            if (Engine.GetKey(Keys.W))
+            else if(Engine.GetKey(Keys.A) && !canJump)
             {
-                Move(new Vector2(0, -speedY));
-                is_grounded = false;
-
-                if (diffPos > 0 && is_grounded == false)
-                {
-                    currentAnimation = jumpRight;
-                }
-
-                if (diffPos < 0 && is_grounded == false)
-                {
-                    currentAnimation = jumpLeft;
-                }
+                Move(new Vector2(-speedX, 0));
+                currentAnimation = jumpLeft;
             }
-        }*/
+        }
+
+        public void GetDamage(int p_damage)
+        {
+            lifePoints -= p_damage;
+            //OnLifeChanged.Invoke(lifePoints);
+
+            if (lifePoints <= 0)
+            {
+                Destroy();
+                GameManager.Instance.ChangeScreen(GameManager.Instance.defeat);
+            }
+        }
+
+        public void Destroy()
+        {
+            IsDestroyed = true;
+            //OnDestroyed.Invoke(this);
+        }
     }
 }

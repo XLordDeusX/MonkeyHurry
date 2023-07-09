@@ -6,26 +6,18 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public class Lava
+    public class Lava : GameObject
     {
-        private Transform transform;
-        private Character monkey;
-        private float speedX = 0;
-        private float speedY = 0;
-
         private Animation lava;
-        private Animation currentAnimation;
+        private float speedY = 165;
+        public float timerLava = -5;
+        private float realTimer = -5;
 
-        public float RealHeight => currentAnimation.CurrentFrame.Height * transform.scale.y;
-        public float RealWidth => currentAnimation.CurrentFrame.Width * transform.scale.x;
-
-        public Lava(Vector2 initialPos)
+        public Lava(string p_name, Transform p_transform) : base(p_name,p_transform)
         {
-            transform = new Transform(initialPos, 0, new Vector2(1, 1));
             lava = CreateAnimation("Lava", "assets/Animations/Lava/lava_", 8, 0.06f, true);
-            monkey = Gameplay.monkey;
             currentAnimation = lava;
-            currentAnimation.Reset();
+            RenderizablesManager.Instance.AddObjet(this);
         }
         private Animation CreateAnimation(string p_animationID, string p_path, int p_texturesAmount, float p_animationSpeed, bool p_isLoop)
         {
@@ -42,41 +34,45 @@ namespace Game
         }
         public void Update()
         {
-            Move(new Vector2(speedX, speedY));
-            currentAnimation.Update();
-            IsBoxColliding();
-        }
+            timerLava += Time.deltaTime;
+            realTimer += Time.deltaTime;
 
-        public void Render()
-        {
-            Engine.Draw(currentAnimation.CurrentFrame, transform.position.x, transform.position.y, transform.scale.x, transform.scale.y, transform.rotation, RealWidth / 2f, RealHeight / 2f);
-        }
-
-        public void IsBoxColliding()
-        {
-            float distanceMonkeyX = Math.Abs(transform.position.x - monkey.Transform.position.x);
-            float distanceMonkeyY = Math.Abs(transform.position.y - monkey.Transform.position.y);
-
-            //float distancePlatformX = Math.Abs(transform.position.x - platform.Transform.position.x);
-            //float distancePlatformY = Math.Abs(transform.position.y - platform.Transform.position.y);
-
-            float sumHalfWidths = RealWidth / 2 + monkey.RealWidth / 2;
-            float sumHalfHeights = RealHeight / 2 + monkey.RealHeight / 2;
-
-            //float sumHalfWidthsPlat = RealWidth / 2 + platform.RealWidth / 2;
-            //float sumHalfHeightsPlat = RealHeight / 2 + platform.RealHeight / 2;
-
-            if (distanceMonkeyX <= sumHalfWidths && distanceMonkeyY <= sumHalfHeights)
+            if(timerLava >= 2.5f && timerLava <= 5.8f)
             {
-                Engine.Debug("SE MURIO");
-                GameManager.Instance.ChangeScreen(GameManager.Instance.defeat);
-                //monkey.ResetValues();
+                Move(new Vector2(0, -speedY));
+            }
+            
+            if (timerLava >= 6.2f && timerLava <= 9.5f)
+            {
+                Move(new Vector2(0, speedY));
             }
 
-            //if (distancePlatformX <= sumHalfWidthsPlat && distancePlatformY <= sumHalfHeightsPlat)
-            //{
-            //    Engine.Debug("Colisiona");
-            //}
+            if(timerLava >= 10.5f)
+            {
+                timerLava = -1;
+            }
+            currentAnimation.Update();
+
+            if (realTimer >= 40)
+            {
+                GameManager.Instance.ChangeScreen(GameManager.Instance.victory);
+            }
+        }
+
+        public bool IsTouchingPlatforms(Platforms p_platform)
+        {
+            float distancePlatformX = Math.Abs(transform.position.x - p_platform.Transform.position.x);
+            float distancePlatformY = Math.Abs(transform.position.y - p_platform.Transform.position.y);
+
+            float sumHalfWidthsPlat = RealWidth / 2 + p_platform.RealWidth / 2;
+            float sumHalfHeightsPlat = RealHeight / 2 + p_platform.RealHeight / 2;
+
+            if (distancePlatformX <= sumHalfWidthsPlat && distancePlatformY <= sumHalfHeightsPlat)
+            {
+                return true;
+            }
+
+            return false;
         }
 
         public void Move(Vector2 pos)

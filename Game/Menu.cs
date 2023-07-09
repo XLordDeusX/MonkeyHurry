@@ -23,9 +23,8 @@ namespace Game
         }
         public override void Render()
         {
-            
             Engine.Clear();
-            Engine.Draw("assets/Screens/Menu.png", 0, 0, 1.05f, 1.7f, 0, 0, 0);
+            Engine.Draw("assets/Screens/Menu.png", 0, 0, 1.05f, 1.7f, 0, 38, 0);
             Engine.Show();
         }
     }

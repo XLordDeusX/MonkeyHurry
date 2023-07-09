@@ -38,11 +38,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Animation.cs" />
+    <Compile Include="Background.cs" />
+    <Compile Include="Banana.cs" />
+    <Compile Include="BoostFactory.cs" />
     <Compile Include="GameManager.cs" />
+    <Compile Include="GameObject.cs" />
     <Compile Include="Gameplay.cs" />
+    <Compile Include="GenericPool.cs" />
+    <Compile Include="IDamageable.cs" />
+    <Compile Include="IRenderizable.cs" />
     <Compile Include="Lava.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="DefeatScreen.cs" />
+    <Compile Include="LifeUnits.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="Platforms.cs" />
     <Compile Include="Character.cs" />
@@ -50,6 +58,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="RenderizablesManager.cs" />
     <Compile Include="Time.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="VictoryScreen.cs" />
@@ -142,13 +151,16 @@
     <Content Include="assets\Animations\Platforms\platform_1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\Animations\Sky.png">
+    <Content Include="assets\Items\banana.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="assets\Screens\Game_Over.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="assets\Screens\Menu.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Screens\mountain_texture_1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="assets\Screens\You_Won.png">
@@ -170,6 +182,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="assets\Sounds\zip.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\UI\Mono_cabeza_1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Engine.dll">
