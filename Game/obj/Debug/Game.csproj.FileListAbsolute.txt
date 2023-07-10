@@ -247,7 +247,6 @@ C:\Users\Usuario\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\M
 C:\Users\Usuario\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Monkey\walking_right_3.png
 C:\Users\Usuario\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Platforms\Initial_Platform.png
 C:\Users\Usuario\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Platforms\platform_1.png
-C:\Users\Usuario\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Items\banana.png
 C:\Users\Usuario\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Screens\Game_Over.png
 C:\Users\Usuario\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Screens\Menu.png
 C:\Users\Usuario\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Screens\mountain_texture_1.png
@@ -267,3 +266,4 @@ C:\Users\Usuario\Documents\GitHub\MonkeyHurry\Game\obj\Debug\Game.csproj.Assembl
 C:\Users\Usuario\Documents\GitHub\MonkeyHurry\Game\obj\Debug\Game.csproj.CoreCompileInputs.cache
 C:\Users\Usuario\Documents\GitHub\MonkeyHurry\Game\obj\Debug\Game.exe
 C:\Users\Usuario\Documents\GitHub\MonkeyHurry\Game\obj\Debug\Game.pdb
+C:\Users\Usuario\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Items\prueba2_1.png

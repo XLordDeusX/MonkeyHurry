@@ -9,8 +9,7 @@ namespace Game
     public class Platforms : GameObject
     {
         private Animation platform;
-        private float speedX = 0;
-        private float speedY = 0;
+        
 
         public Transform Transform
         {
@@ -44,18 +43,6 @@ namespace Game
             Animation animation = new Animation(p_animationID, p_animationSpeed, animationFrames, p_isLoop);
 
             return animation;
-        }
-        
-        public void Update()
-        {
-            Move(new Vector2(speedX, speedY));
-            currentAnimation.Update();
-        }
-
-        public void Move(Vector2 pos)
-        {
-            transform.position.x += pos.x * Time.deltaTime;
-            transform.position.y += pos.y * Time.deltaTime;
         }
     }
 }
