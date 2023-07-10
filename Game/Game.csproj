@@ -52,6 +52,7 @@
     <Compile Include="DefeatScreen.cs" />
     <Compile Include="LifeUnits.cs" />
     <Compile Include="Menu.cs" />
+    <Compile Include="PlatformFactory.cs" />
     <Compile Include="Platforms.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="Game.cs">
@@ -151,7 +152,7 @@
     <Content Include="assets\Animations\Platforms\platform_1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\Items\banana.png">
+    <Content Include="assets\Items\prueba2_1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="assets\Screens\Game_Over.png">

@@ -6,21 +6,9 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public class Background : GameObject, IRenderizable
+    public class Background : GameObject
     {
         private Animation background;
-        public Transform Transform
-        {
-            get
-            {
-                return transform;
-            }
-
-            set
-            {
-                transform = value;
-            }
-        }
 
         public Background(string p_name, Transform p_transform) : base(p_name, p_transform)
         {

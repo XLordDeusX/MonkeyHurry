@@ -8,9 +8,26 @@ namespace Game
 {
     public class Banana : GameObject
     {
+        private Animation banana;
+
         public Banana(string p_name, Transform p_transform) : base(p_name, p_transform)
         {
+            banana = CreateAnimation("Banana", "assets/Items/prueba2_", 2, 0, false);
+            currentAnimation = banana;
+            RenderizablesManager.Instance.AddObjet(this);
+        }
+        private Animation CreateAnimation(string p_animationID, string p_path, int p_texturesAmount, float p_animationSpeed, bool p_isLoop)
+        {
+            List<Texture> animationFrames = new List<Texture>();
 
+            for (int i = 1; i < p_texturesAmount; i++)
+            {
+                animationFrames.Add(Engine.GetTexture($"{p_path}{i}.png"));
+            }
+
+            Animation animation = new Animation(p_animationID, p_animationSpeed, animationFrames, p_isLoop);
+
+            return animation;
         }
     }
 }

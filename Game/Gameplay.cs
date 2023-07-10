@@ -14,9 +14,10 @@ namespace Game
         public static Character monkey;
         public static Background background;
         public static Lava lava;
-
+        
         static List<Platforms> platforms = new List<Platforms>();
         static List<LifeUnits> lifes = new List<LifeUnits>();
+        public static List<Banana> bananas = new List<Banana>();
 
         readonly int offset = 25;
 
@@ -32,12 +33,20 @@ namespace Game
 
             monkey = new Character("monkey", new Transform(new Vector2(600, -500), 0, new Vector2(1.5f, 1.5f)));
 
-            platforms.Add(new Platforms("platform", new Transform(new Vector2(700, 100), 0, new Vector2(1, 1))));
+            bananas.Add(new Banana("banana", new Transform(new Vector2(100, 200), 0, new Vector2(0.1f, 0.1f))));
+            bananas.Add(new Banana("banana", new Transform(new Vector2(300, 300), 0, new Vector2(0.1f, 0.1f))));
+            bananas.Add(new Banana("banana", new Transform(new Vector2(500, 500), 0, new Vector2(0.1f, 0.1f))));
+
+            platforms.Add(PlatformFactory.CreatePlatforms(PlatformType.Big, new Vector2(700, 100)));
+            platforms.Add(PlatformFactory.CreatePlatforms(PlatformType.Medium, new Vector2(350, 460)));
+            platforms.Add(PlatformFactory.CreatePlatforms(PlatformType.Small, new Vector2(700, 650)));
+
+            /*platforms.Add(new Platforms("platform", new Transform(new Vector2(700, 100), 0, new Vector2(1, 1))));
             platforms.Add(new Platforms("platform", new Transform(new Vector2(600, 220), 0, new Vector2(1, 1))));
             platforms.Add(new Platforms("platform", new Transform(new Vector2(550, 340), 0, new Vector2(1, 1))));
             platforms.Add(new Platforms("platform", new Transform(new Vector2(350, 460), 0, new Vector2(1, 1))));
             platforms.Add(new Platforms("platform", new Transform(new Vector2(500, 580), 0, new Vector2(1, 1))));
-            platforms.Add(new Platforms("platform", new Transform(new Vector2(700, 650), 0, new Vector2(1, 1))));
+            platforms.Add(new Platforms("platform", new Transform(new Vector2(700, 650), 0, new Vector2(1, 1))));*/
 
             lava = new Lava("lava", new Transform(new Vector2(478, 1150), 0, new Vector2(1, 1)));
 
@@ -46,10 +55,27 @@ namespace Game
 
             time.InitializedTime();
         }
+
         public override void Update() 
         {
             lava.Update();
             monkey.Update();
+
+            foreach (var banana in bananas)
+            {
+                if (monkey.IsBoxColliding(banana))
+                {
+                    Random bananaPosX = new Random();
+                    var posX = bananaPosX.Next(100, 800);
+                    banana.transform.position.x = posX;
+
+                    Random bananaPosY = new Random();
+                    var posY = bananaPosY.Next(100, 500);
+                    banana.transform.position.y = posY;
+                    continue;
+                }
+                
+            }
 
             foreach (var platform in platforms)
             {
@@ -58,7 +84,6 @@ namespace Game
                     Random platformPosX = new Random();
                     var posX = platformPosX.Next(100, 800);
                     platform.transform.position.x = posX;
-
                     continue;
                 }
             }
@@ -74,11 +99,10 @@ namespace Game
                     }
                     break;
                 }
-                  
                 if (monkey.IsBoxColliding(platform))
                     break;
             }
-
+            
             if(lava.timerLava > 11)
             {
                 monkey.transform.position.x = platforms[5].transform.position.x;

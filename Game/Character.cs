@@ -32,6 +32,7 @@ namespace Game
         private bool canJump;
 
         private int lifePoints = 3;
+        private int bananaPoints = 0;
         private bool isDestroyed = false;
         public int LifePoints => lifePoints;
         public bool IsDestroyed
@@ -100,18 +101,21 @@ namespace Game
                     canJump = true;
                     jumpTime = 0;
                 }
+                else if (p_obj.name == "banana")
+                {
+                    GetPoint(1);
+                }
                 else
                 {
                     GetDamage(1);
                     ResetValues();
                 }
-              
                 return true;
             }
             canJump = false;
             return false;
         }
-
+        
         public void Move(Vector2 pos)
         {
             posIniX = transform.position.x;
@@ -213,6 +217,16 @@ namespace Game
             {
                 Destroy();
                 GameManager.Instance.ChangeScreen(GameManager.Instance.defeat);
+            }
+        }
+        public void GetPoint(int p_point)
+        {
+            bananaPoints += p_point;
+            //OnLifeChanged.Invoke(lifePoints);
+
+            if (bananaPoints >= 3)
+            {
+                GameManager.Instance.ChangeScreen(GameManager.Instance.victory);
             }
         }
 

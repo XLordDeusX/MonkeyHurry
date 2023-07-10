@@ -71,7 +71,6 @@ namespace Game
             {
                 return true;
             }
-
             return false;
         }
 
