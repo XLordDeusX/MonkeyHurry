@@ -17,7 +17,7 @@ namespace Game
         private Animation jumpRight;
         //private Animation dead;
 
-        private float speedX = 150;
+        private float speedX = 300;
         private float posIniX;
         private float posFinalX;
         private float diffPosX;
@@ -100,16 +100,7 @@ namespace Game
                     canJump = true;
                     jumpTime = 0;
                 }
-                else
-                {
-                    canJump = false;
-                }
-              
-                return true;
-            }
-
-            if (distanceX <= sumHalfWidths && distanceY <= sumHalfHeights)
-            {
+                
                 if (p_obj.name == "lava")
                 {
                     GetDamage(hitDamage);
@@ -119,6 +110,7 @@ namespace Game
                 return true;
             }
 
+            canJump = false;
             return false;
         }
 
