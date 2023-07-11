@@ -7,21 +7,34 @@ namespace UnitTest
     [TestClass]
     public class UnitTest1
     {
-        private Character monkeyLife = new Character("Monkey", new Transform(new Vector2(0, 0), 0, new Vector2(1.5f, 1.5f)));
-
+        private Character monkey = new Character("Monkey", new Transform(new Vector2(0, 0), 0, new Vector2(1.5f, 1.5f)));
 
         [TestMethod]
-        public void GetDamgeUnitTest()
+        public void GetDamageUnitTest()
         {
             int damage = 1;
 
-            var expectLife = monkeyLife.LifePoints - damage;
+            var expectLife = monkey.LifePoints - damage;
 
-            monkeyLife.GetDamage(damage);
+            monkey.GetDamage(damage);
 
-            var currentLife = monkeyLife.LifePoints;
+            var currentLife = monkey.LifePoints;
 
             Assert.AreEqual(currentLife, expectLife);
+        }
+
+        [TestMethod]
+        public void GetBananaUnitTest()
+        {
+            int banana = 1;
+
+            var expectPoints = monkey.BananaGoal + banana;
+
+            monkey.GetBanana(banana);
+
+            var currentPoints = monkey.BananaGoal;
+
+            Assert.AreEqual(currentPoints, expectPoints);
         }
     }
 }

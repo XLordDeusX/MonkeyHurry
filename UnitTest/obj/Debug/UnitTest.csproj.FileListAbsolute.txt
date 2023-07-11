@@ -59,3 +59,4 @@ C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\UnitTest\obj\Debug\UnitTest
 C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\UnitTest\obj\Debug\UnitTest.csproj.CopyComplete
 C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\UnitTest\obj\Debug\UnitTest.dll
 C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\UnitTest\obj\Debug\UnitTest.pdb
+C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\UnitTest\bin\Debug\assets\Items\banana_1.png

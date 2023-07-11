@@ -151,7 +151,7 @@
     <Content Include="assets\Animations\Platforms\platform_1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\Items\banana.png">
+    <Content Include="assets\Items\banana_1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="assets\Screens\Game_Over.png">

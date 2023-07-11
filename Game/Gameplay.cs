@@ -15,12 +15,14 @@ namespace Game
         public static Background background;
         public static Lava lava;
 
-        static List<Platforms> platforms = new List<Platforms>();
+        static GenericPool<Banana> bananaPool = new GenericPool<Banana>();
+        public static GenericPool<Platforms> platformsPool = new GenericPool<Platforms>();
+        //static List<Platforms> platforms = new List<Platforms>();
         static List<LifeUnits> lifes = new List<LifeUnits>();
 
         readonly int offset = 25;
 
-        //public event Action<GameObject,GameObject> OnCollisionEnter;
+        public event Action<GameObject,GameObject> OnCollisionEnter;
 
         public override void Start() 
         {
@@ -30,14 +32,14 @@ namespace Game
             lifes.Add(new LifeUnits("vida", new Transform(new Vector2(offset + (life.RealWidth), 25), 0, new Vector2(1, 1))));
             lifes.Add(new LifeUnits("vida", new Transform(new Vector2(offset + (life.RealWidth * 2), 25), 0, new Vector2(1, 1))));
 
-            monkey = new Character("monkey", new Transform(new Vector2(600, -500), 0, new Vector2(1.5f, 1.5f)));
+            monkey = new Character("monkey", new Transform(new Vector2(700, -500), 0, new Vector2(1.5f, 1.5f)));
 
-            platforms.Add(new Platforms("platform", new Transform(new Vector2(700, 100), 0, new Vector2(1, 1))));
-            platforms.Add(new Platforms("platform", new Transform(new Vector2(600, 220), 0, new Vector2(1, 1))));
-            platforms.Add(new Platforms("platform", new Transform(new Vector2(550, 340), 0, new Vector2(1, 1))));
-            platforms.Add(new Platforms("platform", new Transform(new Vector2(350, 460), 0, new Vector2(1, 1))));
-            platforms.Add(new Platforms("platform", new Transform(new Vector2(500, 580), 0, new Vector2(1, 1))));
-            platforms.Add(new Platforms("platform", new Transform(new Vector2(700, 650), 0, new Vector2(1, 1))));
+            platformsPool.AddNewUsedObj(new Platforms("platform", new Transform(new Vector2(700, 100), 0, new Vector2(1, 1))));
+            platformsPool.AddNewUsedObj(new Platforms("platform", new Transform(new Vector2(600, 220), 0, new Vector2(1, 1))));
+            platformsPool.AddNewUsedObj(new Platforms("platform", new Transform(new Vector2(550, 340), 0, new Vector2(1, 1))));
+            platformsPool.AddNewUsedObj(new Platforms("platform", new Transform(new Vector2(350, 460), 0, new Vector2(1, 1))));
+            platformsPool.AddNewUsedObj(new Platforms("platform", new Transform(new Vector2(500, 580), 0, new Vector2(1, 1))));
+            platformsPool.AddNewUsedObj(new Platforms("platform", new Transform(new Vector2(700, 650), 0, new Vector2(1, 1))));
 
             lava = new Lava("lava", new Transform(new Vector2(478, 1150), 0, new Vector2(1, 1)));
 
@@ -51,10 +53,12 @@ namespace Game
             lava.Update();
             monkey.Update();
 
-            foreach (var platform in platforms)
+            foreach (var platform in platformsPool.GetUsedObjs())
             {
-                if (lava.IsTouchingPlatforms(platform))
+                if (lava.IsBoxColliding(platform))
                 {
+                    OnCollisionEnter?.Invoke(lava, platform);
+
                     Random platformPosX = new Random();
                     var posX = platformPosX.Next(100, 800);
                     platform.transform.position.x = posX;
@@ -63,26 +67,26 @@ namespace Game
                 }
             }
 
-            foreach (var platform in platforms)
+            foreach (var platform in platformsPool.GetUsedObjs())
             {
 
                 if (monkey.IsBoxColliding(lava))
                 {
+                    OnCollisionEnter?.Invoke(monkey, lava);
+
                     for (int i = 1; i < lifes.Count; i++)
                     {
                         lifes.RemoveAt(lifes.Count - i);
                     }
+
                     break;
                 }
-                  
-                if (monkey.IsBoxColliding(platform))
-                    break;
-            }
 
-            if(lava.timerLava > 11)
-            {
-                monkey.transform.position.x = platforms[5].transform.position.x;
-                monkey.transform.position.y = platforms[5].transform.position.y - 50;
+                if (monkey.IsBoxColliding(platform)) 
+                {
+                    OnCollisionEnter?.Invoke(monkey, platform);
+                    break; 
+                }
             }
             
             time.Update();

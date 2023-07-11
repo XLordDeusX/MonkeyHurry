@@ -22,7 +22,7 @@ namespace Game
         private float posFinalX;
         private float diffPosX;
 
-        private float speedY = 150;
+        private float speedY = 130;
         private float posIniY;
         private float posFinalY;
         private float diffPosY;
@@ -30,9 +30,12 @@ namespace Game
         private float jumpTime;
         private bool canJump;
 
+        private int bananaPoint = 1;
+        private int bananaGoal = 0;
         private int hitDamage = 1;
         private int lifePoints = 3;
         private bool isDestroyed = false;
+        public int BananaGoal => bananaGoal;
         public int LifePoints => lifePoints;
         public bool IsDestroyed
         {
@@ -41,8 +44,6 @@ namespace Game
         }
         public event OnLifeChanged OnLifeChanged;
         public event OnDestroyed OnDestroyed;
-
-        //public event Action OnDie;
 
 
         public Character(string p_name, Transform p_transform) : base(p_name, p_transform)
@@ -107,6 +108,11 @@ namespace Game
                     ResetValues();
                 }
 
+                if(p_obj.name == "banana")
+                {
+                    GetBanana(bananaPoint);
+                }
+
                 return true;
             }
 
@@ -161,7 +167,7 @@ namespace Game
 
         public void ResetValues()
         {
-            transform.position = new Vector2(600, -200);
+            transform.position = new Vector2(700, -200);
         }
 
         public void InputDetection()
@@ -210,7 +216,7 @@ namespace Game
         public void GetDamage(int p_damage)
         {
             lifePoints -= p_damage;
-            //OnLifeChanged.Invoke(lifePoints);
+            OnLifeChanged?.Invoke(lifePoints);
 
             if (lifePoints <= 0)
             {
@@ -219,10 +225,20 @@ namespace Game
             }
         }
 
+        public void GetBanana(int p_point)
+        {
+            bananaGoal += p_point;
+
+            if(bananaGoal >= 3)
+            {
+                GameManager.Instance.ChangeScreen(GameManager.Instance.victory);
+            }
+        }
+
         public void Destroy()
         {
             IsDestroyed = true;
-            //OnDestroyed.Invoke(this);
+            OnDestroyed?.Invoke(this);
         }
     }
 }
