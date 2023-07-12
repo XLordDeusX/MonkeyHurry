@@ -218,3 +218,4 @@ C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\obj\Debug\Game.exe
 C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\obj\Debug\Game.pdb
 C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\obj\Debug\Game.csproj.AssemblyReference.cache
 C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Items\banana_1.png
+C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\UI\banana_1.png

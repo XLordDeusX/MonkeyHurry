@@ -70,7 +70,8 @@ namespace Game
 
             if (distancePlatformX <= sumHalfWidthsPlat && distancePlatformY <= sumHalfHeightsPlat)
             {
-                p_obj.OnDie += Gameplay.platformsPool.AddToPool;
+                //p_obj.OnDie += Gameplay.platformsPool.AddToPool;
+                
                 p_obj.draw = false;
                 return true;
             }
@@ -84,6 +85,7 @@ namespace Game
             {
                 platform.Reset("platform", new Transform(new Vector2(700, 100), 0, new Vector2(1, 1)));
             }*/
+
             p_obj.draw = true;
             return false;
         }

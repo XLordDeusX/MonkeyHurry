@@ -6,14 +6,15 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public class Banana : GameObject
+    public class TransparentBanana : GameObject
     {
-        private Animation banana;
-        public Banana(string p_name, Transform p_transform) : base(p_name, p_transform)
+        private Animation idle;
+
+        public TransparentBanana(string p_name, Transform p_transform) : base(p_name, p_transform)
         {
-            banana = CreateAnimation("Banana", "assets/Items/banana_", 2, 0, false);
-            currentAnimation = banana;
-            RenderizablesManager.Instance.AddObjet(this);
+            idle = CreateAnimation("Idle", "assets/UI/banana_", 2, 0, false);
+            currentAnimation = idle;
+            //RenderizablesManager.Instance.AddObjet(this);
         }
 
         private Animation CreateAnimation(string p_animationID, string p_path, int p_texturesAmount, float p_animationSpeed, bool p_isLoop)
@@ -29,6 +30,5 @@ namespace Game
 
             return animation;
         }
-
     }
 }

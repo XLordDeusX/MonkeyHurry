@@ -9,23 +9,10 @@ namespace Game
     public class Platforms : GameObject
     {
         private Animation platform;
-        //private float speedX = 0;
-        //private float speedY = 0;
 
         public event Action<Platforms> OnDie;
 
-        public Transform Transform
-        {
-            get
-            {
-                return transform;
-            }
-
-            set
-            {
-                transform = value;
-            }
-        }
+        public Transform Transform => transform;
         
         public Platforms(string p_name, Transform p_transform) : base(p_name, p_transform)
         {
@@ -57,16 +44,5 @@ namespace Game
             transform = p_transform;
             draw = true;
         }
-        /*public void Update()
-        {
-            Move(new Vector2(speedX, speedY));
-            currentAnimation.Update();
-        }
-
-        public void Move(Vector2 pos)
-        {
-            transform.position.x += pos.x * Time.deltaTime;
-            transform.position.y += pos.y * Time.deltaTime;
-        }*/
     }
 }
