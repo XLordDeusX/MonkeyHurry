@@ -15,15 +15,14 @@ namespace Game
         private Animation runRight;
         private Animation jumpLeft;
         private Animation jumpRight;
-        private Animation dead;
+        //private Animation dead;
 
-        private float speedX = 150;
+        private float speedX = 300;
         private float posIniX;
         private float posFinalX;
         private float diffPosX;
 
-
-        private float speedY = 150;
+        private float speedY = 130;
         private float posIniY;
         private float posFinalY;
         private float diffPosY;
@@ -31,9 +30,12 @@ namespace Game
         private float jumpTime;
         private bool canJump;
 
+        private int bananaPoint = 1;
+        private int bananaGoal = 0;
+        private int hitDamage = 1;
         private int lifePoints = 3;
-        private int bananaPoints = 0;
         private bool isDestroyed = false;
+        public int BananaGoal => bananaGoal;
         public int LifePoints => lifePoints;
         public bool IsDestroyed
         {
@@ -42,8 +44,6 @@ namespace Game
         }
         public event OnLifeChanged OnLifeChanged;
         public event OnDestroyed OnDestroyed;
-
-        //public event Action OnDie;
 
 
         public Character(string p_name, Transform p_transform) : base(p_name, p_transform)
@@ -54,7 +54,7 @@ namespace Game
             runRight = CreateAnimation("Run Right", "assets/Animations/Monkey/walking_right_", 3, 0.06f, true);
             jumpLeft = CreateAnimation("Jump Left", "assets/Animations/Monkey/jumping_left_", 4, 0.1f, false);
             jumpRight = CreateAnimation("Jump Right", "assets/Animations/Monkey/jumping_right_", 4, 0.1f, false);
-            dead = CreateAnimation("Dead", "assets/Animations/Monkey/dying_left_", 3, 0.5f, false);
+            //dead = CreateAnimation("Dead", "assets/Animations/Monkey/dying_left_", 3, 0.5f, false);
             currentAnimation = idleRight;
             RenderizablesManager.Instance.AddObjet(this);
         }
@@ -101,21 +101,26 @@ namespace Game
                     canJump = true;
                     jumpTime = 0;
                 }
-                else if (p_obj.name == "banana")
+                
+                if (p_obj.name == "lava")
                 {
-                    GetPoint(1);
-                }
-                else
-                {
-                    GetDamage(1);
+                    GetDamage(hitDamage);
                     ResetValues();
                 }
+
+                if(p_obj.name == "banana")
+                {
+                    GetBanana(bananaPoint);
+                }
+
                 return true;
             }
+
             canJump = false;
             return false;
         }
-        
+
+
         public void Move(Vector2 pos)
         {
             posIniX = transform.position.x;
@@ -162,7 +167,7 @@ namespace Game
 
         public void ResetValues()
         {
-            transform.position = new Vector2(600, -200);
+            transform.position = new Vector2(700, -200);
         }
 
         public void InputDetection()
@@ -211,7 +216,7 @@ namespace Game
         public void GetDamage(int p_damage)
         {
             lifePoints -= p_damage;
-            //OnLifeChanged.Invoke(lifePoints);
+            OnLifeChanged?.Invoke(lifePoints);
 
             if (lifePoints <= 0)
             {
@@ -219,12 +224,12 @@ namespace Game
                 GameManager.Instance.ChangeScreen(GameManager.Instance.defeat);
             }
         }
-        public void GetPoint(int p_point)
-        {
-            bananaPoints += p_point;
-            //OnLifeChanged.Invoke(lifePoints);
 
-            if (bananaPoints >= 3)
+        public void GetBanana(int p_point)
+        {
+            bananaGoal += p_point;
+
+            if(bananaGoal >= 3)
             {
                 GameManager.Instance.ChangeScreen(GameManager.Instance.victory);
             }
@@ -233,7 +238,7 @@ namespace Game
         public void Destroy()
         {
             IsDestroyed = true;
-            //OnDestroyed.Invoke(this);
+            OnDestroyed?.Invoke(this);
         }
     }
 }

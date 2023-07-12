@@ -40,6 +40,7 @@
     <Compile Include="Animation.cs" />
     <Compile Include="Background.cs" />
     <Compile Include="Banana.cs" />
+    <Compile Include="BananaUnits.cs" />
     <Compile Include="BoostFactory.cs" />
     <Compile Include="GameManager.cs" />
     <Compile Include="GameObject.cs" />
@@ -61,6 +62,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="RenderizablesManager.cs" />
     <Compile Include="Time.cs" />
+    <Compile Include="TransparentBanana.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="VictoryScreen.cs" />
   </ItemGroup>
@@ -152,7 +154,7 @@
     <Content Include="assets\Animations\Platforms\platform_1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="assets\Items\prueba2_1.png">
+    <Content Include="assets\Items\banana_1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="assets\Screens\Game_Over.png">
@@ -183,6 +185,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="assets\Sounds\zip.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\UI\banana_1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="assets\UI\Mono_cabeza_1.png">

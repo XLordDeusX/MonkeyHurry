@@ -13,6 +13,7 @@ namespace Game
         public float timerLava = -5;
         private float realTimer = -5;
 
+
         public Lava(string p_name, Transform p_transform) : base(p_name,p_transform)
         {
             lava = CreateAnimation("Lava", "assets/Animations/Lava/lava_", 8, 0.06f, true);
@@ -59,18 +60,33 @@ namespace Game
             }
         }
 
-        public bool IsTouchingPlatforms(Platforms p_platform)
+        public bool IsBoxColliding(Platforms p_obj)
         {
-            float distancePlatformX = Math.Abs(transform.position.x - p_platform.Transform.position.x);
-            float distancePlatformY = Math.Abs(transform.position.y - p_platform.Transform.position.y);
+            float distancePlatformX = Math.Abs(transform.position.x - p_obj.Transform.position.x);
+            float distancePlatformY = Math.Abs(transform.position.y - p_obj.Transform.position.y);
 
-            float sumHalfWidthsPlat = RealWidth / 2 + p_platform.RealWidth / 2;
-            float sumHalfHeightsPlat = RealHeight / 2 + p_platform.RealHeight / 2;
+            float sumHalfWidthsPlat = RealWidth / 2 + p_obj.RealWidth / 2;
+            float sumHalfHeightsPlat = RealHeight / 2 + p_obj.RealHeight / 2;
 
             if (distancePlatformX <= sumHalfWidthsPlat && distancePlatformY <= sumHalfHeightsPlat)
             {
+                //p_obj.OnDie += Gameplay.platformsPool.AddToPool;
+                
+                p_obj.draw = false;
                 return true;
             }
+
+            /*var platform = Gameplay.platformsPool.GetObjectsFromPool();
+            if(platform == default)
+            {
+                platform = new Platforms("platform", new Transform(new Vector2(700, 100), 0, new Vector2(1, 1)));
+            }
+            else
+            {
+                platform.Reset("platform", new Transform(new Vector2(700, 100), 0, new Vector2(1, 1)));
+            }*/
+
+            p_obj.draw = true;
             return false;
         }
 

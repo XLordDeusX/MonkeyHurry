@@ -8,14 +8,14 @@ namespace Game
 {
     public enum PlatformType
     {
-        Small=0,
-        Medium=1,
-        Big=2
+        Small = 0,
+        Medium = 1,
+        Big = 2
     }
 
     public static class PlatformFactory
     {
-        public static Platforms CreatePlatforms(PlatformType platType,Vector2 pos)
+        public static Platforms CreatePlatforms(PlatformType platType, Vector2 pos)
         {
             switch (platType)
             {
@@ -28,6 +28,5 @@ namespace Game
             }
             return null;
         }
-
     }
 }

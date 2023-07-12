@@ -11,6 +11,7 @@ namespace Game
         public string name;
         public Transform transform;
         protected Animation currentAnimation;
+        public bool draw = true;
 
         public float RealHeight => currentAnimation.CurrentFrame.Height * transform.scale.y;
         public float RealWidth => currentAnimation.CurrentFrame.Width * transform.scale.x;
@@ -23,7 +24,10 @@ namespace Game
 
         public void Render()
         {
-            Engine.Draw(currentAnimation.CurrentFrame, transform.position.x, transform.position.y, transform.scale.x, transform.scale.y, transform.rotation, RealWidth / 2f, RealHeight / 2f);
+            if (draw)
+            {
+                Engine.Draw(currentAnimation.CurrentFrame, transform.position.x, transform.position.y, transform.scale.x, transform.scale.y, transform.rotation, RealWidth / 2f, RealHeight / 2f);
+            }
         }
     }
 }
