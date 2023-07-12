@@ -10,90 +10,64 @@ namespace Game
     public class Gameplay : Level
     {
         public Time time = new Time();
-        public LifeUnits life = new LifeUnits("life", new Transform(new Vector2(0, 0), 0, new Vector2(1, 1)));
-        public BananaUnits bananaPoint = new BananaUnits("point", new Transform(new Vector2(0, 0), 0, new Vector2(1, 1)));
-        public TransparentBanana bananaTrans = new TransparentBanana("trans", new Transform(new Vector2(0, 0), 0, new Vector2(1, 1)));
-        
+        public LifeUnits life = new LifeUnits(new Vector2(0, 0));
         public static Character monkey;
         public static Background background;
         public static Lava lava;
-        public static Banana banana;
-
-        static GenericPool<Banana> bananaPool = new GenericPool<Banana>();
-        public static GenericPool<Platforms> platformsPool = new GenericPool<Platforms>();
-        //static List<Platforms> platforms = new List<Platforms>();
+        public static Bird bird;
+        
+        static List<Platforms> platforms = new List<Platforms>();
         static List<LifeUnits> lifes = new List<LifeUnits>();
-        static List<BananaUnits> bananaPoints = new List<BananaUnits>();
-        static List<TransparentBanana> bananasTrans = new List<TransparentBanana>();
+        public static List<Banana> bananas = new List<Banana>();
 
-        readonly int lifeOffset = 25;
-        readonly int bananaOffset = 300;
+        readonly int offset = 25;
 
-        public event Action<GameObject,GameObject> OnCollisionEnter;
+        //public event Action<GameObject,GameObject> OnCollisionEnter;
 
         public override void Start() 
         {
             background = new Background("background", new Transform(new Vector2(500, -1500), 0, new Vector2(1, 1)));
 
-            lifes.Add(new LifeUnits("vida", new Transform(new Vector2(lifeOffset, 25), 0, new Vector2(1, 1))));
-            lifes.Add(new LifeUnits("vida", new Transform(new Vector2(lifeOffset + (life.RealWidth), 25), 0, new Vector2(1, 1))));
-            lifes.Add(new LifeUnits("vida", new Transform(new Vector2(lifeOffset + (life.RealWidth * 2), 25), 0, new Vector2(1, 1))));
+            lifes.Add(new LifeUnits(new Vector2(offset, 25)));
+            lifes.Add(new LifeUnits(new Vector2(offset + (life.RealWidth), 25)));
+            lifes.Add(new LifeUnits(new Vector2(offset + (life.RealWidth * 2), 25)));
 
-            bananasTrans.Add(new TransparentBanana("trans", new Transform(new Vector2(bananaOffset, 25), -30, new Vector2(0.35f, 0.35f))));
-            bananasTrans.Add(new TransparentBanana("trans", new Transform(new Vector2(bananaOffset + (bananaPoint.RealWidth / 2), 25), -30, new Vector2(0.35f, 0.35f))));
-            bananasTrans.Add(new TransparentBanana("trans", new Transform(new Vector2(bananaOffset + (bananaPoint.RealWidth), 25), -30, new Vector2(0.35f, 0.35f))));
+            monkey = new Character("monkey", new Transform(new Vector2(600, -500), 0, new Vector2(1.5f, 1.5f)));
 
-            bananaPoints.Add(new BananaUnits("punto", new Transform(new Vector2(bananaOffset, 25), -30, new Vector2(0.35f, 0.35f))));
-            bananaPoints.Add(new BananaUnits("punto", new Transform(new Vector2(bananaOffset + (bananaPoint.RealWidth/2), 25), -30, new Vector2(0.35f, 0.35f))));
-            bananaPoints.Add(new BananaUnits("punto", new Transform(new Vector2(bananaOffset + (bananaPoint.RealWidth), 25), -30, new Vector2(0.35f, 0.35f))));
+            bird = new Bird("bird", new Transform(new Vector2(500, 500), 0, new Vector2(0.1f, 0.1f)));
 
-            bananaPool.AddNewUsedObj(new Banana("banana", new Transform(new Vector2(400, 300), 0, new Vector2(0.3f, 0.3f))));
+            bananas.Add(new Banana("banana", new Transform(new Vector2(100, 200), 0, new Vector2(0.1f, 0.1f))));
+            bananas.Add(new Banana("banana", new Transform(new Vector2(300, 300), 0, new Vector2(0.1f, 0.1f))));
+            bananas.Add(new Banana("banana", new Transform(new Vector2(500, 500), 0, new Vector2(0.1f, 0.1f))));
 
-            monkey = new Character("monkey", new Transform(new Vector2(700, -500), 0, new Vector2(1.5f, 1.5f)));
+            platforms.Add(PlatformFactory.CreatePlatforms(PlatformType.Big, new Vector2(700, 100)));
+            platforms.Add(PlatformFactory.CreatePlatforms(PlatformType.Medium, new Vector2(350, 460)));
+            platforms.Add(PlatformFactory.CreatePlatforms(PlatformType.Small, new Vector2(700, 650)));
 
-            platformsPool.AddNewUsedObj(new Platforms("platform", new Transform(new Vector2(700, 100), 0, new Vector2(1, 1))));
-            platformsPool.AddNewUsedObj(new Platforms("platform", new Transform(new Vector2(600, 220), 0, new Vector2(1, 1))));
-            platformsPool.AddNewUsedObj(new Platforms("platform", new Transform(new Vector2(550, 340), 0, new Vector2(1, 1))));
-            platformsPool.AddNewUsedObj(new Platforms("platform", new Transform(new Vector2(350, 460), 0, new Vector2(1, 1))));
-            platformsPool.AddNewUsedObj(new Platforms("platform", new Transform(new Vector2(500, 580), 0, new Vector2(1, 1))));
-            platformsPool.AddNewUsedObj(new Platforms("platform", new Transform(new Vector2(700, 650), 0, new Vector2(1, 1))));
+            /*platforms.Add(new Platforms("platform", new Transform(new Vector2(700, 100), 0, new Vector2(1, 1))));
+            platforms.Add(new Platforms("platform", new Transform(new Vector2(600, 220), 0, new Vector2(1, 1))));
+            platforms.Add(new Platforms("platform", new Transform(new Vector2(550, 340), 0, new Vector2(1, 1))));
+            platforms.Add(new Platforms("platform", new Transform(new Vector2(350, 460), 0, new Vector2(1, 1))));
+            platforms.Add(new Platforms("platform", new Transform(new Vector2(500, 580), 0, new Vector2(1, 1))));
+            platforms.Add(new Platforms("platform", new Transform(new Vector2(700, 650), 0, new Vector2(1, 1))));*/
 
             lava = new Lava("lava", new Transform(new Vector2(478, 1150), 0, new Vector2(1, 1)));
 
-            
             GameManager.Instance.soundPlayer = new SoundPlayer("assets/Sounds/gameplay.wav");
             GameManager.Instance.soundPlayer.PlayLooping();
 
             time.InitializedTime();
         }
+
         public override void Update() 
         {
             lava.Update();
             monkey.Update();
-
-            foreach (var platform in platformsPool.GetUsedObjs())
-            {
-                if (lava.IsBoxColliding(platform))
-                {
-                    OnCollisionEnter?.Invoke(lava, platform);
-
-                    Random platformPosX = new Random();
-                    var posX = platformPosX.Next(100, 800);
-                    platform.transform.position.x = posX;
-
-                    continue;
-                }
-            }
-
-            foreach (var banana in bananaPool.GetUsedObjs())
+            bird.Update();
+            foreach (var banana in bananas)
             {
                 if (monkey.IsBoxColliding(banana))
                 {
-                    for (int i = 1; i < bananasTrans.Count; i++)
-                    {
-                        bananasTrans.RemoveAt(i - 1);
-                    }
-
                     Random bananaPosX = new Random();
                     var posX = bananaPosX.Next(100, 800);
                     banana.transform.position.x = posX;
@@ -101,31 +75,41 @@ namespace Game
                     Random bananaPosY = new Random();
                     var posY = bananaPosY.Next(100, 500);
                     banana.transform.position.y = posY;
+                    continue;
+                }
+                
+            }
 
+            foreach (var platform in platforms)
+            {
+                if (lava.IsTouchingPlatforms(platform))
+                {
+                    Random platformPosX = new Random();
+                    var posX = platformPosX.Next(100, 800);
+                    platform.transform.position.x = posX;
                     continue;
                 }
             }
 
-            foreach (var platform in platformsPool.GetUsedObjs())
+            foreach (var platform in platforms)
             {
 
-                if (monkey.IsBoxColliding(lava))
+                if (monkey.IsBoxColliding(lava) || monkey.IsBoxColliding(bird))
                 {
-                    OnCollisionEnter?.Invoke(monkey, lava);
-
                     for (int i = 1; i < lifes.Count; i++)
                     {
                         lifes.RemoveAt(lifes.Count - i);
                     }
-
                     break;
                 }
-
-                if (monkey.IsBoxColliding(platform)) 
-                {
-                    OnCollisionEnter?.Invoke(monkey, platform);
-                    break; 
-                }
+                if (monkey.IsBoxColliding(platform))
+                    break;
+            }
+            
+            if(lava.timerLava > 11)
+            {
+                monkey.transform.position.x = platforms[5].transform.position.x;
+                monkey.transform.position.y = platforms[5].transform.position.y - 50;
             }
             
             time.Update();
@@ -143,16 +127,6 @@ namespace Game
             foreach (var life in lifes)
             {
                 life.Render();
-            }
-            
-            foreach (var point in bananaPoints)
-            {
-                point.Render();
-            }
-            
-            foreach (var point in bananasTrans)
-            {
-                point.Render();
             }
 
             Engine.Show();
