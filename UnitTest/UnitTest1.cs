@@ -8,7 +8,9 @@ namespace UnitTest
     public class UnitTest1
     {
         private Character monkey = new Character("Monkey", new Transform(new Vector2(0, 0), 0, new Vector2(1.5f, 1.5f)));
+        private Lava lava= new Lava("lava", new Transform(new Vector2(478, 1150), 0, new Vector2(1, 1)));
 
+        public int moveY;
 
         [TestMethod]
         public void GetDamageUnitTest()
@@ -39,19 +41,38 @@ namespace UnitTest
         }
 
         [TestMethod]
-        public void GetPositionPlatformTest()
+        public void GetPositionLavaTest()
         {
-             int moveY = 10;
+            moveY = 50;
 
-            var moveLavaY = monkey.LavaMove + moveY;
+            var movedUnits = lava.transform.position.y + moveY * Time.deltaTime;
 
-            monkey.Move(moveY);
+            lava.Move(new Vector2(0, moveY));
 
-            var moveNormalLava = monkey.LavaMove;
+            var lavaPos = lava.transform.position.y;
 
-            Assert.AreEqual(moveNormalLava, moveLavaY);
-
+            Assert.AreEqual(movedUnits, lavaPos);
         }
+
+        [TestMethod]
+
+        public void GetDestroyUnitTest()
+        {
+            monkey.IsDestroyed = false;
+
+            float timer = 2f;
+
+
+            if (Engine.GetKey(Keys.J))
+            {
+                monkey.IsDestroyed = true;
+                
+            }
+
+            Assert.IsTrue(monkey.IsDestroyed = true);
+        }
+
+     
 
     }
 }

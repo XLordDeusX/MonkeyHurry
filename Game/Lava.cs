@@ -14,8 +14,6 @@ namespace Game
         private float realTimer = -5;
 
         public int LavaMove => LavaMove;
-
-
         public Lava(string p_name, Transform p_transform) : base(p_name,p_transform)
         {
             lava = CreateAnimation("Lava", "assets/Animations/Lava/lava_", 8, 0.06f, true);
@@ -34,6 +32,10 @@ namespace Game
             Animation animation = new Animation(p_animationID, p_animationSpeed, animationFrames, p_isLoop);
 
             return animation;
+        }
+        public void GetLavaMove()
+        {
+            //return LavaMove;
         }
         public void Update()
         {
@@ -91,10 +93,10 @@ namespace Game
             p_obj.draw = true;
             return false;
         }
+    
 
         public void Move(Vector2 pos)
         {
-            LavaMove += pos.x;
             transform.position.x += pos.x * Time.deltaTime;
             transform.position.y += pos.y * Time.deltaTime;
         }

@@ -10,7 +10,7 @@ namespace Game
     public class Gameplay : Level
     {
         public Time time = new Time();
-        public LifeUnits life = new LifeUnits(new Vector2(0, 0));
+       // public LifeUnits life = new LifeUnits(new Vector2(0, 0));
         public static Character monkey;
         public static Background background;
         public static Lava lava;
@@ -28,9 +28,9 @@ namespace Game
         {
             background = new Background("background", new Transform(new Vector2(500, -1500), 0, new Vector2(1, 1)));
 
-            lifes.Add(new LifeUnits(new Vector2(offset, 25)));
+            /*lifes.Add(new LifeUnits(new Vector2(offset, 25)));
             lifes.Add(new LifeUnits(new Vector2(offset + (life.RealWidth), 25)));
-            lifes.Add(new LifeUnits(new Vector2(offset + (life.RealWidth * 2), 25)));
+            lifes.Add(new LifeUnits(new Vector2(offset + (life.RealWidth * 2), 25)));*/
 
             monkey = new Character("monkey", new Transform(new Vector2(600, -500), 0, new Vector2(1.5f, 1.5f)));
 
@@ -80,7 +80,7 @@ namespace Game
                 
             }
 
-            foreach (var platform in platforms)
+           /* foreach (var platform in platforms)
             {
                 if (lava.IsTouchingPlatforms(platform))
                 {
@@ -89,7 +89,7 @@ namespace Game
                     platform.transform.position.x = posX;
                     continue;
                 }
-            }
+            }*/
 
             foreach (var platform in platforms)
             {

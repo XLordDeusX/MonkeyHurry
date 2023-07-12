@@ -16,7 +16,7 @@ namespace Game
         
         public Platforms(string p_name, Transform p_transform) : base(p_name, p_transform)
         {
-            Gameplay.platformsPool.AddNewUsedObj(this);
+            //Gameplay.platformsPool.AddNewUsedObj(this);
 
             platform = CreateAnimation("Platform", "assets/Animations/Platforms/platform_", 2, 0, false);
             currentAnimation = platform;

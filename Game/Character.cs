@@ -34,7 +34,7 @@ namespace Game
         private int bananaGoal = 0;
         private int hitDamage = 1;
         private int lifePoints = 3;
-        private bool isDestroyed = false;
+        public bool isDestroyed = false;
         
         public int BananaGoal => bananaGoal;
         public int LifePoints => lifePoints;

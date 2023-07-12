@@ -92,7 +92,6 @@ C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\UnitTest\bin\Debug\as
 C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\UnitTest\bin\Debug\assets\Animations\Monkey\walking_right_3.png
 C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\UnitTest\bin\Debug\assets\Animations\Platforms\Initial_Platform.png
 C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\UnitTest\bin\Debug\assets\Animations\Platforms\platform_1.png
-C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\UnitTest\bin\Debug\assets\Items\banana_1.png
 C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\UnitTest\bin\Debug\assets\Screens\Game_Over.png
 C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\UnitTest\bin\Debug\assets\Screens\Menu.png
 C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\UnitTest\bin\Debug\assets\Screens\mountain_texture_1.png
@@ -103,7 +102,6 @@ C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\UnitTest\bin\Debug\as
 C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\UnitTest\bin\Debug\assets\Sounds\lose.wav
 C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\UnitTest\bin\Debug\assets\Sounds\menu.wav
 C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\UnitTest\bin\Debug\assets\Sounds\zip.wav
-C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\UnitTest\bin\Debug\assets\UI\banana_1.png
 C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\UnitTest\bin\Debug\assets\UI\Mono_cabeza_1.png
 C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\UnitTest\bin\Debug\Engine.dll
 C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\UnitTest\bin\Debug\Game.cs
@@ -120,3 +118,12 @@ C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\UnitTest\obj\Debug\Un
 C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\UnitTest\obj\Debug\UnitTest.csproj.CopyComplete
 C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\UnitTest\obj\Debug\UnitTest.dll
 C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\UnitTest\obj\Debug\UnitTest.pdb
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\UnitTest\bin\Debug\assets\Animations\Bird\BirdSprite_1.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\UnitTest\bin\Debug\assets\Animations\Bird\BirdSprite_2.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\UnitTest\bin\Debug\assets\Animations\Bird\BirdSprite_3.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\UnitTest\bin\Debug\assets\Animations\Bird\BirdSprite_4.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\UnitTest\bin\Debug\assets\Animations\Bird\BirdSprite_5.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\UnitTest\bin\Debug\assets\Animations\Bird\BirdSprite_6.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\UnitTest\bin\Debug\assets\Animations\Bird\BirdSprite_7.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\UnitTest\bin\Debug\assets\Animations\Bird\BirdSprite_8.png
+C:\Users\Maria Eguenia  Rodri\Documents\GitHub\MonkeyHurry\UnitTest\bin\Debug\assets\Items\prueba2_1.png
