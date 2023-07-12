@@ -14,6 +14,7 @@ namespace Game
         public static Character monkey;
         public static Background background;
         public static Lava lava;
+        public static Bird bird;
         
         static List<Platforms> platforms = new List<Platforms>();
         static List<LifeUnits> lifes = new List<LifeUnits>();
@@ -32,6 +33,8 @@ namespace Game
             lifes.Add(new LifeUnits(new Vector2(offset + (life.RealWidth * 2), 25)));
 
             monkey = new Character("monkey", new Transform(new Vector2(600, -500), 0, new Vector2(1.5f, 1.5f)));
+
+            bird = new Bird("bird", new Transform(new Vector2(500, 500), 0, new Vector2(0.1f, 0.1f)));
 
             bananas.Add(new Banana("banana", new Transform(new Vector2(100, 200), 0, new Vector2(0.1f, 0.1f))));
             bananas.Add(new Banana("banana", new Transform(new Vector2(300, 300), 0, new Vector2(0.1f, 0.1f))));
@@ -60,7 +63,7 @@ namespace Game
         {
             lava.Update();
             monkey.Update();
-
+            bird.Update();
             foreach (var banana in bananas)
             {
                 if (monkey.IsBoxColliding(banana))
@@ -91,7 +94,7 @@ namespace Game
             foreach (var platform in platforms)
             {
 
-                if (monkey.IsBoxColliding(lava))
+                if (monkey.IsBoxColliding(lava) || monkey.IsBoxColliding(bird))
                 {
                     for (int i = 1; i < lifes.Count; i++)
                     {

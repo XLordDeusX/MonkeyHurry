@@ -267,3 +267,11 @@ C:\Users\Usuario\Documents\GitHub\MonkeyHurry\Game\obj\Debug\Game.csproj.CoreCom
 C:\Users\Usuario\Documents\GitHub\MonkeyHurry\Game\obj\Debug\Game.exe
 C:\Users\Usuario\Documents\GitHub\MonkeyHurry\Game\obj\Debug\Game.pdb
 C:\Users\Usuario\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Items\prueba2_1.png
+C:\Users\Usuario\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Bird\BirdSprite_1.png
+C:\Users\Usuario\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Bird\BirdSprite_2.png
+C:\Users\Usuario\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Bird\BirdSprite_3.png
+C:\Users\Usuario\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Bird\BirdSprite_4.png
+C:\Users\Usuario\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Bird\BirdSprite_5.png
+C:\Users\Usuario\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Bird\BirdSprite_6.png
+C:\Users\Usuario\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Bird\BirdSprite_7.png
+C:\Users\Usuario\Documents\GitHub\MonkeyHurry\Game\bin\Debug\assets\Animations\Bird\BirdSprite_8.png

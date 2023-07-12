@@ -40,6 +40,7 @@
     <Compile Include="Animation.cs" />
     <Compile Include="Background.cs" />
     <Compile Include="Banana.cs" />
+    <Compile Include="Bird.cs" />
     <Compile Include="BoostFactory.cs" />
     <Compile Include="GameManager.cs" />
     <Compile Include="GameObject.cs" />
@@ -65,6 +66,30 @@
     <Compile Include="VictoryScreen.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\Animations\Bird\BirdSprite_1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Animations\Bird\BirdSprite_2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Animations\Bird\BirdSprite_3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Animations\Bird\BirdSprite_4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Animations\Bird\BirdSprite_5.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Animations\Bird\BirdSprite_6.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Animations\Bird\BirdSprite_7.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Animations\Bird\BirdSprite_8.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="assets\Animations\Lava\lava_1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
