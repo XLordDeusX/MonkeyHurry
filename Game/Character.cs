@@ -27,7 +27,7 @@ namespace Game
         private float posFinalY;
         private float diffPosY;
 
-        private float jumpTime;
+        public float jumpTime;
         private bool canJump;
 
         private int bananaPoint = 1;
@@ -35,13 +35,19 @@ namespace Game
         private int hitDamage = 1;
         private int lifePoints = 3;
         private bool isDestroyed = false;
+        
         public int BananaGoal => bananaGoal;
         public int LifePoints => lifePoints;
+
+        public bool MonkeyDestroy => IsDestroyed;
+
         public bool IsDestroyed
         {
             get => isDestroyed;
             set => isDestroyed = value;
         }
+        public int LavaMove { get; set; }
+
         public event OnLifeChanged OnLifeChanged;
         public event OnDestroyed OnDestroyed;
 
@@ -137,7 +143,7 @@ namespace Game
             diffPosY = posFinalY - posIniY;
         }
 
-        private void JumpReady()
+        public void JumpReady()
         {
             if (Engine.GetKey(Keys.SPACE))
             {

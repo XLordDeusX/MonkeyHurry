@@ -9,6 +9,7 @@ namespace UnitTest
     {
         private Character monkey = new Character("Monkey", new Transform(new Vector2(0, 0), 0, new Vector2(1.5f, 1.5f)));
 
+
         [TestMethod]
         public void GetDamageUnitTest()
         {
@@ -36,5 +37,21 @@ namespace UnitTest
 
             Assert.AreEqual(currentPoints, expectPoints);
         }
+
+        [TestMethod]
+        public void GetPositionPlatformTest()
+        {
+             int moveY = 10;
+
+            var moveLavaY = monkey.LavaMove + moveY;
+
+            monkey.Move(moveY);
+
+            var moveNormalLava = monkey.LavaMove;
+
+            Assert.AreEqual(moveNormalLava, moveLavaY);
+
+        }
+
     }
 }

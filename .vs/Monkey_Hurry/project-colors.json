@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "c6f957f4-7679-4d98-a47a-b308ad7ec516": {
+      "ProjectGuid": "c6f957f4-7679-4d98-a47a-b308ad7ec516",
+      "DisplayName": "UnitTest",
+      "ColorIndex": 0
+    },
+    "4b96137a-5e6a-434b-bbf0-8b3c9342750c": {
+      "ProjectGuid": "4b96137a-5e6a-434b-bbf0-8b3c9342750c",
+      "DisplayName": "Game",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}

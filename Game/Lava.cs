@@ -13,6 +13,8 @@ namespace Game
         public float timerLava = -5;
         private float realTimer = -5;
 
+        public int LavaMove => LavaMove;
+
 
         public Lava(string p_name, Transform p_transform) : base(p_name,p_transform)
         {
@@ -92,6 +94,7 @@ namespace Game
 
         public void Move(Vector2 pos)
         {
+            LavaMove += pos.x;
             transform.position.x += pos.x * Time.deltaTime;
             transform.position.y += pos.y * Time.deltaTime;
         }
