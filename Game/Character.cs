@@ -15,15 +15,14 @@ namespace Game
         private Animation runRight;
         private Animation jumpLeft;
         private Animation jumpRight;
-        private Animation dead;
+        //private Animation dead;
 
-        private float speedX = 150;
+        private float speedX = 300;
         private float posIniX;
         private float posFinalX;
         private float diffPosX;
 
-
-        private float speedY = 150;
+        private float speedY = 130;
         private float posIniY;
         private float posFinalY;
         private float diffPosY;
@@ -31,8 +30,15 @@ namespace Game
         private float jumpTime;
         private bool canJump;
 
+        private int starPoint = 1;
+        private int starGoal = 0;
+        private int hitDamage = 1;
         private int lifePoints = 3;
-        private bool isDestroyed = false;
+        public bool isDestroyed = false;
+        bool left = false;
+
+
+        public int StarGoal => starGoal;
         public int LifePoints => lifePoints;
         public bool IsDestroyed
         {
@@ -41,8 +47,6 @@ namespace Game
         }
         public event OnLifeChanged OnLifeChanged;
         public event OnDestroyed OnDestroyed;
-
-        //public event Action OnDie;
 
 
         public Character(string p_name, Transform p_transform) : base(p_name, p_transform)
@@ -53,7 +57,7 @@ namespace Game
             runRight = CreateAnimation("Run Right", "assets/Animations/Monkey/walking_right_", 3, 0.06f, true);
             jumpLeft = CreateAnimation("Jump Left", "assets/Animations/Monkey/jumping_left_", 4, 0.1f, false);
             jumpRight = CreateAnimation("Jump Right", "assets/Animations/Monkey/jumping_right_", 4, 0.1f, false);
-            dead = CreateAnimation("Dead", "assets/Animations/Monkey/dying_left_", 3, 0.5f, false);
+            //dead = CreateAnimation("Dead", "assets/Animations/Monkey/dying_left_", 3, 0.5f, false);
             currentAnimation = idleRight;
             RenderizablesManager.Instance.AddObjet(this);
         }
@@ -100,16 +104,41 @@ namespace Game
                     canJump = true;
                     jumpTime = 0;
                 }
-                else
+                
+                if (p_obj.name == "lava")
                 {
-                    GetDamage(1);
+                    GetDamage(hitDamage);
                     ResetValues();
                 }
-              
+
+                if(p_obj.name == "bird")
+                {
+                    GetDamage(hitDamage);
+                    ResetValues();
+                }
+
+                if(p_obj.name == "star")
+                {
+                    GetStar(starPoint);
+                }
+
                 return true;
             }
+
             canJump = false;
             return false;
+        }
+
+        public void ShootBanana()
+        {
+            var banana = BananaFactory.CreateBanana(new Transform(new Vector2(transform.position.x, transform.position.y), -90, new Vector2(0.3f, 0.3f)));
+
+            if (left == true)
+            {
+                banana.SetDirection(left);
+            }
+
+            banana.Reset("banana", new Transform(new Vector2(transform.position.x, transform.position.y), -90, new Vector2(0.3f, 0.3f)));
         }
 
         public void Move(Vector2 pos)
@@ -158,7 +187,7 @@ namespace Game
 
         public void ResetValues()
         {
-            transform.position = new Vector2(600, -200);
+            transform.position = new Vector2(700, -200);
         }
 
         public void InputDetection()
@@ -185,29 +214,38 @@ namespace Game
             {
                 Move(new Vector2(speedX, 0));
                 currentAnimation = runRight;
+                left = false;
             }
             else if(Engine.GetKey(Keys.D) && !canJump)
             {
                 Move(new Vector2(speedX, 0));
                 currentAnimation = jumpRight;
+                left = false;
             }
 
             if (Engine.GetKey(Keys.A) && canJump)
             {
                 Move(new Vector2(-speedX, 0));
                 currentAnimation = runLeft;
+                left = true;
             }
             else if(Engine.GetKey(Keys.A) && !canJump)
             {
                 Move(new Vector2(-speedX, 0));
                 currentAnimation = jumpLeft;
+                left = true;
+            }
+
+            if (Engine.GetKey(Keys.K))
+            {
+                ShootBanana();
             }
         }
-
+        
         public void GetDamage(int p_damage)
         {
             lifePoints -= p_damage;
-            //OnLifeChanged.Invoke(lifePoints);
+            OnLifeChanged?.Invoke(lifePoints);
 
             if (lifePoints <= 0)
             {
@@ -216,10 +254,20 @@ namespace Game
             }
         }
 
+        public void GetStar(int p_point)
+        {
+            starGoal += p_point;
+
+            if(starGoal >= 3)
+            {
+                GameManager.Instance.ChangeScreen(GameManager.Instance.victory);
+            }
+        }
+
         public void Destroy()
         {
             IsDestroyed = true;
-            //OnDestroyed.Invoke(this);
+            OnDestroyed?.Invoke(this);
         }
     }
 }

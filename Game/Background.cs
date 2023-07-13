@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public class Background : GameObject, IRenderizable
+    public class Background : GameObject
     {
         private Animation background;
         public Transform Transform
