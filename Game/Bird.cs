@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public class Bird: GameObject
+    public class Bird : GameObject
     {
         private Animation bird;
         private float speedX = 200;
@@ -39,11 +39,31 @@ namespace Game
             ScreenCrossing();
         }
 
+        public bool IsBoxColliding(GameObject p_obj)
+        {
+            float distanceX = Math.Abs(transform.position.x - p_obj.transform.position.x);
+            float distanceY = Math.Abs(transform.position.y - p_obj.transform.position.y);
+
+            float sumHalfWidths = RealWidth / 2 + p_obj.RealWidth / 2;
+            float sumHalfHeights = RealHeight / 2 + p_obj.RealHeight / 2;
+
+            if (distanceX <= sumHalfWidths && distanceY <= sumHalfHeights)
+            {
+                if (p_obj.name == "banana")
+                {
+
+                }
+
+                
+                return true;
+            }
+
+            return false;
+        }
         public void Move(Vector2 pos)
         {
             transform.position.x += pos.x * Time.deltaTime;
         }
-
         public void ScreenCrossing()
         {
             if (transform.position.x > 950)

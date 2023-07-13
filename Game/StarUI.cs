@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public class BananaUnits : GameObject
+    public class StarUI : GameObject
     {
         private Animation idle;
 
-        public BananaUnits(string p_name, Transform p_transform) : base(p_name, p_transform)
+        public StarUI(string p_name, Transform p_transform) : base(p_name, p_transform)
         {
-            idle = CreateAnimation("Idle", "assets/Items/banana_", 2, 0, false);
+            idle = CreateAnimation("Idle", "assets/UI/black_star_", 2, 0, false);
             currentAnimation = idle;
             //RenderizablesManager.Instance.AddObjet(this);
         }

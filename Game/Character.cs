@@ -27,27 +27,24 @@ namespace Game
         private float posFinalY;
         private float diffPosY;
 
-        public float jumpTime;
+        private float jumpTime;
         private bool canJump;
 
-        private int bananaPoint = 1;
-        private int bananaGoal = 0;
+        private int starPoint = 1;
+        private int starGoal = 0;
         private int hitDamage = 1;
         private int lifePoints = 3;
         public bool isDestroyed = false;
-        
-        public int BananaGoal => bananaGoal;
+        bool left = false;
+
+
+        public int StarGoal => starGoal;
         public int LifePoints => lifePoints;
-
-        public bool MonkeyDestroy => IsDestroyed;
-
         public bool IsDestroyed
         {
             get => isDestroyed;
             set => isDestroyed = value;
         }
-        public int LavaMove { get; set; }
-
         public event OnLifeChanged OnLifeChanged;
         public event OnDestroyed OnDestroyed;
 
@@ -114,9 +111,15 @@ namespace Game
                     ResetValues();
                 }
 
-                if(p_obj.name == "banana")
+                if(p_obj.name == "bird")
                 {
-                    GetBanana(bananaPoint);
+                    GetDamage(hitDamage);
+                    ResetValues();
+                }
+
+                if(p_obj.name == "star")
+                {
+                    GetStar(starPoint);
                 }
 
                 return true;
@@ -126,6 +129,17 @@ namespace Game
             return false;
         }
 
+        public void ShootBanana()
+        {
+            var banana = BananaFactory.CreateBanana(new Transform(new Vector2(transform.position.x, transform.position.y), -90, new Vector2(0.3f, 0.3f)));
+
+            if (left == true)
+            {
+                banana.SetDirection(left);
+            }
+
+            banana.Reset("banana", new Transform(new Vector2(transform.position.x, transform.position.y), -90, new Vector2(0.3f, 0.3f)));
+        }
 
         public void Move(Vector2 pos)
         {
@@ -143,7 +157,7 @@ namespace Game
             diffPosY = posFinalY - posIniY;
         }
 
-        public void JumpReady()
+        private void JumpReady()
         {
             if (Engine.GetKey(Keys.SPACE))
             {
@@ -200,25 +214,34 @@ namespace Game
             {
                 Move(new Vector2(speedX, 0));
                 currentAnimation = runRight;
+                left = false;
             }
             else if(Engine.GetKey(Keys.D) && !canJump)
             {
                 Move(new Vector2(speedX, 0));
                 currentAnimation = jumpRight;
+                left = false;
             }
 
             if (Engine.GetKey(Keys.A) && canJump)
             {
                 Move(new Vector2(-speedX, 0));
                 currentAnimation = runLeft;
+                left = true;
             }
             else if(Engine.GetKey(Keys.A) && !canJump)
             {
                 Move(new Vector2(-speedX, 0));
                 currentAnimation = jumpLeft;
+                left = true;
+            }
+
+            if (Engine.GetKey(Keys.K))
+            {
+                ShootBanana();
             }
         }
-
+        
         public void GetDamage(int p_damage)
         {
             lifePoints -= p_damage;
@@ -231,11 +254,11 @@ namespace Game
             }
         }
 
-        public void GetBanana(int p_point)
+        public void GetStar(int p_point)
         {
-            bananaGoal += p_point;
+            starGoal += p_point;
 
-            if(bananaGoal >= 3)
+            if(starGoal >= 3)
             {
                 GameManager.Instance.ChangeScreen(GameManager.Instance.victory);
             }

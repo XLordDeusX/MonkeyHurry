@@ -7,8 +7,8 @@ namespace UnitTest
     [TestClass]
     public class UnitTest1
     {
-        private Character monkey = new Character("Monkey", new Transform(new Vector2(0, 0), 0, new Vector2(1.5f, 1.5f)));
-        private Lava lava= new Lava("lava", new Transform(new Vector2(478, 1150), 0, new Vector2(1, 1)));
+        private Character monkey = new Character("monkey", new Transform(new Vector2(0, 0), 0, new Vector2(1.5f, 1.5f)));
+        private Lava lava = new Lava("lava", new Transform(new Vector2(478, 1150), 0, new Vector2(1, 1)));
 
         public int moveY;
 
@@ -27,15 +27,15 @@ namespace UnitTest
         }
 
         [TestMethod]
-        public void GetBananaUnitTest()
+        public void GetStarUnitTest()
         {
-            int banana = 1;
+            int star = 1;
 
-            var expectPoints = monkey.BananaGoal + banana;
+            var expectPoints = monkey.StarGoal + star;
 
-            monkey.GetBanana(banana);
+            monkey.GetStar(star);
 
-            var currentPoints = monkey.BananaGoal;
+            var currentPoints = monkey.StarGoal;
 
             Assert.AreEqual(currentPoints, expectPoints);
         }
@@ -66,13 +66,9 @@ namespace UnitTest
             if (Engine.GetKey(Keys.J))
             {
                 monkey.IsDestroyed = true;
-                
             }
 
             Assert.IsTrue(monkey.IsDestroyed = true);
         }
-
-     
-
     }
 }
