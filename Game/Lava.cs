@@ -53,11 +53,6 @@ namespace Game
                 timerLava = -1;
             }
             currentAnimation.Update();
-
-            if (realTimer >= 40)
-            {
-                GameManager.Instance.ChangeScreen(GameManager.Instance.victory);
-            }
         }
 
         public bool IsBoxColliding(Platforms p_obj)

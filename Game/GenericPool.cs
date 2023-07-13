@@ -32,6 +32,11 @@ namespace Game
         public void AddNewUsedObj(T p_obj)
         {
             m_inUseObjects.Add(p_obj);
+
+            if (m_poolObjects.Contains(p_obj))
+            {
+                m_poolObjects.Remove(p_obj);
+            }
         }
 
         public void AddToPool(T p_obj)

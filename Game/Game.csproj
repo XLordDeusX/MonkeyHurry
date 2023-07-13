@@ -40,7 +40,9 @@
     <Compile Include="Animation.cs" />
     <Compile Include="Background.cs" />
     <Compile Include="Banana.cs" />
-    <Compile Include="BananaUnits.cs" />
+    <Compile Include="Bird.cs" />
+    <Compile Include="Star.cs" />
+    <Compile Include="StarUnits.cs" />
     <Compile Include="BoostFactory.cs" />
     <Compile Include="GameManager.cs" />
     <Compile Include="GameObject.cs" />
@@ -62,11 +64,35 @@
     <Compile Include="Program.cs" />
     <Compile Include="RenderizablesManager.cs" />
     <Compile Include="Time.cs" />
-    <Compile Include="TransparentBanana.cs" />
+    <Compile Include="StarUI.cs" />
     <Compile Include="Utils.cs" />
     <Compile Include="VictoryScreen.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\Animations\Bird\BirdSprite_1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Animations\Bird\BirdSprite_2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Animations\Bird\BirdSprite_3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Animations\Bird\BirdSprite_4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Animations\Bird\BirdSprite_5.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Animations\Bird\BirdSprite_6.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Animations\Bird\BirdSprite_7.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\Animations\Bird\BirdSprite_8.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="assets\Animations\Lava\lava_1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -190,7 +216,13 @@
     <Content Include="assets\UI\banana_1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="assets\UI\black_star_1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="assets\UI\Mono_cabeza_1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\UI\star_1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Engine.dll">

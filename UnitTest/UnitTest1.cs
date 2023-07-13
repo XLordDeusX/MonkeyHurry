@@ -30,7 +30,7 @@ namespace UnitTest
 
             var expectPoints = monkey.BananaGoal + banana;
 
-            monkey.GetBanana(banana);
+            monkey.GetStar(banana);
 
             var currentPoints = monkey.BananaGoal;
 

@@ -13,6 +13,33 @@ namespace Game
         Big = 2
     }
 
+    public static class BananaFactory
+    {
+
+        private static GenericPool<Banana> bananasPool = new GenericPool<Banana>();
+        public static Banana CreateBanana(Transform p_transform)
+        {
+            Banana banana = bananasPool.GetObjectsFromPool();
+
+            if (banana == null)
+            {
+                banana = new Banana("banana", p_transform);
+            }
+            else
+            {
+                banana.transform.position.x = p_transform.position.x;
+                banana.transform.position.y = p_transform.position.y;
+            }
+
+
+            bananasPool.AddNewUsedObj(banana);
+            banana.OnDie += bananasPool.AddToPool;
+
+
+            return banana;
+        }
+    }
+
     public static class PlatformFactory
     {
         public static Platforms CreatePlatforms(PlatformType platType, Vector2 pos)
