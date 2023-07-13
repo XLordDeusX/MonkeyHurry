@@ -30,16 +30,15 @@ namespace Game
         private float jumpTime;
         private bool canJump;
 
-        private Banana banana = new Banana("banana", new Transform(new Vector2(0, 0), 0, new Vector2(0, 0)));
         private int starPoint = 1;
         private int starGoal = 0;
         private int hitDamage = 1;
         private int lifePoints = 3;
-        private bool isDestroyed = false;
+        public bool isDestroyed = false;
         bool left = false;
 
 
-        public int BananaGoal => starGoal;
+        public int StarGoal => starGoal;
         public int LifePoints => lifePoints;
         public bool IsDestroyed
         {

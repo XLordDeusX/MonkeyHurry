@@ -60,3 +60,14 @@ C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\UnitTest\obj\Debug\UnitTest
 C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\UnitTest\obj\Debug\UnitTest.dll
 C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\UnitTest\obj\Debug\UnitTest.pdb
 C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\UnitTest\bin\Debug\assets\Items\banana_1.png
+C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\UnitTest\bin\Debug\assets\Animations\Bird\BirdSprite_1.png
+C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\UnitTest\bin\Debug\assets\Animations\Bird\BirdSprite_2.png
+C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\UnitTest\bin\Debug\assets\Animations\Bird\BirdSprite_3.png
+C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\UnitTest\bin\Debug\assets\Animations\Bird\BirdSprite_4.png
+C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\UnitTest\bin\Debug\assets\Animations\Bird\BirdSprite_5.png
+C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\UnitTest\bin\Debug\assets\Animations\Bird\BirdSprite_6.png
+C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\UnitTest\bin\Debug\assets\Animations\Bird\BirdSprite_7.png
+C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\UnitTest\bin\Debug\assets\Animations\Bird\BirdSprite_8.png
+C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\UnitTest\bin\Debug\assets\UI\banana_1.png
+C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\UnitTest\bin\Debug\assets\UI\black_star_1.png
+C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\UnitTest\bin\Debug\assets\UI\star_1.png

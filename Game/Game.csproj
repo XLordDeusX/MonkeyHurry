@@ -43,7 +43,6 @@
     <Compile Include="Bird.cs" />
     <Compile Include="Star.cs" />
     <Compile Include="StarUnits.cs" />
-    <Compile Include="BoostFactory.cs" />
     <Compile Include="GameManager.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="Gameplay.cs" />
