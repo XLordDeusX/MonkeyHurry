@@ -15,7 +15,8 @@ namespace Game
         public StarUnits starPoint = new StarUnits("punto", new Transform(new Vector2(0, 0), 0, new Vector2(1, 1)));
         public StarUI blackStar = new StarUI("black", new Transform(new Vector2(0, 0), 0, new Vector2(1, 1)));
 
-        public Bird bird;
+        public Bird bird_1;
+        public Bird bird_2;
         public Character monkey;
         public Background background;    
         public Lava lava;
@@ -34,7 +35,7 @@ namespace Game
 
         public event Action<GameObject,GameObject> OnCollisionEnter;
 
-        public override void Start() 
+        public override void Start()
         {
             background = new Background("background", new Transform(new Vector2(500, -1500), 0, new Vector2(1, 1)));
 
@@ -58,10 +59,11 @@ namespace Game
             platformsPool.AddNewUsedObj(new Platforms("platform", new Transform(new Vector2(350, 460), 0, new Vector2(1, 1))));
             platformsPool.AddNewUsedObj(new Platforms("platform", new Transform(new Vector2(500, 580), 0, new Vector2(1, 1))));
             platformsPool.AddNewUsedObj(new Platforms("platform", new Transform(new Vector2(700, 650), 0, new Vector2(1, 1))));
-            
+
             stars.Add(new Star("star", new Transform(new Vector2(400, 300), 0, new Vector2(0.025f, 0.025f))));
-            
-            bird = new Bird("bird", new Transform(new Vector2(500, 500), 0, new Vector2(0.1f, 0.1f)), 1);
+
+            bird_1 = new Bird("bird", new Transform(new Vector2(500, 200), 0, new Vector2(0.1f, 0.1f)), -1);
+            bird_2 = new Bird("bird", new Transform(new Vector2(500, 500), 0, new Vector2(0.1f, 0.1f)), 1);
             
             lava = new Lava("lava", new Transform(new Vector2(478, 1150), 0, new Vector2(1, 1)));
             
@@ -76,13 +78,14 @@ namespace Game
         {
             lava.Update();
             monkey.Update();
-            bird.Update();
+            bird_1.Update();
+            bird_2.Update();
 
             foreach(var banana in bananaPool.GetUsedObjs())
             {
                 banana.Update();
 
-                if (bird.IsBoxColliding(banana))
+                if (bird_1.IsBoxColliding(banana))
                 {
                     break;
                 }
@@ -126,7 +129,7 @@ namespace Game
             foreach (var platform in platformsPool.GetUsedObjs())
             {
 
-                if (monkey.IsBoxColliding(lava) || monkey.IsBoxColliding(bird))
+                if (monkey.IsBoxColliding(lava) || monkey.IsBoxColliding(bird_1))
                 {
                     OnCollisionEnter?.Invoke(monkey, lava);
 
