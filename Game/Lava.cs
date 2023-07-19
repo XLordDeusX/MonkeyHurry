@@ -35,23 +35,7 @@ namespace Game
         }
         public void Update()
         {
-            timerLava += Time.deltaTime;
-            realTimer += Time.deltaTime;
-
-            if(timerLava >= 2.5f && timerLava <= 5.8f)
-            {
-                Move(new Vector2(0, -speedY));
-            }
-            
-            if (timerLava >= 6.2f && timerLava <= 9.5f)
-            {
-                Move(new Vector2(0, speedY));
-            }
-
-            if(timerLava >= 10.5f)
-            {
-                timerLava = -1;
-            }
+            LavaMovement();
             currentAnimation.Update();
         }
 
@@ -83,6 +67,25 @@ namespace Game
 
             p_obj.draw = true;
             return false;
+        }
+        public void LavaMovement()
+        {
+            timerLava += Time.deltaTime;
+
+            if (timerLava >= 2.5f && timerLava <= 5.8f)
+            {
+                Move(new Vector2(0, -speedY));
+            }
+
+            if (timerLava >= 6.2f && timerLava <= 9.5f)
+            {
+                Move(new Vector2(0, speedY));
+            }
+
+            if (timerLava >= 10.5f)
+            {
+                timerLava = -1;
+            }
         }
 
         public void Move(Vector2 pos)

@@ -10,12 +10,16 @@ namespace Game
     {
         private Animation bird;
         private float speedX = 200;
+        private float speedY = 165;
+        private float regenerateTime;
+        private float timerLava = -5;
 
-        public Bird(string p_name, Transform p_transform) : base(p_name, p_transform)
+        public Bird(string p_name, Transform p_transform, int p_sense) : base(p_name, p_transform)
         {
             bird = CreateAnimation("Bird", "assets/Animations/Bird/BirdSprite_", 8, 0.01f, true);
             currentAnimation = bird;
             RenderizablesManager.Instance.AddObjet(this);
+            speedX = 200 * p_sense;
         }
 
         private Animation CreateAnimation(string p_animationID, string p_path, int p_texturesAmount, float p_animationSpeed, bool p_isLoop)
@@ -37,6 +41,8 @@ namespace Game
             currentAnimation.Update();
             Move(new Vector2(-speedX, 0));
             ScreenCrossing();
+            RegenerateBird();
+            BirdMovement();
         }
 
         public bool IsBoxColliding(GameObject p_obj)
@@ -51,18 +57,37 @@ namespace Game
             {
                 if (p_obj.name == "banana")
                 {
-
+                    DeadBird();
                 }
-
                 
                 return true;
             }
 
             return false;
         }
+        public void BirdMovement()
+        {
+            timerLava += Time.deltaTime;
+
+            if (timerLava >= 2.5f && timerLava <= 5)
+            {
+                Move(new Vector2(0, -speedY));
+            }
+
+            if (timerLava >= 6.2f && timerLava <= 8.7f)
+            {
+                Move(new Vector2(0, speedY));
+            }
+
+            if (timerLava >= 10.5f)
+            {
+                timerLava = -1;
+            }
+        }
         public void Move(Vector2 pos)
         {
             transform.position.x += pos.x * Time.deltaTime;
+            transform.position.y += pos.y * Time.deltaTime;
         }
         public void ScreenCrossing()
         {
@@ -75,6 +100,28 @@ namespace Game
             {
                 transform.position.x = 930;
             }
+        }
+        public void RegenerateBird()
+        {
+            if (draw == false)
+            {
+                regenerateTime += Time.deltaTime;
+
+                if (regenerateTime > 5)
+                {
+                    draw = true;
+                    speedX = 200;
+                    speedY = 165;
+                    transform.position.y = transform.position.y - 2000;
+                    regenerateTime = 0;
+                }
+
+            }
+        }
+        public void DeadBird()
+        {
+            draw = false;
+            transform.position.y = transform.position.y + 2000;
         }
     }
 }

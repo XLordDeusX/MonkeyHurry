@@ -10,7 +10,7 @@ namespace Game
     {
         private Animation banana;
         private int speedX = 300;
-        private int rotSpeed = 300;
+        private int rotSpeed = 500;
         private float lifeTime = 3;
         private float timer = 0;
 
@@ -21,10 +21,8 @@ namespace Game
             banana = CreateAnimation("Banana", "assets/Items/banana_", 2, 0, false);
             currentAnimation = banana;
             RenderizablesManager.Instance.AddObjet(this);
-            //Gameplay.bananaPool.AddNewUsedObj(this);
-
             GameManager.Instance.GameplayScreen.bananaPool.AddNewUsedObj(this);
-            Reset("banana", new Transform(new Vector2(300, 400), 0, new Vector2(0.3f, 0.3f)));
+            //Reset("banana", new Transform(new Vector2(300, 400), 0, new Vector2(0.3f, 0.3f)));
         }
 
         private Animation CreateAnimation(string p_animationID, string p_path, int p_texturesAmount, float p_animationSpeed, bool p_isLoop)
