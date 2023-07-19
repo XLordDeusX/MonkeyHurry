@@ -8,7 +8,8 @@ namespace Game
 {
     public class Bird : GameObject
     {
-        private Animation bird;
+        private Animation birdLeft;
+        private Animation birdRight;
         private float speedX = 200;
         private float speedY = 165;
         private float regenerateTime;
@@ -16,10 +17,21 @@ namespace Game
 
         public Bird(string p_name, Transform p_transform, int p_sense) : base(p_name, p_transform)
         {
-            bird = CreateAnimation("Bird", "assets/Animations/Bird/BirdSprite_", 8, 0.01f, true);
-            currentAnimation = bird;
+            speedX *= p_sense;
+
+            if(p_sense > 0)
+            {
+                birdLeft = CreateAnimation("Bird", "assets/Animations/Bird/BirdSprite_", 8, 0.01f, true);
+                currentAnimation = birdLeft;
+            }
+            
+            if(p_sense < 0)
+            {
+                birdRight = CreateAnimation("Bird", "assets/Animations/Bird/BirdSprite_R_", 8, 0.01f, true);
+                currentAnimation = birdRight;
+            }
+            
             RenderizablesManager.Instance.AddObjet(this);
-            speedX = 200 * p_sense;
         }
 
         private Animation CreateAnimation(string p_animationID, string p_path, int p_texturesAmount, float p_animationSpeed, bool p_isLoop)
