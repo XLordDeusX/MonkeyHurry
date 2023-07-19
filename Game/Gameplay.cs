@@ -20,11 +20,10 @@ namespace Game
         public Background background;    
         public Lava lava;
         public Banana banana;
+
         public GenericPool<Banana> bananaPool = new GenericPool<Banana>();
         public static GenericPool<Platforms> platformsPool = new GenericPool<Platforms>();
-        //static List<Platforms> platforms = new List<Platforms>();
 
-        //public static List<Banana> bananas = new List<Banana>();
         static List<LifeUnits> lifes = new List<LifeUnits>();
         static List<StarUnits> starPoints = new List<StarUnits>();
         static List<Star> stars = new List<Star>();
@@ -51,11 +50,7 @@ namespace Game
             starPoints.Add(new StarUnits("starUI", new Transform(new Vector2(starOffset + (starPoint.RealWidth / 50), 25), 0, new Vector2(0.025f, 0.025f))));
             starPoints.Add(new StarUnits("starUI", new Transform(new Vector2(starOffset + (starPoint.RealWidth / 25), 40), 30, new Vector2(0.025f, 0.025f))));
 
-            bird = new Bird("bird", new Transform(new Vector2(500, 500), 0, new Vector2(0.1f, 0.1f)));
-
-            stars.Add(new Star("star", new Transform(new Vector2(400, 300), 0, new Vector2(0.025f, 0.025f))));
-            
-            monkey = new Character("monkey", new Transform(new Vector2(700, -500), 0, new Vector2(1.5f, 1.5f)));
+            monkey = new Character("monkey", new Transform(new Vector2(700, -200), 0, new Vector2(1.5f, 1.5f)));
 
             platformsPool.AddNewUsedObj(new Platforms("platform", new Transform(new Vector2(700, 100), 0, new Vector2(1, 1))));
             platformsPool.AddNewUsedObj(new Platforms("platform", new Transform(new Vector2(600, 220), 0, new Vector2(1, 1))));
@@ -63,13 +58,17 @@ namespace Game
             platformsPool.AddNewUsedObj(new Platforms("platform", new Transform(new Vector2(350, 460), 0, new Vector2(1, 1))));
             platformsPool.AddNewUsedObj(new Platforms("platform", new Transform(new Vector2(500, 580), 0, new Vector2(1, 1))));
             platformsPool.AddNewUsedObj(new Platforms("platform", new Transform(new Vector2(700, 650), 0, new Vector2(1, 1))));
-
+            
+            stars.Add(new Star("star", new Transform(new Vector2(400, 300), 0, new Vector2(0.025f, 0.025f))));
+            
+            bird = new Bird("bird", new Transform(new Vector2(500, 500), 0, new Vector2(0.1f, 0.1f)), 1);
+            
             lava = new Lava("lava", new Transform(new Vector2(478, 1150), 0, new Vector2(1, 1)));
             
             GameManager.Instance.soundPlayer = new SoundPlayer("assets/Sounds/gameplay.wav");
             GameManager.Instance.soundPlayer.PlayLooping();
 
-            banana = BananaFactory.CreateBanana(new Transform(new Vector2(300, 400), 0, new Vector2(0.3f, 0.3f)));
+            //banana = BananaFactory.CreateBanana(new Transform(new Vector2(300, 400), 0, new Vector2(0.3f, 0.3f)));
 
             time.InitializedTime();
         }
@@ -82,6 +81,11 @@ namespace Game
             foreach(var banana in bananaPool.GetUsedObjs())
             {
                 banana.Update();
+
+                if (bird.IsBoxColliding(banana))
+                {
+                    break;
+                }
             }
 
             foreach (var platform in platformsPool.GetUsedObjs())

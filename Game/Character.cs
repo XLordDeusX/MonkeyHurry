@@ -138,7 +138,7 @@ namespace Game
                 banana.SetDirection(left);
             }
 
-            banana.Reset("banana", new Transform(new Vector2(transform.position.x, transform.position.y), -90, new Vector2(0.3f, 0.3f)));
+            //banana.Reset("banana", new Transform(new Vector2(transform.position.x, transform.position.y), -90, new Vector2(0.3f, 0.3f)));
         }
 
         public void Move(Vector2 pos)
@@ -236,7 +236,7 @@ namespace Game
                 left = true;
             }
 
-            if (Engine.GetKey(Keys.K))
+            if (Engine.GetKeyDown(Keys.K))
             {
                 ShootBanana();
             }
@@ -249,7 +249,6 @@ namespace Game
 
             if (lifePoints <= 0)
             {
-                Destroy();
                 GameManager.Instance.ChangeScreen(GameManager.Instance.defeat);
             }
         }
