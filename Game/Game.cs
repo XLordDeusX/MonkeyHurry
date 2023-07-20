@@ -233,13 +233,35 @@ namespace Game
             Draw(texture.Id, x, y, texture.Width * scaX, texture.Height * scaY, angle, offsetX, offsetY);
         }
 
+        private static List<Int32> currentKeys = new List<Int32>();
+
         public static bool GetKey(Keys key)
         {
             if (!WindowOpened) return false;
             return GetKey((int)key);
         }
 
-        public static bool GetKeyDown(Keys key) => GetKey((int)key);
+        public static bool GetKeyDown(Keys key)
+        {
+            if (!WindowOpened) return false;
+
+
+            if (currentKeys.Contains((Int32)key))
+            {
+                if (GetKey(key))
+                {
+                    return false;
+                }
+                currentKeys.Remove((Int32)key);
+            }
+
+            if (GetKey((int)key))
+            {
+                currentKeys.Add((Int32)key);
+                return GetKey((int)key);
+            }
+            return false;
+        }
 
         [DllImport("Engine.dll", CallingConvention = CallingConvention.Cdecl)]
         private static extern void Draw(int texture, float x, float y, float scaX, float scaY, float angle, float offsetX, float offsetY);

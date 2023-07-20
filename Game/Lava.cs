@@ -13,7 +13,7 @@ namespace Game
         public float timerLava = -5;
         private float realTimer = -5;
 
-        public int LavaMove => LavaMove;
+
         public Lava(string p_name, Transform p_transform) : base(p_name,p_transform)
         {
             lava = CreateAnimation("Lava", "assets/Animations/Lava/lava_", 8, 0.06f, true);
@@ -33,29 +33,9 @@ namespace Game
 
             return animation;
         }
-        public void GetLavaMove()
-        {
-            //return LavaMove;
-        }
         public void Update()
         {
-            timerLava += Time.deltaTime;
-            realTimer += Time.deltaTime;
-
-            if(timerLava >= 2.5f && timerLava <= 5.8f)
-            {
-                Move(new Vector2(0, -speedY));
-            }
-            
-            if (timerLava >= 6.2f && timerLava <= 9.5f)
-            {
-                Move(new Vector2(0, speedY));
-            }
-
-            if(timerLava >= 10.5f)
-            {
-                timerLava = -1;
-            }
+            LavaMovement();
             currentAnimation.Update();
         }
 
@@ -88,7 +68,25 @@ namespace Game
             p_obj.draw = true;
             return false;
         }
-    
+        public void LavaMovement()
+        {
+            timerLava += Time.deltaTime;
+
+            if (timerLava >= 2.5f && timerLava <= 5.8f)
+            {
+                Move(new Vector2(0, -speedY));
+            }
+
+            if (timerLava >= 6.2f && timerLava <= 9.5f)
+            {
+                Move(new Vector2(0, speedY));
+            }
+
+            if (timerLava >= 10.5f)
+            {
+                timerLava = -1;
+            }
+        }
 
         public void Move(Vector2 pos)
         {

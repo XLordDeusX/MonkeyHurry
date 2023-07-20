@@ -187,7 +187,7 @@ namespace Game
 
         public void ResetValues()
         {
-            transform.position = new Vector2(700, -200);
+            transform.position = new Vector2(700, -50);
         }
 
         public void InputDetection()
@@ -195,19 +195,23 @@ namespace Game
             if (diffPosX > 0 && canJump)
             {
                 currentAnimation = idleRight;
+                left = false;
             }
             else if( diffPosX > 0 && !canJump)
             {
                 currentAnimation = jumpRight;
+                left = false;
             }
 
             if (diffPosX < 0 && canJump)
             {
                 currentAnimation = idleLeft;
+                left = true;
             }
             else if(diffPosX < 0 && !canJump)
             {
                 currentAnimation = jumpLeft;
+                left = true;
             }
 
             if (Engine.GetKey(Keys.D) && canJump)
@@ -236,7 +240,7 @@ namespace Game
                 left = true;
             }
 
-            if (Engine.GetKey(Keys.K))
+            if (Engine.GetKeyDown(Keys.K))
             {
                 ShootBanana();
             }
@@ -249,7 +253,6 @@ namespace Game
 
             if (lifePoints <= 0)
             {
-                Destroy();
                 GameManager.Instance.ChangeScreen(GameManager.Instance.defeat);
             }
         }

@@ -8,13 +8,29 @@ namespace Game
 {
     public class Bird : GameObject
     {
-        private Animation bird;
+        private Animation birdLeft;
+        private Animation birdRight;
         private float speedX = 200;
+        private float speedY = 165;
+        private float regenerateTime;
+        private float timerLava = -5;
 
-        public Bird(string p_name, Transform p_transform) : base(p_name, p_transform)
+        public Bird(string p_name, Transform p_transform, int p_sense) : base(p_name, p_transform)
         {
-            bird = CreateAnimation("Bird", "assets/Animations/Bird/BirdSprite_", 8, 0.01f, true);
-            currentAnimation = bird;
+            speedX *= p_sense;
+
+            if(p_sense > 0)
+            {
+                birdLeft = CreateAnimation("Bird", "assets/Animations/Bird/BirdSprite_", 8, 0.01f, true);
+                currentAnimation = birdLeft;
+            }
+            
+            if(p_sense < 0)
+            {
+                birdRight = CreateAnimation("Bird", "assets/Animations/Bird/BirdSprite_R_", 8, 0.01f, true);
+                currentAnimation = birdRight;
+            }
+            
             RenderizablesManager.Instance.AddObjet(this);
         }
 
@@ -37,6 +53,8 @@ namespace Game
             currentAnimation.Update();
             Move(new Vector2(-speedX, 0));
             ScreenCrossing();
+            RegenerateBird();
+            BirdMovement();
         }
 
         public bool IsBoxColliding(GameObject p_obj)
@@ -51,18 +69,37 @@ namespace Game
             {
                 if (p_obj.name == "banana")
                 {
-
+                    DeadBird();
                 }
-
                 
                 return true;
             }
 
             return false;
         }
+        public void BirdMovement()
+        {
+            timerLava += Time.deltaTime;
+
+            if (timerLava >= 2.5f && timerLava <= 5)
+            {
+                Move(new Vector2(0, -speedY));
+            }
+
+            if (timerLava >= 6.2f && timerLava <= 8.7f)
+            {
+                Move(new Vector2(0, speedY));
+            }
+
+            if (timerLava >= 10.5f)
+            {
+                timerLava = -1;
+            }
+        }
         public void Move(Vector2 pos)
         {
             transform.position.x += pos.x * Time.deltaTime;
+            transform.position.y += pos.y * Time.deltaTime;
         }
         public void ScreenCrossing()
         {
@@ -75,6 +112,25 @@ namespace Game
             {
                 transform.position.x = 930;
             }
+        }
+        public void RegenerateBird()
+        {
+            if (draw == false)
+            {
+                regenerateTime += Time.deltaTime;
+
+                if (regenerateTime > 5)
+                {
+                    draw = true;
+                    transform.position.y = transform.position.y - 2000;
+                    regenerateTime = 0;
+                }
+            }
+        }
+        public void DeadBird()
+        {
+            draw = false;
+            transform.position.y = transform.position.y + 2000;
         }
     }
 }
