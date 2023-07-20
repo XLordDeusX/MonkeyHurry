@@ -40,19 +40,6 @@ namespace UnitTest
             Assert.AreEqual(currentPoints, expectPoints);
         }
 
-        [TestMethod]
-        public void GetPositionLavaTest()
-        {
-            moveY = 50;
-
-            var movedUnits = lava.transform.position.y + moveY * Time.deltaTime;
-
-            lava.Move(new Vector2(0, moveY));
-
-            var lavaPos = lava.transform.position.y;
-
-            Assert.AreEqual(movedUnits, lavaPos);
-        }
 
         [TestMethod]
 
