@@ -9,8 +9,8 @@ namespace Game
     public class Banana : GameObject
     {
         private Animation banana;
-        private int speedX = 300;
-        private int rotSpeed = 500;
+        private int speedX = 500;
+        private int rotSpeed = 1500;
         private float lifeTime = 3;
         private float timer = 0;
 
@@ -22,7 +22,7 @@ namespace Game
             currentAnimation = banana;
             RenderizablesManager.Instance.AddObjet(this);
             GameManager.Instance.GameplayScreen.bananaPool.AddNewUsedObj(this);
-            //Reset("banana", new Transform(new Vector2(300, 400), 0, new Vector2(0.3f, 0.3f)));
+            Reset(p_name, p_transform);
         }
 
         private Animation CreateAnimation(string p_animationID, string p_path, int p_texturesAmount, float p_animationSpeed, bool p_isLoop)
@@ -71,7 +71,7 @@ namespace Game
 
         public void SetDirection(bool left)
         {
-            if (left)
+            if (left == true)
             {
                 speedX *= -1;
             }

@@ -138,7 +138,7 @@ namespace Game
                 banana.SetDirection(left);
             }
 
-            //banana.Reset("banana", new Transform(new Vector2(transform.position.x, transform.position.y), -90, new Vector2(0.3f, 0.3f)));
+            banana.Reset("banana", new Transform(new Vector2(transform.position.x, transform.position.y), -90, new Vector2(0.3f, 0.3f)));
         }
 
         public void Move(Vector2 pos)
@@ -187,7 +187,7 @@ namespace Game
 
         public void ResetValues()
         {
-            transform.position = new Vector2(700, -200);
+            transform.position = new Vector2(700, -50);
         }
 
         public void InputDetection()
@@ -195,19 +195,23 @@ namespace Game
             if (diffPosX > 0 && canJump)
             {
                 currentAnimation = idleRight;
+                left = false;
             }
             else if( diffPosX > 0 && !canJump)
             {
                 currentAnimation = jumpRight;
+                left = false;
             }
 
             if (diffPosX < 0 && canJump)
             {
                 currentAnimation = idleLeft;
+                left = true;
             }
             else if(diffPosX < 0 && !canJump)
             {
                 currentAnimation = jumpLeft;
+                left = true;
             }
 
             if (Engine.GetKey(Keys.D) && canJump)

@@ -122,12 +122,9 @@ namespace Game
                 if (regenerateTime > 5)
                 {
                     draw = true;
-                    speedX = 200;
-                    speedY = 165;
                     transform.position.y = transform.position.y - 2000;
                     regenerateTime = 0;
                 }
-
             }
         }
         public void DeadBird()

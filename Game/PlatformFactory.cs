@@ -21,20 +21,18 @@ namespace Game
         {
             Banana banana = bananasPool.GetObjectsFromPool();
 
-            if (banana == null)
+            if (banana == default)
             {
                 banana = new Banana("banana", p_transform);
             }
-            //else
-            //{
-            //    banana.transform.position.x = p_transform.position.x;
-            //    banana.transform.position.y = p_transform.position.y;
-            //}
-
+            else
+            {
+                banana.transform.position.x = p_transform.position.x;
+                banana.transform.position.y = p_transform.position.y;
+            }
 
             bananasPool.AddNewUsedObj(banana);
             banana.OnDie += bananasPool.AddToPool;
-
 
             return banana;
         }

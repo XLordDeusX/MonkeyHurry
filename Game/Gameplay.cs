@@ -51,7 +51,7 @@ namespace Game
             starPoints.Add(new StarUnits("starUI", new Transform(new Vector2(starOffset + (starPoint.RealWidth / 50), 25), 0, new Vector2(0.025f, 0.025f))));
             starPoints.Add(new StarUnits("starUI", new Transform(new Vector2(starOffset + (starPoint.RealWidth / 25), 40), 30, new Vector2(0.025f, 0.025f))));
 
-            monkey = new Character("monkey", new Transform(new Vector2(700, -200), 0, new Vector2(1.5f, 1.5f)));
+            monkey = new Character("monkey", new Transform(new Vector2(700, -50), 0, new Vector2(1.5f, 1.5f)));
 
             platformsPool.AddNewUsedObj(new Platforms("platform", new Transform(new Vector2(700, 100), 0, new Vector2(1, 1))));
             platformsPool.AddNewUsedObj(new Platforms("platform", new Transform(new Vector2(600, 220), 0, new Vector2(1, 1))));
@@ -85,7 +85,7 @@ namespace Game
             {
                 banana.Update();
 
-                if (bird_1.IsBoxColliding(banana))
+                if (bird_1.IsBoxColliding(banana) || bird_2.IsBoxColliding(banana))
                 {
                     break;
                 }
@@ -129,7 +129,7 @@ namespace Game
             foreach (var platform in platformsPool.GetUsedObjs())
             {
 
-                if (monkey.IsBoxColliding(lava) || monkey.IsBoxColliding(bird_1))
+                if (monkey.IsBoxColliding(lava) || monkey.IsBoxColliding(bird_1) || monkey.IsBoxColliding(bird_2))
                 {
                     OnCollisionEnter?.Invoke(monkey, lava);
 
