@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public class Lava : GameObject
+    public class Lava : GameObject, IMovement
     {
         private Animation lava;
         private float speedY = 165;

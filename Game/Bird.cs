@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public class Bird : GameObject
+    public class Bird : GameObject, IMovement
     {
         private Animation birdLeft;
         private Animation birdRight;
