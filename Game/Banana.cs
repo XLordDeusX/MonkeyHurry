@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game
 {
-    public class Banana : GameObject
+    public class Banana : GameObject, IMovement
     {
         private Animation banana;
         private int speedX = 500;

@@ -41,6 +41,7 @@
     <Compile Include="Background.cs" />
     <Compile Include="Banana.cs" />
     <Compile Include="Bird.cs" />
+    <Compile Include="IMovement.cs" />
     <Compile Include="Star.cs" />
     <Compile Include="StarUnits.cs" />
     <Compile Include="GameManager.cs" />
