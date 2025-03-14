@@ -66,3 +66,7 @@ C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\obj\Release\Game.cspro
 C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\obj\Release\Game.csproj.CoreCompileInputs.cache
 C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\obj\Release\Game.exe
 C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\obj\Release\Game.pdb
+C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Release\Game.exe.manifest
+C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\bin\Release\Game.application
+C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\obj\Release\Game.exe.manifest
+C:\Users\Wilfredo Rukoz\Documents\GitHub\MonkeyHurry\Game\obj\Release\Game.application
